@@ -1,0 +1,17 @@
+package {{modelPackage}};
+
+import com.badlogic.gdx.utils.Json;
+
+public class {{classname}} {
+{{#vars}}
+    public {{datatype}} {{name}};
+{{/vars}}
+
+    public String toJson() {
+        return new Json().toJson(this);
+    }
+
+    public static {{classname}} fromJson(String json) {
+        return new Json().fromJson({{classname}}.class, json);
+    }
+}

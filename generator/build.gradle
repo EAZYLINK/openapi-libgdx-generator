@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.openapitools:openapi-generator-cli:6.6.0'
+    implementation 'org.openapitools:openapi-generator:6.6.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task generateClient(type: JavaExec) {
+    group = 'openapi'
+    description = 'Generates LibGDX-compatible OpenAPI client code'
+
+    main = 'org.openapitools.codegen.OpenAPIGeneratorCli'
+    classpath = sourceSets.main.runtimeClasspath
+
+    args = [
+        'generate',
+        '-g', 'libgdx', // custom generator name
+        '-i', "${rootDir}/openapiDetailed.json",
+        '-o', "${rootDir}/libgdx-sample/core/src/com/api",
+        '--additional-properties=apiPackage=com.api,modelPackage=com.api.models'
+    ]
+}
