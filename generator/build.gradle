@@ -1,29 +1,60 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.openapitools:openapi-generator-cli:6.6.0'
+    }
+}
+
 apply plugin: 'java'
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation 'org.openapitools:openapi-generator-cli:6.6.0'
-    implementation 'org.openapitools:openapi-generator:6.6.0'
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
 
-task generateClient(type: JavaExec) {
-    group = 'openapi'
-    description = 'Generates LibGDX-compatible OpenAPI client code'
+dependencies {
+    implementation('org.openapitools:openapi-generator:6.6.0') {
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
+    }
+    implementation('org.openapitools:openapi-generator-cli:6.6.0') {
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
+    }
+}
 
-    main = 'org.openapitools.codegen.OpenAPIGeneratorCli'
-    classpath = sourceSets.main.runtimeClasspath
+processResources {
+    duplicatesStrategy = 'INCLUDE'
+}
 
-    args = [
-        'generate',
-        '-g', 'libgdx', // custom generator name
-        '-i', "${rootDir}/openapiDetailed.json",
-        '-o', "${rootDir}/libgdx-sample/core/src/com/api",
-        '--additional-properties=apiPackage=com.api,modelPackage=com.api.models'
-    ]
+task generateClient {
+    dependsOn 'classes'
+    doLast {
+        javaexec {
+            main = 'org.openapitools.codegen.OpenAPIGenerator'
+            classpath = sourceSets.main.output + sourceSets.main.runtimeClasspath
+			args = [
+			        'generate',
+			        '-g', 'java',
+			        '-i', "${rootDir}/openapiDetailed.json",
+			        '-o', "${rootDir}/libgdx-sample/core/src/com/api",
+			        '--additional-properties=apiPackage=com.api,modelPackage=com.api.models'
+			    ]
+        }
+    }
 }
