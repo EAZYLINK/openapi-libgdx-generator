@@ -19,8 +19,8 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         outputFolder = "libgdx-sample/core";
 
         // Set API and model package names
-        apiPackage = "org.openapitools.api";
-        modelPackage = "org.openapitools.model";
+        apiPackage = "com.api";
+        modelPackage = "com.model";
         templateDir = "libgdx";
 
         // Java file suffix
@@ -30,7 +30,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         modelDocTemplateFiles.put("model_doc.mustache", "java");
         apiDocTemplateFiles.put("api_doc.mustache", ".md");
         // Source folder for output
-        this.sourceFolder = "src/main/java";
+        this.sourceFolder = "src";
 
         // Reserved words
         reservedWords = new HashSet<>(Arrays.asList("abstract", "assert", "boolean", "break", "byte", "case"));
