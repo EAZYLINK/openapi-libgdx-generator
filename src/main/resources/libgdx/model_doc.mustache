@@ -1,0 +1,23 @@
+# {{classname}}
+
+{{#description}}
+> {{description}}
+{{/description}}
+
+## Fields
+
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+{{#vars}}
+| `{{name}}` | `{{datatype}}` | {{#required}}✔️{{/required}}{{^required}}❌{{/required}} | {{description}} |
+{{/vars}}
+
+---
+
+### Example JSON
+
+```json
+{
+{{#vars}}  "{{name}}": "{{example}}"{{^last}},{{/last}}
+{{/vars}}
+}
