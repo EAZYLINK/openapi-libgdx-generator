@@ -1,11 +1,21 @@
 package com.example.libgdx.codegen;
 
-import org.openapitools.codegen.*;
-import org.openapitools.codegen.model.*;
-import org.openapitools.codegen.languages.AbstractJavaCodegen;
-
 import java.io.File;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+
+
+import org.openapitools.codegen.CodegenConfig;
+import org.openapitools.codegen.CodegenOperation;
+import org.openapitools.codegen.CodegenParameter;
+import org.openapitools.codegen.CodegenType;
+import org.openapitools.codegen.SupportingFile;
+import org.openapitools.codegen.languages.AbstractJavaCodegen;
+import org.openapitools.codegen.model.ModelMap;
+import org.openapitools.codegen.model.OperationMap;
+import org.openapitools.codegen.model.OperationsMap;
 
 public class LibgdxClientGenerator extends AbstractJavaCodegen implements CodegenConfig {
 
@@ -27,7 +37,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         apiTemplateFiles.put("api.mustache", ".java");
         modelTemplateFiles.put("model.mustache", ".java");
         apiTestTemplateFiles.put("api_test.mustache", ".java");
-        modelDocTemplateFiles.put("model_doc.mustache", "java");
+        modelDocTemplateFiles.put("model_doc.mustache", ".java");
         apiDocTemplateFiles.put("api_doc.mustache", ".md");
         // Source folder for output
         this.sourceFolder = "src";
