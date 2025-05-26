@@ -1,17 +1,17 @@
-package test.api.api;
+package test.api;
 
 import com.badlogic.gdx.Net.HttpResponseListener;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import api.api.AuditEntitySnapshotApi;
+import api.AuthenticationApi;
 
-public class AuditEntitySnapshotApiTest {
+public class AuthenticationApiTest {
 
-    private final AuditEntitySnapshotApi api = new AuditEntitySnapshotApi();
+    private final AuthenticationApi api = new AuthenticationApi();
 
     @Test
-    public void testentitiesAuditEntitySnapshotEntityIdDelete() {
+    public void testservicesAuthenticationAddUsernamePasswordGet() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -34,10 +34,10 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotEntityIdDelete(entityId, callback);
+        api.servicesAuthenticationAddUsernamePasswordGet(user, username, email, password, callback);
     }
     @Test
-    public void testentitiesAuditEntitySnapshotEntityIdGet() {
+    public void testservicesAuthenticationAddUsernamePasswordPost() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -60,10 +60,10 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotEntityIdGet(entityId, dynamicAttributes, returnNulls, fetchPlan, callback);
+        api.servicesAuthenticationAddUsernamePasswordPost(servicesAuthenticationAddUsernamePasswordPostRequest, callback);
     }
     @Test
-    public void testentitiesAuditEntitySnapshotEntityIdPut() {
+    public void testservicesAuthenticationLoginAnonymouslyGet() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -86,10 +86,10 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotEntityIdPut(entityId, entityAuditEntitySnapshot, callback);
+        api.servicesAuthenticationLoginAnonymouslyGet(callback);
     }
     @Test
-    public void testentitiesAuditEntitySnapshotGet() {
+    public void testservicesAuthenticationLoginAnonymouslyPost() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -112,10 +112,10 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotGet(returnCount, offset, limit, sort, dynamicAttributes, returnNulls, fetchPlan, callback);
+        api.servicesAuthenticationLoginAnonymouslyPost(body, callback);
     }
     @Test
-    public void testentitiesAuditEntitySnapshotPost() {
+    public void testservicesAuthenticationLoginWithCustomIdGet() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -138,10 +138,10 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotPost(entityAuditEntitySnapshot, callback);
+        api.servicesAuthenticationLoginWithCustomIdGet(customId, createIfNotExists, callback);
     }
     @Test
-    public void testentitiesAuditEntitySnapshotSearchGet() {
+    public void testservicesAuthenticationLoginWithCustomIdPost() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -164,10 +164,10 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotSearchGet(filter, returnCount, offset, limit, sort, dynamicAttributes, returnNulls, fetchPlan, callback);
+        api.servicesAuthenticationLoginWithCustomIdPost(servicesAuthenticationLoginWithCustomIdPostRequest, callback);
     }
     @Test
-    public void testentitiesAuditEntitySnapshotSearchPost() {
+    public void testservicesAuthenticationLoginWithEmailGet() {
         // Arrange
         HttpResponseListener callback = new HttpResponseListener() {
             @Override
@@ -190,6 +190,32 @@ public class AuditEntitySnapshotApiTest {
         };
 
         // Act
-        api.entitiesAuditEntitySnapshotSearchPost(entitiesDynatCategorySearchPostRequest, callback);
+        api.servicesAuthenticationLoginWithEmailGet(email, password, callback);
+    }
+    @Test
+    public void testservicesAuthenticationLoginWithEmailPost() {
+        // Arrange
+        HttpResponseListener callback = new HttpResponseListener() {
+            @Override
+            public void handleHttpResponse(com.badlogic.gdx.Net.HttpResponse httpResponse) {
+                int status = httpResponse.getStatus().getStatusCode();
+                System.out.println("Status code: " + status);
+                System.out.println("Response: " + httpResponse.getResultAsString());
+                assertTrue(status >= 200 && status < 300);
+            }
+
+            @Override
+            public void failed(Throwable t) {
+                fail("Request failed: " + t.getMessage());
+            }
+
+            @Override
+            public void cancelled() {
+                fail("Request was cancelled.");
+            }
+        };
+
+        // Act
+        api.servicesAuthenticationLoginWithEmailPost(servicesAuthenticationLoginWithEmailPostRequest, callback);
     }
 }

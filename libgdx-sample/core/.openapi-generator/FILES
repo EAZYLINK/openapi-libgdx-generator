@@ -27,8 +27,8 @@ src/api/models/Error.java
 src/api/models/ServicesAuthenticationAddUsernamePasswordPostRequest.java
 src/api/models/ServicesAuthenticationLoginWithCustomIdPostRequest.java
 src/api/models/ServicesAuthenticationLoginWithEmailPostRequest.java
-src/test/api/api/AuditEntitySnapshotApiTest.java
-src/test/api/api/AuthenticationApiTest.java
-src/test/api/api/BanApiTest.java
-src/test/api/api/DynatCategoryApiTest.java
-src/test/api/api/UserApiTest.java
+src/api/test/api/AuditEntitySnapshotApiTest.java
+src/api/test/api/AuthenticationApiTest.java
+src/api/test/api/BanApiTest.java
+src/api/test/api/DynatCategoryApiTest.java
+src/api/test/api/UserApiTest.java

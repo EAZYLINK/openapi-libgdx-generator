@@ -1,10 +1,10 @@
-package test.api.api;
+package test.api;
 
 import com.badlogic.gdx.Net.HttpResponseListener;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import api.api.DynatCategoryApi;
+import api.DynatCategoryApi;
 
 public class DynatCategoryApiTest {
 

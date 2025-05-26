@@ -1,4 +1,4 @@
-package api.models;
+package models;
 
 import com.badlogic.gdx.utils.Json;
 

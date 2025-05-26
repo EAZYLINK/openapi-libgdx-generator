@@ -1,4 +1,4 @@
-package api.api;
+package api;
 
 import com.badlogic.gdx.Net.HttpRequest;
 import com.badlogic.gdx.Net.HttpRequestBuilder;
