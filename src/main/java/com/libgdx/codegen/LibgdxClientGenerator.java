@@ -19,7 +19,7 @@ import org.openapitools.codegen.model.OperationsMap;
 
 public class LibgdxClientGenerator extends AbstractJavaCodegen implements CodegenConfig {
 
-    protected String sourceFolder = "src";
+    protected String sourceFolder = "src/api";
     protected String apiVersion = "1.0.0";
 
     public LibgdxClientGenerator() {
@@ -32,7 +32,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         // Set API and model package names
         apiPackage = "api";
         modelPackage = "model";
-        testPackage = "test.api.api";
+        testPackage = "test.api";
         templateDir = "libgdx";
 
         // Java file suffix

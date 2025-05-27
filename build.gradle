@@ -25,7 +25,7 @@ task generateClient {
 			        '-g', 'libgdx',
 			        '-i', "openapiDetailed.json",
 			        '-o', "libgdx-sample/core",
-			        '--additional-properties=apiPackage=api.api,modelPackage=api.models',
+			        '--additional-properties=apiPackage=api,modelPackage=models',
 			        '--skip-validate-spec'
 			    ]
 		    }
