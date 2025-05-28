@@ -1,0 +1,27 @@
+package {{invokerPackage}};
+
+import {{apiPackage}}.*;
+
+public class ApiClient {
+    private final Configuration config;
+
+    public ApiClient(String baseUrl) {
+        this.config = new Configuration(baseUrl);
+    }
+
+    public {{apiPackage}}.UserApi getUserApi() {
+        return new {{apiPackage}}.UserApiImpl(config);
+    }
+
+    public {{apiPackage}}.BanApi getBanApi() {
+        return new {{apiPackage}}.BanApiImpl(config);
+    }
+
+    public {{apiPackage}}.DynatCategoryApi getDynatCategoryApi() {
+        return new {{apiPackage}}.DynatCategoryApiImpl(config);
+    }
+
+    public {{apiPackage}}.AuditEntitySnapshotApi getAuditEntitySnapshotApi() {
+        return new {{apiPackage}}.AuditEntitySnapshotApiImpl(config);
+    }
+}

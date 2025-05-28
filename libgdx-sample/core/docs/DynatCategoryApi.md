@@ -1,14 +1,15 @@
-# DynatCategoryApi
+# API: DynatCategoryApi
 
 > 
 
 ## Available Endpoints
 
 
+---
+
 ### `DELETE /rest/entities/dynat_Category/{entityId}`
 
-**Summary**: Deletes the entity: dynat_Category
-
+**Summary**: Deletes the entity: dynat_Category  
 **Operation ID**: `entitiesDynatCategoryEntityIdDelete`
 
 
@@ -21,15 +22,15 @@
 #### Responses
 
 - **200**: Success. Entity was deleted.
-- **403**: Forbidden. The user doesn&#39;t have permissions to delete the entity
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **403**: Forbidden. The user doesn&#39;t have permissions to delete the entity — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `GET /rest/entities/dynat_Category/{entityId}`
 
-**Summary**: Gets a single entity by identifier: dynat_Category
-
+**Summary**: Gets a single entity by identifier: dynat_Category  
 **Operation ID**: `entitiesDynatCategoryEntityIdGet`
 
 **Notes**:  
@@ -46,16 +47,16 @@ Gets a single entity by identifier
 
 #### Responses
 
-- **200**: Success. The entity is returned in the response body.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. The entity is returned in the response body. — Returns `EntityDynatCategory`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `PUT /rest/entities/dynat_Category/{entityId}`
 
-**Summary**: Updates the entity: dynat_Category
-
+**Summary**: Updates the entity: dynat_Category  
 **Operation ID**: `entitiesDynatCategoryEntityIdPut`
 
 **Notes**:  
@@ -70,16 +71,16 @@ Updates the entity. Only fields that are passed in the JSON object (the request 
 
 #### Responses
 
-- **200**: Success. The updated entity is returned in the response body.
-- **403**: Forbidden. The user doesn&#39;t have permissions to update the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. The updated entity is returned in the response body. — Returns `EntityDynatCategory`
+- **403**: Forbidden. The user doesn&#39;t have permissions to update the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `GET /rest/entities/dynat_Category`
 
-**Summary**: Gets a list of entities: dynat_Category
-
+**Summary**: Gets a list of entities: dynat_Category  
 **Operation ID**: `entitiesDynatCategoryGet`
 
 **Notes**:  
@@ -99,16 +100,16 @@ Gets a list of entities
 
 #### Responses
 
-- **200**: Success. The list of entities is returned in the response body.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. The list of entities is returned in the response body. — Returns `java.util.ArrayList&lt;EntityDynatCategory&gt;`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `POST /rest/entities/dynat_Category`
 
-**Summary**: Creates new entity: dynat_Category
-
+**Summary**: Creates new entity: dynat_Category  
 **Operation ID**: `entitiesDynatCategoryPost`
 
 **Notes**:  
@@ -122,17 +123,17 @@ The method expects a JSON with entity object in the request body. The entity obj
 
 #### Responses
 
-- **201**: Entity created. The created entity is returned in the response body.
-- **400**: Bad request. For example, the entity may have a reference to the non-existing entity.
-- **403**: Forbidden. The user doesn&#39;t have permissions to create the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **201**: Entity created. The created entity is returned in the response body. — Returns `EntityDynatCategory`
+- **400**: Bad request. For example, the entity may have a reference to the non-existing entity. — Returns `Error`
+- **403**: Forbidden. The user doesn&#39;t have permissions to create the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `GET /rest/entities/dynat_Category/search`
 
-**Summary**: Find entities by filter conditions: dynat_Category
-
+**Summary**: Find entities by filter conditions: dynat_Category  
 **Operation ID**: `entitiesDynatCategorySearchGet`
 
 **Notes**:  
@@ -153,17 +154,17 @@ Finds entities by filter conditions. The filter is defined by JSON object that i
 
 #### Responses
 
-- **200**: Success. Entities that conforms filter conditions are returned in the response body.
-- **400**: Bad request. For example, the condition value cannot be parsed.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;EntityDynatCategory&gt;`
+- **400**: Bad request. For example, the condition value cannot be parsed. — Returns `Error`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `POST /rest/entities/dynat_Category/search`
 
-**Summary**: Find entities by filter conditions: dynat_Category
-
+**Summary**: Find entities by filter conditions: dynat_Category  
 **Operation ID**: `entitiesDynatCategorySearchPost`
 
 **Notes**:  
@@ -177,9 +178,8 @@ Finds entities by filter conditions. The filter is defined by JSON object that i
 
 #### Responses
 
-- **200**: Success. Entities that conforms filter conditions are returned in the response body.
-- **400**: Bad request. For example, the condition value cannot be parsed.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;EntityDynatCategory&gt;`
+- **400**: Bad request. For example, the condition value cannot be parsed. — Returns `Error`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
 
----

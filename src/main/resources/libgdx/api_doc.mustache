@@ -1,4 +1,4 @@
-# {{classname}}
+# API: {{classname}}
 
 > {{description}}
 
@@ -7,10 +7,11 @@
 {{#operations}}
 {{#operation}}
 
+---
+
 ### `{{httpMethod}} {{path}}`
 
-**Summary**: {{summary}}
-
+**Summary**: {{summary}}  
 **Operation ID**: `{{operationId}}`
 
 {{#notes}}
@@ -29,9 +30,8 @@
 #### Responses
 
 {{#responses}}
-- **{{code}}**: {{message}}
+- **{{code}}**: {{message}}{{#dataType}} — Returns `{{dataType}}`{{/dataType}}
 {{/responses}}
 
----
 {{/operation}}
 {{/operations}}

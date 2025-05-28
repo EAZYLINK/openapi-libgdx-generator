@@ -16,10 +16,12 @@ import org.openapitools.codegen.languages.AbstractJavaCodegen;
 import org.openapitools.codegen.model.ModelMap;
 import org.openapitools.codegen.model.OperationMap;
 import org.openapitools.codegen.model.OperationsMap;
+import org.openapitools.codegen.CliOption;
 
 public class LibgdxClientGenerator extends AbstractJavaCodegen implements CodegenConfig {
 
-    protected String sourceFolder = "src/api";
+    protected String sourceFolder = "src/main/java";
+    protected String packageName = "com.codegen";
     protected String apiVersion = "1.0.0";
 
     public LibgdxClientGenerator() {
@@ -30,17 +32,11 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         
 
         // Set API and model package names
-        apiPackage = "api";
-        modelPackage = "model";
-        testPackage = "test.api";
+        apiPackage = "com.codegen.api";
+        modelPackage = "com.codegen.model";
+        testPackage = "com.codegen.api";
         templateDir = "libgdx";
 
-        // Java file suffix
-        apiTemplateFiles.put("api.mustache", ".java");
-        modelTemplateFiles.put("model.mustache", ".java");
-        apiTestTemplateFiles.put("api_test.mustache", ".java");
-        modelDocTemplateFiles.put("model_doc.mustache", ".java");
-        apiDocTemplateFiles.put("api_doc.mustache", ".md");
 
         // Reserved words
         reservedWords = new HashSet<>(Arrays.asList("abstract", "assert", "boolean", "break", "byte", "case"));
@@ -51,17 +47,27 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         ));
 
         // Type mapping (OpenAPI types to Java types)
-        typeMapping.put("integer", "Integer");
-        typeMapping.put("long", "Long");
-        typeMapping.put("number", "Double");
-        typeMapping.put("float", "Float");
-        typeMapping.put("double", "Double");
+        additionalProperties.put("isGwtCompatible", true);
+        additionalProperties.put("java8", false);
+        additionalProperties.put("libgdx", true);
+
+        typeMapping.put("array", "java.util.ArrayList");
+        typeMapping.put("map", "java.util.HashMap");
+        typeMapping.put("List", "java.util.ArrayList");
         typeMapping.put("boolean", "Boolean");
         typeMapping.put("string", "String");
-        typeMapping.put("array", "List");
-        typeMapping.put("map", "Map");
-        typeMapping.put("object", "Object");
-        typeMapping.put("file", "File");
+        typeMapping.put("integer", "Integer");
+        typeMapping.put("float", "Float");
+        typeMapping.put("number", "Float");
+        typeMapping.put("DateTime", "String");
+        typeMapping.put("date", "String");
+        typeMapping.put("UUID", "String");
+
+        importMapping.put("ArrayList", "java.util.ArrayList");
+        importMapping.put("HashMap", "java.util.HashMap");
+
+        instantiationTypes.put("array", "java.util.ArrayList");
+        instantiationTypes.put("map", "java.util.HashMap");
 
         // Package info passed to templates
         additionalProperties.put("apiVersion", apiVersion);
@@ -90,18 +96,19 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
 
     @Override
     public String apiFileFolder() {
-    	return outputFolder + "/" + sourceFolder + "/" + apiPackage().replace('.', File.separatorChar);
+    	return new File(outputFolder, sourceFolder + File.separator + apiPackage().replace('.', File.separatorChar)).getPath();
     }
 
     @Override
     public String modelFileFolder() {
-        return outputFolder + "/" + sourceFolder + "/" + modelPackage().replace('.', File.separatorChar);
+    	return new File(outputFolder, sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar)).getPath();
       }
 
     @Override
     public String apiTestFileFolder() {
-        return outputFolder + "/" + sourceFolder + "/test/" + apiPackage().replace('.', File.separatorChar);
+        return new File(outputFolder, "test" + File.separator + testPackage().replace('.', File.separatorChar)).getPath();
     }
+    
 
     @Override
     public String escapeReservedWord(String name) {
@@ -117,10 +124,42 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
     public String escapeUnsafeCharacters(String input) {
         return input.replace("*/", "*_/");
     }
+    
+    @Override
+    public void processOpts() {
+        super.processOpts();
+        if (additionalProperties.containsKey("packageName")) {
+            setPackageName((String) additionalProperties.get("packageName"));
+        }
+        if (invokerPackage == null) {
+            invokerPackage = packageName + ".client";
+        }
+        apiTemplateFiles.put("api.mustache", ".java");
+        apiTemplateFiles.put("apiImpl.mustache", "Impl.java");
+        modelTemplateFiles.put("model.mustache", ".java");
+        apiTestTemplateFiles.put("api_test.mustache", ".java");
+        modelDocTemplateFiles.put("model_doc.mustache", ".md");
+        apiDocTemplateFiles.put("api_doc.mustache", ".md");
+        supportingFiles.add(new SupportingFile("configuration.mustache", 
+        	    sourceFolder + File.separator + invokerPackage.replace('.', File.separatorChar), 
+        	    "Configuration.java"));
+        supportingFiles.add(new SupportingFile("apiClient.mustache",
+        	    sourceFolder + File.separator + invokerPackage.replace('.', File.separatorChar), 
+        	    "ApiClient.java"));
+    }
 
     /**
      * Optional post-processing of operations. Add your custom logic here.
      */
+    public void setPackageName(String packageName) {
+    	if (packageName != null && !packageName.isBlank()) {
+    		this.apiPackage = packageName + ".api";
+    		this.modelPackage = packageName + ".model";
+    		this.testPackage = packageName + ".test.api";
+    		
+    	}
+    }
+    
     @Override
     public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
         OperationsMap results = super.postProcessOperationsWithModels(objs, allModels);
@@ -150,4 +189,5 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
 
         return results;
     }
+    
 }

@@ -1,14 +1,15 @@
-# UserApi
+# API: UserApi
 
 > 
 
 ## Available Endpoints
 
 
+---
+
 ### `DELETE /rest/entities/User/{entityId}`
 
-**Summary**: Deletes the entity: User
-
+**Summary**: Deletes the entity: User  
 **Operation ID**: `entitiesUserEntityIdDelete`
 
 
@@ -21,15 +22,15 @@
 #### Responses
 
 - **200**: Success. Entity was deleted.
-- **403**: Forbidden. The user doesn&#39;t have permissions to delete the entity
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **403**: Forbidden. The user doesn&#39;t have permissions to delete the entity — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `GET /rest/entities/User/{entityId}`
 
-**Summary**: Gets a single entity by identifier: User
-
+**Summary**: Gets a single entity by identifier: User  
 **Operation ID**: `entitiesUserEntityIdGet`
 
 **Notes**:  
@@ -46,16 +47,16 @@ Gets a single entity by identifier
 
 #### Responses
 
-- **200**: Success. The entity is returned in the response body.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. The entity is returned in the response body. — Returns `EntityUser`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `PUT /rest/entities/User/{entityId}`
 
-**Summary**: Updates the entity: User
-
+**Summary**: Updates the entity: User  
 **Operation ID**: `entitiesUserEntityIdPut`
 
 **Notes**:  
@@ -70,16 +71,16 @@ Updates the entity. Only fields that are passed in the JSON object (the request 
 
 #### Responses
 
-- **200**: Success. The updated entity is returned in the response body.
-- **403**: Forbidden. The user doesn&#39;t have permissions to update the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. The updated entity is returned in the response body. — Returns `EntityUser`
+- **403**: Forbidden. The user doesn&#39;t have permissions to update the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `GET /rest/entities/User`
 
-**Summary**: Gets a list of entities: User
-
+**Summary**: Gets a list of entities: User  
 **Operation ID**: `entitiesUserGet`
 
 **Notes**:  
@@ -99,16 +100,16 @@ Gets a list of entities
 
 #### Responses
 
-- **200**: Success. The list of entities is returned in the response body.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. The list of entities is returned in the response body. — Returns `java.util.ArrayList&lt;EntityUser&gt;`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `POST /rest/entities/User`
 
-**Summary**: Creates new entity: User
-
+**Summary**: Creates new entity: User  
 **Operation ID**: `entitiesUserPost`
 
 **Notes**:  
@@ -122,17 +123,17 @@ The method expects a JSON with entity object in the request body. The entity obj
 
 #### Responses
 
-- **201**: Entity created. The created entity is returned in the response body.
-- **400**: Bad request. For example, the entity may have a reference to the non-existing entity.
-- **403**: Forbidden. The user doesn&#39;t have permissions to create the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **201**: Entity created. The created entity is returned in the response body. — Returns `EntityUser`
+- **400**: Bad request. For example, the entity may have a reference to the non-existing entity. — Returns `Error`
+- **403**: Forbidden. The user doesn&#39;t have permissions to create the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `GET /rest/entities/User/search`
 
-**Summary**: Find entities by filter conditions: User
-
+**Summary**: Find entities by filter conditions: User  
 **Operation ID**: `entitiesUserSearchGet`
 
 **Notes**:  
@@ -153,17 +154,17 @@ Finds entities by filter conditions. The filter is defined by JSON object that i
 
 #### Responses
 
-- **200**: Success. Entities that conforms filter conditions are returned in the response body.
-- **400**: Bad request. For example, the condition value cannot be parsed.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;EntityUser&gt;`
+- **400**: Bad request. For example, the condition value cannot be parsed. — Returns `Error`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
+
 
 ---
 
 ### `POST /rest/entities/User/search`
 
-**Summary**: Find entities by filter conditions: User
-
+**Summary**: Find entities by filter conditions: User  
 **Operation ID**: `entitiesUserSearchPost`
 
 **Notes**:  
@@ -177,9 +178,8 @@ Finds entities by filter conditions. The filter is defined by JSON object that i
 
 #### Responses
 
-- **200**: Success. Entities that conforms filter conditions are returned in the response body.
-- **400**: Bad request. For example, the condition value cannot be parsed.
-- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity.
-- **404**: Not found. MetaClass for the entity with the given name not found.
+- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;EntityUser&gt;`
+- **400**: Bad request. For example, the condition value cannot be parsed. — Returns `Error`
+- **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
+- **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
 
----

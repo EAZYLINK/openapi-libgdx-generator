@@ -1,20 +1,31 @@
-#  Java Client (LibGDX Compatible)
+# 
 
-This is an auto-generated client library for **** using the [OpenAPI Generator](https://openapi-generator.tech), designed for use with the **LibGDX game framework**.
+> Auto-generated Java API client for libGDX.
 
-## ✨ Features
+## Overview
 
-- Asynchronous HTTP requests using `Gdx.net`
-- Lightweight serialization with `com.badlogic.gdx.utils.Json`
-- Auto-generated from OpenAPI spec v1.0.0
+This Java API client was generated automatically using the OpenAPI spec.
 
-## 📦 Installation
+- API version: 0.1
+- Package version: 0.1
+- Build package: com.libgdx.codegen.LibgdxClientGenerator
 
-Copy the generated Java classes in `src/` into your LibGDX project (e.g., under `core/src/`).
+## Requirements
 
-If you're using Gradle:
+- Java 8+
+- libGDX (for `HttpRequestBuilder`, `Json`, etc.)
 
-```groovy
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
+## Installation
+
+You can include this client in your libGDX `core` module:
+
+- Clone this repo or copy the code files into your project.
+- Or package it as a JAR and include it in your build.
+
+## Usage
+
+Initialize the client:
+
+```java
+ApiClient client = new ApiClient("https://api.example.com");
+UserApi userApi = client.getUserApi();

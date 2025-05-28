@@ -1,20 +1,49 @@
 package {{modelPackage}};
 
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonValue;
+import java.util.*;
 
-public class {{classname}} {
+public class {{classname}} implements Json.Serializable {
+    {{#vars}}
+    private {{dataType}} {{name}};
+    {{/vars}}
 
-{{#vars}}
-    public {{datatype}} {{name}};
-{{/vars}}
-
-    public {{classname}}() {}
-
-    public String toJson() {
-        return new Json().toJson(this);
+    public {{classname}}() {
     }
 
-    public static {{classname}} fromJson(String json) {
-        return new Json().fromJson({{classname}}.class, json);
+    {{#vars}}
+    public {{dataType}} get{{capitalizedName}}() {
+        return {{name}};
+    }
+
+    public void set{{capitalizedName}}({{dataType}} {{name}}) {
+        this.{{name}} = {{name}};
+    }
+    {{/vars}}
+
+    @Override
+    public void write(Json json) {
+        {{#vars}}
+        json.write("{{name}}", {{name}});
+        {{/vars}}
+    }
+
+    @Override
+    public void read(Json json, JsonValue jsonData) {
+        {{#vars}}
+        {{name}} = json.readValue("{{name}}", {{dataType}}.class, jsonData);
+        {{/vars}}
+    }
+
+    @Override
+    public String toString() {
+        Json json = new Json();
+        return json.toJson(this);
+    }
+
+    public static {{classname}} fromJson(String jsonString) {
+        Json json = new Json();
+        return json.fromJson({{classname}}.class, jsonString);
     }
 }

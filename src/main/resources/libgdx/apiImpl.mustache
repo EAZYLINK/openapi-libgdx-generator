@@ -1,0 +1,106 @@
+package {{apiPackage}};
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Net;
+import com.badlogic.gdx.net.HttpRequest;
+import com.badlogic.gdx.net.HttpResponse;
+import com.badlogic.gdx.net.HttpResponseListener;
+import com.badlogic.gdx.utils.Json;
+
+public class {{classname}}Impl implements {{classname}} {
+
+    private final String baseUrl;
+    private final Json json;
+
+    public {{classname}}Impl(String baseUrl) {
+        this.baseUrl = baseUrl;
+        this.json = new Json();
+    }
+
+    {{#operations}}
+    {{#operation}}
+    @Override
+    public void {{operationId}}(
+        {{#allParams}}
+            {{dataType}} {{paramName}}{{#isLast}}{{^isLast}}, {{/isLast}}{{/isLast}}
+        {{/allParams}},
+        Callback<{{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}Void{{/returnType}}> callback
+    ) {
+        try {
+            String url = baseUrl + "{{path}}";
+
+            // Replace path params
+            {{#allParams}}
+            {{#isPathParam}}
+            url = url.replace("{{{paramName}}}", String.valueOf({{paramName}}));
+            {{/isPathParam}}
+            {{/allParams}}
+
+            // Build query params
+            StringBuilder queryBuilder = new StringBuilder();
+            {{#allParams}}
+            {{#isQueryParam}}
+            if ({{paramName}} != null) {
+                if (queryBuilder.length() == 0) queryBuilder.append("?");
+                else queryBuilder.append("&");
+                queryBuilder.append("{{paramName}}=").append(java.net.URLEncoder.encode(String.valueOf({{paramName}}), "UTF-8"));
+            }
+            {{/isQueryParam}}
+            {{/allParams}}
+
+            url += queryBuilder.toString();
+
+            // Build HTTP request
+            HttpRequest request = new HttpRequest("{{httpMethod}}");
+            request.setUrl(url);
+
+            // Set request body if applicable
+            {{#allParams}}
+            {{#isBodyParam}}
+            String bodyJson = json.toJson({{paramName}});
+            request.setContent(bodyJson);
+            request.setHeader("Content-Type", "application/json");
+            {{/isBodyParam}}
+            {{/allParams}}
+
+            // Send async request
+            Gdx.net.sendHttpRequest(request, new HttpResponseListener() {
+                @Override
+                public void handleHttpResponse(HttpResponse httpResponse) {
+                    try {
+                        String rawResponse = httpResponse.getResultAsString();
+                        {{#returnType}}
+                        {{returnType}} result = json.fromJson({{returnType}}.class, rawResponse);
+                        callback.onSuccess(result);
+                        {{/returnType}}
+                        {{^returnType}}
+                        callback.onSuccess(null);
+                        {{/returnType}}
+                    } catch (Exception e) {
+                        callback.onFailure(e);
+                    }
+                }
+
+                @Override
+                public void failed(Throwable t) {
+                    callback.onFailure(new Exception(t));
+                }
+
+                @Override
+                public void cancelled() {
+                    callback.onFailure(new Exception("Request was cancelled"));
+                }
+            });
+
+        } catch (Exception e) {
+            callback.onFailure(e);
+        }
+    }
+    {{/operation}}
+    {{/operations}}
+
+    public interface Callback<T> {
+        void onSuccess(T result);
+        void onFailure(Exception e);
+    }
+}

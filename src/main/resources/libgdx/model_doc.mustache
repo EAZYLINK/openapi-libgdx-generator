@@ -1,23 +1,21 @@
-# {{classname}}
+# Models
 
-{{#description}}
+{{#models}}
+## {{className}}
+
 > {{description}}
-{{/description}}
 
-## Fields
-
-| Name | Type | Required | Description |
-|------|------|----------|-------------|
+| Property | Type | Format | Required | Default | Description |
+|----------|------|--------|----------|---------|-------------|
 {{#vars}}
-| `{{name}}` | `{{datatype}}` | {{#required}}✔️{{/required}}{{^required}}❌{{/required}} | {{description}} |
+| `{{name}}` | `{{dataType}}` | {{#format}}`{{format}}`{{/format}}{{^format}}-{{/format}} | {{#required}}✔️{{/required}}{{^required}}❌{{/required}} | {{#defaultValue}}`{{defaultValue}}`{{/defaultValue}}{{^defaultValue}}-{{/defaultValue}} | {{description}} |
+{{#isEnum}}
+> 🔹 Allowed values for `{{name}}`:  
+> {{#_enum}}- `{{.}}`  
+{{/_enum}}
+{{/isEnum}}
+
 {{/vars}}
 
 ---
-
-### Example JSON
-
-```json
-{
-{{#vars}}  "{{name}}": "{{example}}"{{^last}},{{/last}}
-{{/vars}}
-}
+{{/models}}
