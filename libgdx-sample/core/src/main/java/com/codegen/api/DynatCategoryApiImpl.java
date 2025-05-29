@@ -74,7 +74,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<EntityDynatCategory> callback
+        Callback<Entity_dynat_Category> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/dynat_Category/{entityId}";
@@ -114,7 +114,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityDynatCategory result = json.fromJson(EntityDynatCategory.class, rawResponse);
+                        Entity_dynat_Category result = json.fromJson(Entity_dynat_Category.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -139,9 +139,9 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
     @Override
     public void entitiesDynatCategoryEntityIdPut(
             String entityId
-                    EntityDynatCategory entityDynatCategory
+                    Entity_dynat_Category entityDynatCategory
         ,
-        Callback<EntityDynatCategory> callback
+        Callback<Entity_dynat_Category> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/dynat_Category/{entityId}";
@@ -169,7 +169,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityDynatCategory result = json.fromJson(EntityDynatCategory.class, rawResponse);
+                        Entity_dynat_Category result = json.fromJson(Entity_dynat_Category.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -201,7 +201,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityDynatCategory&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_dynat_Category&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/dynat_Category";
@@ -260,7 +260,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityDynatCategory&gt; result = json.fromJson(java.util.ArrayList&lt;EntityDynatCategory&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_dynat_Category&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_dynat_Category&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -284,9 +284,9 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
     }
     @Override
     public void entitiesDynatCategoryPost(
-            EntityDynatCategory entityDynatCategory
+            Entity_dynat_Category entityDynatCategory
         ,
-        Callback<EntityDynatCategory> callback
+        Callback<Entity_dynat_Category> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/dynat_Category";
@@ -313,7 +313,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityDynatCategory result = json.fromJson(EntityDynatCategory.class, rawResponse);
+                        Entity_dynat_Category result = json.fromJson(Entity_dynat_Category.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -346,7 +346,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityDynatCategory&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_dynat_Category&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/dynat_Category/search";
@@ -410,7 +410,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityDynatCategory&gt; result = json.fromJson(java.util.ArrayList&lt;EntityDynatCategory&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_dynat_Category&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_dynat_Category&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -434,9 +434,9 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
     }
     @Override
     public void entitiesDynatCategorySearchPost(
-            EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest
+            _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest
         ,
-        Callback<java.util.ArrayList&lt;EntityDynatCategory&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_dynat_Category&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/dynat_Category/search";
@@ -463,7 +463,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityDynatCategory&gt; result = json.fromJson(java.util.ArrayList&lt;EntityDynatCategory&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_dynat_Category&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_dynat_Category&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);

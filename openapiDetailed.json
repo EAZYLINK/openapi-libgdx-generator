@@ -2531,12 +2531,6 @@
             "type" : "string",
             "example" : "String"
           },
-          "categoryAttrs" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/entity_dynat_CategoryAttribute"
-            }
-          },
           "version" : {
             "type" : "integer",
             "format" : "int32",
@@ -2785,9 +2779,6 @@
             "type" : "string",
             "format" : "uuid",
             "example" : "19474a3b-99b5-482e-9e77-852be9adf817"
-          },
-          "entity" : {
-            "$ref" : "#/components/schemas/entity_audit_ReferenceToEntity"
           }
         }
       }

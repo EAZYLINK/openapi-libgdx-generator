@@ -92,7 +92,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
     }
     @Override
     public void servicesAuthenticationAddUsernamePasswordPost(
-            ServicesAuthenticationAddUsernamePasswordPostRequest servicesAuthenticationAddUsernamePasswordPostRequest
+            _services_authentication_addUsernamePassword_post_request servicesAuthenticationAddUsernamePasswordPostRequest
         ,
         Callback<String> callback
     ) {
@@ -146,7 +146,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
     @Override
     public void servicesAuthenticationLoginAnonymouslyGet(
 ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/services/authentication/loginAnonymously";
@@ -170,7 +170,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -196,7 +196,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
     public void servicesAuthenticationLoginAnonymouslyPost(
             Object body
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/services/authentication/loginAnonymously";
@@ -223,7 +223,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -250,7 +250,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
             String customId
                     String createIfNotExists
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/services/authentication/loginWithCustomId";
@@ -284,7 +284,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -308,9 +308,9 @@ public class AuthenticationApiImpl implements AuthenticationApi {
     }
     @Override
     public void servicesAuthenticationLoginWithCustomIdPost(
-            ServicesAuthenticationLoginWithCustomIdPostRequest servicesAuthenticationLoginWithCustomIdPostRequest
+            _services_authentication_loginWithCustomId_post_request servicesAuthenticationLoginWithCustomIdPostRequest
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/services/authentication/loginWithCustomId";
@@ -337,7 +337,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -364,7 +364,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
             String email
                     String password
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/services/authentication/loginWithEmail";
@@ -398,7 +398,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -422,9 +422,9 @@ public class AuthenticationApiImpl implements AuthenticationApi {
     }
     @Override
     public void servicesAuthenticationLoginWithEmailPost(
-            ServicesAuthenticationLoginWithEmailPostRequest servicesAuthenticationLoginWithEmailPostRequest
+            _services_authentication_loginWithEmail_post_request servicesAuthenticationLoginWithEmailPostRequest
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/services/authentication/loginWithEmail";
@@ -451,7 +451,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);

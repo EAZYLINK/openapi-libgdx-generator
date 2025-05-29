@@ -1,12 +1,13 @@
-package com.codegen.model;
+package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
-public class ServicesAuthenticationLoginWithCustomIdPostRequest implements Json.Serializable {
+public class Entity_User implements Json.Serializable {
+	VARS:
 
-    public ServicesAuthenticationLoginWithCustomIdPostRequest() {
+    public Entity_User() {
     }
 
 
@@ -24,8 +25,8 @@ public class ServicesAuthenticationLoginWithCustomIdPostRequest implements Json.
         return json.toJson(this);
     }
 
-    public static ServicesAuthenticationLoginWithCustomIdPostRequest fromJson(String jsonString) {
+    public static Entity_User fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(ServicesAuthenticationLoginWithCustomIdPostRequest.class, jsonString);
+        return json.fromJson(Entity_User.class, jsonString);
     }
 }

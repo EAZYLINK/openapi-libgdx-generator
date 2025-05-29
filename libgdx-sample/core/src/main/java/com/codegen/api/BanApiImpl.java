@@ -74,7 +74,7 @@ public class BanApiImpl implements BanApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<EntityBan> callback
+        Callback<Entity_Ban> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/Ban/{entityId}";
@@ -114,7 +114,7 @@ public class BanApiImpl implements BanApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityBan result = json.fromJson(EntityBan.class, rawResponse);
+                        Entity_Ban result = json.fromJson(Entity_Ban.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -139,9 +139,9 @@ public class BanApiImpl implements BanApi {
     @Override
     public void entitiesBanEntityIdPut(
             String entityId
-                    EntityBan entityBan
+                    Entity_Ban entityBan
         ,
-        Callback<EntityBan> callback
+        Callback<Entity_Ban> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/Ban/{entityId}";
@@ -169,7 +169,7 @@ public class BanApiImpl implements BanApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityBan result = json.fromJson(EntityBan.class, rawResponse);
+                        Entity_Ban result = json.fromJson(Entity_Ban.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -201,7 +201,7 @@ public class BanApiImpl implements BanApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityBan&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_Ban&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/Ban";
@@ -260,7 +260,7 @@ public class BanApiImpl implements BanApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityBan&gt; result = json.fromJson(java.util.ArrayList&lt;EntityBan&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_Ban&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_Ban&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -284,9 +284,9 @@ public class BanApiImpl implements BanApi {
     }
     @Override
     public void entitiesBanPost(
-            EntityBan entityBan
+            Entity_Ban entityBan
         ,
-        Callback<EntityBan> callback
+        Callback<Entity_Ban> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/Ban";
@@ -313,7 +313,7 @@ public class BanApiImpl implements BanApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityBan result = json.fromJson(EntityBan.class, rawResponse);
+                        Entity_Ban result = json.fromJson(Entity_Ban.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -346,7 +346,7 @@ public class BanApiImpl implements BanApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityBan&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_Ban&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/Ban/search";
@@ -410,7 +410,7 @@ public class BanApiImpl implements BanApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityBan&gt; result = json.fromJson(java.util.ArrayList&lt;EntityBan&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_Ban&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_Ban&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -434,9 +434,9 @@ public class BanApiImpl implements BanApi {
     }
     @Override
     public void entitiesBanSearchPost(
-            EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest
+            _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest
         ,
-        Callback<java.util.ArrayList&lt;EntityBan&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_Ban&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/Ban/search";
@@ -463,7 +463,7 @@ public class BanApiImpl implements BanApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityBan&gt; result = json.fromJson(java.util.ArrayList&lt;EntityBan&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_Ban&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_Ban&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);

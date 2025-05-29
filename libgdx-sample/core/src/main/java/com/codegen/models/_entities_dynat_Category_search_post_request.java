@@ -1,12 +1,13 @@
-package com.codegen.model;
+package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
-public class ServicesAuthenticationLoginWithEmailPostRequest implements Json.Serializable {
+public class _entities_dynat_Category_search_post_request implements Json.Serializable {
+	VARS:
 
-    public ServicesAuthenticationLoginWithEmailPostRequest() {
+    public _entities_dynat_Category_search_post_request() {
     }
 
 
@@ -24,8 +25,8 @@ public class ServicesAuthenticationLoginWithEmailPostRequest implements Json.Ser
         return json.toJson(this);
     }
 
-    public static ServicesAuthenticationLoginWithEmailPostRequest fromJson(String jsonString) {
+    public static _entities_dynat_Category_search_post_request fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(ServicesAuthenticationLoginWithEmailPostRequest.class, jsonString);
+        return json.fromJson(_entities_dynat_Category_search_post_request.class, jsonString);
     }
 }

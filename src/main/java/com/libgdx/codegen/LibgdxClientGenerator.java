@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import io.swagger.v3.oas.models.media.Schema;
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.CodegenOperation;
 import org.openapitools.codegen.CodegenParameter;
@@ -17,6 +18,7 @@ import org.openapitools.codegen.model.ModelMap;
 import org.openapitools.codegen.model.OperationMap;
 import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.CliOption;
+import org.openapitools.codegen.utils.ModelUtils;
 
 public class LibgdxClientGenerator extends AbstractJavaCodegen implements CodegenConfig {
 
@@ -35,6 +37,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         apiPackage = "com.codegen.api";
         modelPackage = "com.codegen.model";
         testPackage = "com.codegen.api";
+        invokerPackage = "com.codegen.client";
         templateDir = "libgdx";
 
 
@@ -50,7 +53,6 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         additionalProperties.put("isGwtCompatible", true);
         additionalProperties.put("java8", false);
         additionalProperties.put("libgdx", true);
-
         typeMapping.put("array", "java.util.ArrayList");
         typeMapping.put("map", "java.util.HashMap");
         typeMapping.put("List", "java.util.ArrayList");
@@ -62,10 +64,8 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         typeMapping.put("DateTime", "String");
         typeMapping.put("date", "String");
         typeMapping.put("UUID", "String");
-
         importMapping.put("ArrayList", "java.util.ArrayList");
         importMapping.put("HashMap", "java.util.HashMap");
-
         instantiationTypes.put("array", "java.util.ArrayList");
         instantiationTypes.put("map", "java.util.HashMap");
 
@@ -74,6 +74,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         additionalProperties.put("apiPackage", apiPackage);
         additionalProperties.put("modelPackage", modelPackage);
         additionalProperties.put("testPackage", testPackage);
+        additionalProperties.put("invokerPackage", invokerPackage);
 
         // Supporting files (optional)
         supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
@@ -88,11 +89,29 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
     public String getName() {
         return "libgdx";
     }
-
+    
     @Override
     public String getHelp() {
-        return "Generates a LibGDX-compatible Java client using Gdx.net and Json utilities.";
+    	return "Generates a LibGDX-compatible Java client using Gdx.net and Json utilities.";
     }
+    
+    @Override
+    public String toApiName(String name) {
+        return initialCaps(name) + "Api";
+    }
+
+    @Override
+    public String toModelName(String name) {
+        return initialCaps(name);
+    }
+
+    private String initialCaps(String name) {
+        if (name == null || name.isEmpty()) {
+            return name;
+        }
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
+    }
+
 
     @Override
     public String apiFileFolder() {
@@ -128,13 +147,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
     @Override
     public void processOpts() {
         super.processOpts();
-        if (additionalProperties.containsKey("packageName")) {
-            setPackageName((String) additionalProperties.get("packageName"));
-        }
-        if (invokerPackage == null) {
-            invokerPackage = packageName + ".client";
-        }
-        apiTemplateFiles.put("api.mustache", ".java");
+         apiTemplateFiles.put("api.mustache", ".java");
         apiTemplateFiles.put("apiImpl.mustache", "Impl.java");
         modelTemplateFiles.put("model.mustache", ".java");
         apiTestTemplateFiles.put("api_test.mustache", ".java");
@@ -155,9 +168,22 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
     	if (packageName != null && !packageName.isBlank()) {
     		this.apiPackage = packageName + ".api";
     		this.modelPackage = packageName + ".model";
-    		this.testPackage = packageName + ".test.api";
+    		this.testPackage = packageName + ".api";
+    		this.invokerPackage = packageName + ".client";
     		
     	}
+    }
+    
+    @Override
+    public String getTypeDeclaration(Schema p) {
+        if (ModelUtils.isArraySchema(p)) {
+            Schema<?> items = p.getItems();
+            return "java.util.ArrayList<" + getTypeDeclaration(items) + ">";
+        } else if (ModelUtils.isMapSchema(p)) {
+            Schema<?> inner = (Schema<?>) p.getAdditionalProperties();
+            return "java.util.HashMap<String, " + getTypeDeclaration(inner) + ">";
+        }
+        return super.getTypeDeclaration(p);
     }
     
     @Override
@@ -186,7 +212,6 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
                 }
             }
         }
-
         return results;
     }
     

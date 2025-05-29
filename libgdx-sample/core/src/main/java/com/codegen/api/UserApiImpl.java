@@ -74,7 +74,7 @@ public class UserApiImpl implements UserApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/User/{entityId}";
@@ -114,7 +114,7 @@ public class UserApiImpl implements UserApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -139,9 +139,9 @@ public class UserApiImpl implements UserApi {
     @Override
     public void entitiesUserEntityIdPut(
             String entityId
-                    EntityUser entityUser
+                    Entity_User entityUser
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/User/{entityId}";
@@ -169,7 +169,7 @@ public class UserApiImpl implements UserApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -201,7 +201,7 @@ public class UserApiImpl implements UserApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityUser&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_User&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/User";
@@ -260,7 +260,7 @@ public class UserApiImpl implements UserApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityUser&gt; result = json.fromJson(java.util.ArrayList&lt;EntityUser&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_User&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_User&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -284,9 +284,9 @@ public class UserApiImpl implements UserApi {
     }
     @Override
     public void entitiesUserPost(
-            EntityUser entityUser
+            Entity_User entityUser
         ,
-        Callback<EntityUser> callback
+        Callback<Entity_User> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/User";
@@ -313,7 +313,7 @@ public class UserApiImpl implements UserApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityUser result = json.fromJson(EntityUser.class, rawResponse);
+                        Entity_User result = json.fromJson(Entity_User.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -346,7 +346,7 @@ public class UserApiImpl implements UserApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityUser&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_User&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/User/search";
@@ -410,7 +410,7 @@ public class UserApiImpl implements UserApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityUser&gt; result = json.fromJson(java.util.ArrayList&lt;EntityUser&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_User&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_User&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -434,9 +434,9 @@ public class UserApiImpl implements UserApi {
     }
     @Override
     public void entitiesUserSearchPost(
-            EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest
+            _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest
         ,
-        Callback<java.util.ArrayList&lt;EntityUser&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_User&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/User/search";
@@ -463,7 +463,7 @@ public class UserApiImpl implements UserApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityUser&gt; result = json.fromJson(java.util.ArrayList&lt;EntityUser&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_User&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_User&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);

@@ -74,7 +74,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<EntityAuditEntitySnapshot> callback
+        Callback<Entity_audit_EntitySnapshot> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/audit_EntitySnapshot/{entityId}";
@@ -114,7 +114,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityAuditEntitySnapshot result = json.fromJson(EntityAuditEntitySnapshot.class, rawResponse);
+                        Entity_audit_EntitySnapshot result = json.fromJson(Entity_audit_EntitySnapshot.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -139,9 +139,9 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
     @Override
     public void entitiesAuditEntitySnapshotEntityIdPut(
             String entityId
-                    EntityAuditEntitySnapshot entityAuditEntitySnapshot
+                    Entity_audit_EntitySnapshot entityAuditEntitySnapshot
         ,
-        Callback<EntityAuditEntitySnapshot> callback
+        Callback<Entity_audit_EntitySnapshot> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/audit_EntitySnapshot/{entityId}";
@@ -169,7 +169,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityAuditEntitySnapshot result = json.fromJson(EntityAuditEntitySnapshot.class, rawResponse);
+                        Entity_audit_EntitySnapshot result = json.fromJson(Entity_audit_EntitySnapshot.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -201,7 +201,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/audit_EntitySnapshot";
@@ -260,7 +260,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt; result = json.fromJson(java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -284,9 +284,9 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
     }
     @Override
     public void entitiesAuditEntitySnapshotPost(
-            EntityAuditEntitySnapshot entityAuditEntitySnapshot
+            Entity_audit_EntitySnapshot entityAuditEntitySnapshot
         ,
-        Callback<EntityAuditEntitySnapshot> callback
+        Callback<Entity_audit_EntitySnapshot> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/audit_EntitySnapshot";
@@ -313,7 +313,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        EntityAuditEntitySnapshot result = json.fromJson(EntityAuditEntitySnapshot.class, rawResponse);
+                        Entity_audit_EntitySnapshot result = json.fromJson(Entity_audit_EntitySnapshot.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -346,7 +346,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                     Boolean returnNulls
                     String fetchPlan
         ,
-        Callback<java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/audit_EntitySnapshot/search";
@@ -410,7 +410,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt; result = json.fromJson(java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
@@ -434,9 +434,9 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
     }
     @Override
     public void entitiesAuditEntitySnapshotSearchPost(
-            EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest
+            _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest
         ,
-        Callback<java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;> callback
+        Callback<java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;> callback
     ) {
         try {
             String url = baseUrl + "/rest/entities/audit_EntitySnapshot/search";
@@ -463,7 +463,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 public void handleHttpResponse(HttpResponse httpResponse) {
                     try {
                         String rawResponse = httpResponse.getResultAsString();
-                        java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt; result = json.fromJson(java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;.class, rawResponse);
+                        java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt; result = json.fromJson(java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;.class, rawResponse);
                         callback.onSuccess(result);
                     } catch (Exception e) {
                         callback.onFailure(e);
