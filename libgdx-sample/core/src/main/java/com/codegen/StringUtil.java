@@ -16,7 +16,7 @@ package com.codegen;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T10:31:41.453768600+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T21:43:55.503160100+01:00[Africa/Lagos]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

@@ -50,7 +50,7 @@ import com.codegen.JSON;
 /**
  * ServicesAuthenticationLoginWithCustomIdPostRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T10:31:41.453768600+01:00[Africa/Lagos]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T21:43:55.503160100+01:00[Africa/Lagos]")
 public class ServicesAuthenticationLoginWithCustomIdPostRequest {
   public static final String SERIALIZED_NAME_CUSTOM_ID = "customId";
   @SerializedName(SERIALIZED_NAME_CUSTOM_ID)

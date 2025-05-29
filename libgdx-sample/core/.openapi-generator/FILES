@@ -60,3 +60,17 @@ src/main/java/com/codegen/models/Error.java
 src/main/java/com/codegen/models/ServicesAuthenticationAddUsernamePasswordPostRequest.java
 src/main/java/com/codegen/models/ServicesAuthenticationLoginWithCustomIdPostRequest.java
 src/main/java/com/codegen/models/ServicesAuthenticationLoginWithEmailPostRequest.java
+src/test/java/com/codegen/api/AuditEntitySnapshotApiTest.java
+src/test/java/com/codegen/api/AuthenticationApiTest.java
+src/test/java/com/codegen/api/BanApiTest.java
+src/test/java/com/codegen/api/DynatCategoryApiTest.java
+src/test/java/com/codegen/api/UserApiTest.java
+src/test/java/com/codegen/models/EntitiesDynatCategorySearchPostRequestTest.java
+src/test/java/com/codegen/models/EntityAuditEntitySnapshotTest.java
+src/test/java/com/codegen/models/EntityBanTest.java
+src/test/java/com/codegen/models/EntityDynatCategoryTest.java
+src/test/java/com/codegen/models/EntityUserTest.java
+src/test/java/com/codegen/models/ErrorTest.java
+src/test/java/com/codegen/models/ServicesAuthenticationAddUsernamePasswordPostRequestTest.java
+src/test/java/com/codegen/models/ServicesAuthenticationLoginWithCustomIdPostRequestTest.java
+src/test/java/com/codegen/models/ServicesAuthenticationLoginWithEmailPostRequestTest.java
