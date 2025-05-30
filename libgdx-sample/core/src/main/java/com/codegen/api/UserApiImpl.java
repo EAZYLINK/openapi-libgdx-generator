@@ -1,5 +1,6 @@
 package com.codegen.api;
 
+import java.util.ArrayList;
 import com.badlogic.gdx.Net;
 import com.badlogic.gdx.net.HttpRequestBuilder;
 import com.badlogic.gdx.utils.Json;
@@ -136,7 +137,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList&lt;Entity_User&gt; result = json.fromJson(java.util.ArrayList<Entity_User>.class, responseData);
+                    java.util.ArrayList<Entity_User> result = json.fromJson(java.util.ArrayList.class, Entity_User.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -206,7 +207,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList&lt;Entity_User&gt; result = json.fromJson(java.util.ArrayList<Entity_User>.class, responseData);
+                    java.util.ArrayList<Entity_User> result = json.fromJson(java.util.ArrayList.class, Entity_User.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -241,7 +242,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList&lt;Entity_User&gt; result = json.fromJson(java.util.ArrayList<Entity_User>.class, responseData);
+                    java.util.ArrayList<Entity_User> result = json.fromJson(java.util.ArrayList.class, Entity_User.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));

@@ -1,5 +1,6 @@
 package {{apiPackage}};
 
+import java.util.ArrayList;
 import com.badlogic.gdx.Net;
 import com.badlogic.gdx.net.HttpRequestBuilder;
 import com.badlogic.gdx.utils.Json;
@@ -50,7 +51,12 @@ public class {{classname}}Impl implements {{classname}} {
 
                 if (status == {{responses.0.code}}) {
                     {{#returnType}}
-                    {{returnType}} result = json.fromJson({{{returnType}}}.class, responseData);
+                    {{#isArray}}
+                    {{{returnType}}} result = json.fromJson({{{collectionType}}}.class, {{elementType}}.class, responseData);
+                    {{/isArray}}
+                    {{^isArray}}
+                    {{{returnType}}} result = json.fromJson({{{returnType}}}.class, responseData);
+                    {{/isArray}}
                     callback.onSuccess(result);
                     {{/returnType}}
                     {{^returnType}}

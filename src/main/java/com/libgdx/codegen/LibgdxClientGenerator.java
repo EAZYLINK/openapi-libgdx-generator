@@ -193,23 +193,29 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         List<CodegenOperation> opList = ops.getOperation();
 
         for (CodegenOperation op : opList) {
-            // Example modification: lowercase HTTP method
+            // Existing logic
             op.httpMethod = op.httpMethod.toUpperCase(Locale.ROOT);
-
-            // Normalize path (e.g., add /rest prefix)
             if (!op.path.startsWith("/rest")) {
                 op.path = "/rest" + op.path;
             }
-
-            // Handle query params for safe rendering
             if (op.queryParams != null) {
                 for (CodegenParameter param : op.queryParams) {
                     if (param.isEnum) {
-                        // Ensure enums are treated as strings
                         param.datatypeWithEnum = "String";
                         param.dataType = "String";
                     }
                 }
+            }
+
+            // Array return type handling
+            String returnType = op.returnType;
+            System.out.println("Operation: " + op.operationId + ", ReturnType: " + returnType); // Debug
+            if (returnType != null && returnType.startsWith("java.util.ArrayList<")) {
+                additionalProperties.put("collectionType", "java.util.ArrayList");
+                String elementType = returnType.substring(20, returnType.length() - 1); // Start after '<'
+                additionalProperties.put("elementType", elementType);
+            } else {
+                op.vendorExtensions.put("isArray", false);
             }
         }
         return results;
