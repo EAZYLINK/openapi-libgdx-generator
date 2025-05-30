@@ -4,9 +4,9 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
-public class Error implements Json.Serializable {
+public class Entity_audit_EntitySnapshot implements Json.Serializable {
 
-    public Error() {
+    public Entity_audit_EntitySnapshot() {
     }
 
 
@@ -24,8 +24,8 @@ public class Error implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static Error fromJson(String jsonString) {
+    public static Entity_audit_EntitySnapshot fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(Error.class, jsonString);
+        return json.fromJson(Entity_audit_EntitySnapshot.class, jsonString);
     }
 }

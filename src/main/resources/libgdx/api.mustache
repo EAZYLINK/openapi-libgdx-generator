@@ -1,17 +1,14 @@
 package {{apiPackage}};
 
+import com.badlogic.gdx.net.HttpRequestBuilder;
+import com.badlogic.gdx.utils.Json;
 import {{modelPackage}}.*;
 import java.util.*;
 
 public interface {{classname}} {
     {{#operations}}
     {{#operation}}
-    void {{operationId}}(
-        {{#allParams}}
-            {{dataType}} {{paramName}}{{#isLast}}, {{/isLast}}
-        {{/allParams}},
-        Callback<{{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}Void{{/returnType}}> callback
-    );
+    void {{operationId}}( {{#allParams}}{{#isQueryParam}}{{dataType}} {{paramName}}, {{/isQueryParam}}{{#isPathParam}}{{dataType}} {{paramName}}, {{/isPathParam}}{{#isBodyParam}}{{dataType}} {{paramName}}, {{/isBodyParam}}{{/allParams}}Callback<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}> callback);
     {{/operation}}
     {{/operations}}
 

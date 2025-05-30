@@ -22,7 +22,7 @@ task generateClient {
 			
 			    args = [
 			        'generate',
-			        '-g', 'java',
+			        '-g', 'libgdx',
 			        '-i', "openapiDetailed.json",
 			        '-o', "libgdx-sample/core",
 			        '--additional-properties=packageName=com.codegen,apiPackage=com.codegen.api,modelPackage=com.codegen.models',

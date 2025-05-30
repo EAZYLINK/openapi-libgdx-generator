@@ -1,160 +1,77 @@
 package {{apiPackage}};
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net;
-import com.badlogic.gdx.net.HttpRequest;
-import com.badlogic.gdx.net.HttpResponse;
-import com.badlogic.gdx.net.HttpResponseListener;
+import com.badlogic.gdx.net.HttpRequestBuilder;
 import com.badlogic.gdx.utils.Json;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Map;
+import {{modelPackage}}.*;
+import java.util.*;
 
 public class {{classname}}Impl implements {{classname}} {
-
     private final String baseUrl;
     private final Json json;
-    private final String encoding;
 
     public {{classname}}Impl(String baseUrl) {
         this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
         this.json = new Json();
-        this.encoding = "UTF-8";
     }
 
     {{#operations}}
     {{#operation}}
     @Override
-   	public void {{operationId}}{{httpMethod}}(
-    {{#allParams}}
-    {{dataType}} {{paramName}}{{#hasMore}}, {{/hasMore}}
-    {{/allParams}}
-    {{#hasBodyParam}}{{#allParams}}, {{/allParams}}{{bodyDataType}} body{{/hasBodyParam}}
-    {{#hasParamsOrBody}}, {{/hasParamsOrBody}}
-    Callback<{{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}Void{{/returnType}}> callback
-		)
-		 {
-        try {
-            // Validate required parameters
-            {{#allParams}}
-            {{#required}}
-            if ({{paramName}} == null) {
-                callback.onFailure(new IllegalArgumentException("Parameter {{paramName}} is required"));
-                return;
-            }
-            {{/required}}
-            {{/allParams}}
-
-            // Normalize path and build URL
-            String path = "{{path}}".startsWith("/") ? "{{path}}".substring(1) : "{{path}}";
-            String url = baseUrl + path;
-
-            // Replace path params
-            {{#allParams}}
-            {{#isPathParam}}
-            url = url.replace("{{{paramName}}}", URLEncoder.encode(String.valueOf({{paramName}}), encoding));
-            {{/isPathParam}}
-            {{/allParams}}
-
-            // Build query params
-            StringBuilder queryBuilder = new StringBuilder();
-            {{#allParams}}
-            {{#isQueryParam}}
-            if ({{paramName}} != null) {
-                try {
-                    if (queryBuilder.length() == 0) queryBuilder.append("?");
-                    else queryBuilder.append("&");
-                    String paramValue = {{paramName}} instanceof String ? {{paramName}} : json.toJson({{paramName}});
-                    queryBuilder.append("{{paramName}}=").append(URLEncoder.encode(paramValue, encoding));
-                } catch (UnsupportedEncodingException e) {
-                    callback.onFailure(e);
-                    return;
-                }
-            }
-            {{/isQueryParam}}
-            {{/allParams}}
-
-            url += queryBuilder.toString();
-
-            // Build HTTP request
-            HttpRequest request = new HttpRequest("{{httpMethod}}".toUpperCase());
-            request.setUrl(url);
-            request.setTimeOut(10000);
-
-            // Set custom headers
-            {{#headers}}
-            request.setHeader("{{headerName}}", "{{headerValue}}");
-            {{/headers}}
-
-            // Set request body if applicable
-            {{#hasBodyParam}}
-            String bodyJson = json.toJson(body);
-            request.setContent(bodyJson);
-            request.setHeader("Content-Type", "application/json");
-            {{/hasBodyParam}}
-
-            // Send async request
-            Gdx.net.sendHttpRequest(request, new HttpResponseListener() {
-                @Override
-                public void handleHttpResponse(HttpResponse httpResponse) {
-                    try {
-                        int statusCode = httpResponse.getStatus().getStatusCode();
-                        if (statusCode == 204) {
-                            callback.onSuccess(null, httpResponse.getHeaders());
-                            return;
-                        }
-                        if (statusCode < 200 || statusCode >= 300) {
-                            if (statusCode == 400 || statusCode == 403 || statusCode == 404) {
-                                ErrorResponse error = json.fromJson(ErrorResponse.class, httpResponse.getResultAsString());
-                                callback.onFailure(new Exception(error.getError() + ": " + error.getDetails()));
-                            } else {
-                                callback.onFailure(new Exception("HTTP " + statusCode + ": " + httpResponse.getResultAsString()));
-                            }
-                            return;
-                        }
-                        String contentType = httpResponse.getHeader("Content-Type");
-                        if (contentType != null && !contentType.contains("application/json")) {
-                            callback.onFailure(new Exception("Unsupported Content-Type: " + contentType));
-                            return;
-                        }
-                        String rawResponse = httpResponse.getResultAsString();
-                        {{#returnType}}
-                        {{#isArray}}
-                        java.util.List<{{returnItemType}}> result = json.fromJson(java.util.List.class, {{returnItemType}}.class, rawResponse);
-                        {{/isArray}}
-                        {{^isArray}}
-                        {{returnType}} result = json.fromJson({{returnType}}.class, rawResponse);
-                        {{/isArray}}
-                        callback.onSuccess(result, httpResponse.getHeaders());
-                        {{/returnType}}
-                        {{^returnType}}
-                        callback.onSuccess(null, httpResponse.getHeaders());
-                        {{/returnType}}
-                    } catch (Exception e) {
-                        callback.onFailure(e);
-                    }
-                }
-
-                @Override
-                public void failed(Throwable t) {
-                    callback.onFailure(t);
-                }
-
-                @Override
-                public void cancelled() {
-                    callback.onFailure(new Exception("Request was cancelled"));
-                }
-            });
-
-        } catch (Exception e) {
-            callback.onFailure(e);
+    public void {{operationId}}( {{#allParams}}{{#isQueryParam}}{{dataType}} {{paramName}}, {{/isQueryParam}}{{#isPathParam}}{{dataType}} {{paramName}}, {{/isPathParam}}{{#isBodyParam}}{{dataType}} {{paramName}}, {{/isBodyParam}}{{/allParams}}Callback<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}> callback) {
+        String url = baseUrl + "{{path}}";
+        {{#isPathParam}}
+        url = url.replace("{ {{paramName}} }", {{paramName}}.toString());
+        {{/isPathParam}}
+        {{#isQueryParam}}
+        StringBuilder query = new StringBuilder();
+        if ({{paramName}} != null) {
+            query.append(query.length() == 0 ? "?" : "&")
+                 .append("{{paramName}}=").append({{paramName}}.toString());
         }
+        url += query.toString();
+        {{/isQueryParam}}
+
+        HttpRequestBuilder builder = new HttpRequestBuilder();
+        Net.HttpRequest request = builder.newRequest()
+                .method("{{httpMethod}}")
+                .url(url)
+                {{#isBodyParam}}
+                .content(json.toJson({{paramName}}))
+                .header("Content-Type", "application/json")
+                {{/isBodyParam}}
+                .build();
+
+        Gdx.net.sendHttpRequest(request, new Net.HttpResponseListener() {
+            @Override
+            public void handleHttpResponse(Net.HttpResponse httpResponse) {
+                int status = httpResponse.getStatus().getStatusCode();
+                String responseData = httpResponse.getResultAsString();
+
+                if (status == {{responses.0.code}}) {
+                    {{#returnType}}
+                    {{returnType}} result = json.fromJson({{{returnType}}}.class, responseData);
+                    callback.onSuccess(result);
+                    {{/returnType}}
+                    {{^returnType}}
+                    callback.onSuccess(null);
+                    {{/returnType}}
+                } else {
+                    callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
+                }
+            }
+
+            @Override
+            public void failed(Throwable t) {
+                callback.onFailure(new Exception(t));
+            }
+
+            @Override
+            public void cancelled() {
+                callback.onFailure(new Exception("Request cancelled"));
+            }
+        });
     }
     {{/operation}}
     {{/operations}}
-
-    public interface Callback<T> {
-        void onSuccess(T result, Map<String, String> headers);
-        void onFailure(Throwable t);
-    }
 }

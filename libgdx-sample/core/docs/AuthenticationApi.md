@@ -1,534 +1,194 @@
-# AuthenticationApi
+# API: AuthenticationApi
 
-All URIs are relative to */rest*
+> 
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**servicesAuthenticationAddUsernamePasswordGet**](AuthenticationApi.md#servicesAuthenticationAddUsernamePasswordGet) | **GET** /services/authentication/addUsernamePassword | authentication#addUsernamePassword |
-| [**servicesAuthenticationAddUsernamePasswordPost**](AuthenticationApi.md#servicesAuthenticationAddUsernamePasswordPost) | **POST** /services/authentication/addUsernamePassword | authentication#addUsernamePassword |
-| [**servicesAuthenticationLoginAnonymouslyGet**](AuthenticationApi.md#servicesAuthenticationLoginAnonymouslyGet) | **GET** /services/authentication/loginAnonymously | authentication#loginAnonymously |
-| [**servicesAuthenticationLoginAnonymouslyPost**](AuthenticationApi.md#servicesAuthenticationLoginAnonymouslyPost) | **POST** /services/authentication/loginAnonymously | authentication#loginAnonymously |
-| [**servicesAuthenticationLoginWithCustomIdGet**](AuthenticationApi.md#servicesAuthenticationLoginWithCustomIdGet) | **GET** /services/authentication/loginWithCustomId | authentication#loginWithCustomId |
-| [**servicesAuthenticationLoginWithCustomIdPost**](AuthenticationApi.md#servicesAuthenticationLoginWithCustomIdPost) | **POST** /services/authentication/loginWithCustomId | authentication#loginWithCustomId |
-| [**servicesAuthenticationLoginWithEmailGet**](AuthenticationApi.md#servicesAuthenticationLoginWithEmailGet) | **GET** /services/authentication/loginWithEmail | authentication#loginWithEmail |
-| [**servicesAuthenticationLoginWithEmailPost**](AuthenticationApi.md#servicesAuthenticationLoginWithEmailPost) | **POST** /services/authentication/loginWithEmail | authentication#loginWithEmail |
+## Available Endpoints
 
 
-<a id="servicesAuthenticationAddUsernamePasswordGet"></a>
-# **servicesAuthenticationAddUsernamePasswordGet**
-> String servicesAuthenticationAddUsernamePasswordGet(user, username, email, password)
+---
 
-authentication#addUsernamePassword
+### `GET /rest/services/authentication/addUsernamePassword`
 
+**Summary**: authentication#addUsernamePassword  
+**Operation ID**: `servicesAuthenticationAddUsernamePasswordGet`
+
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `user` | `` | `String` | ✔️ |  |
+| `username` | `` | `String` | ✔️ |  |
+| `email` | `` | `String` | ✔️ |  |
+| `password` | `` | `String` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    String user = "user_example"; // String | 
-    String username = "username_example"; // String | 
-    String email = "email_example"; // String | 
-    String password = "password_example"; // String | 
-    try {
-      String result = apiInstance.servicesAuthenticationAddUsernamePasswordGet(user, username, email, password);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationAddUsernamePasswordGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `String`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **user** | **String**|  | |
-| **username** | **String**|  | |
-| **email** | **String**|  | |
-| **password** | **String**|  | |
 
-### Return type
+---
 
-**String**
+### `POST /rest/services/authentication/addUsernamePassword`
 
-### Authorization
+**Summary**: authentication#addUsernamePassword  
+**Operation ID**: `servicesAuthenticationAddUsernamePasswordPost`
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationAddUsernamePasswordPost"></a>
-# **servicesAuthenticationAddUsernamePasswordPost**
-> String servicesAuthenticationAddUsernamePasswordPost(servicesAuthenticationAddUsernamePasswordPostRequest)
-
-authentication#addUsernamePassword
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `servicesAuthenticationAddUsernamePasswordPostRequest` | `` | `_services_authentication_addUsernamePassword_post_request` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    ServicesAuthenticationAddUsernamePasswordPostRequest servicesAuthenticationAddUsernamePasswordPostRequest = new ServicesAuthenticationAddUsernamePasswordPostRequest(); // ServicesAuthenticationAddUsernamePasswordPostRequest | 
-    try {
-      String result = apiInstance.servicesAuthenticationAddUsernamePasswordPost(servicesAuthenticationAddUsernamePasswordPostRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationAddUsernamePasswordPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `String`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **servicesAuthenticationAddUsernamePasswordPostRequest** | [**ServicesAuthenticationAddUsernamePasswordPostRequest**](ServicesAuthenticationAddUsernamePasswordPostRequest.md)|  | |
 
-### Return type
+---
 
-**String**
+### `GET /rest/services/authentication/loginAnonymously`
 
-### Authorization
+**Summary**: authentication#loginAnonymously  
+**Operation ID**: `servicesAuthenticationLoginAnonymouslyGet`
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationLoginAnonymouslyGet"></a>
-# **servicesAuthenticationLoginAnonymouslyGet**
-> EntityUser servicesAuthenticationLoginAnonymouslyGet()
-
-authentication#loginAnonymously
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    try {
-      EntityUser result = apiInstance.servicesAuthenticationLoginAnonymouslyGet();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationLoginAnonymouslyGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
-This endpoint does not need any parameter.
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-### Return type
 
-[**EntityUser**](EntityUser.md)
+---
 
-### Authorization
+### `POST /rest/services/authentication/loginAnonymously`
 
-No authorization required
+**Summary**: authentication#loginAnonymously  
+**Operation ID**: `servicesAuthenticationLoginAnonymouslyPost`
 
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationLoginAnonymouslyPost"></a>
-# **servicesAuthenticationLoginAnonymouslyPost**
-> EntityUser servicesAuthenticationLoginAnonymouslyPost(body)
-
-authentication#loginAnonymously
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `body` | `` | `Object` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    Object body = null; // Object | 
-    try {
-      EntityUser result = apiInstance.servicesAuthenticationLoginAnonymouslyPost(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationLoginAnonymouslyPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **body** | **Object**|  | |
 
-### Return type
+---
 
-[**EntityUser**](EntityUser.md)
+### `GET /rest/services/authentication/loginWithCustomId`
 
-### Authorization
+**Summary**: authentication#loginWithCustomId  
+**Operation ID**: `servicesAuthenticationLoginWithCustomIdGet`
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationLoginWithCustomIdGet"></a>
-# **servicesAuthenticationLoginWithCustomIdGet**
-> EntityUser servicesAuthenticationLoginWithCustomIdGet(customId, createIfNotExists)
-
-authentication#loginWithCustomId
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `customId` | `` | `String` | ✔️ |  |
+| `createIfNotExists` | `` | `String` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    String customId = "customId_example"; // String | 
-    String createIfNotExists = "createIfNotExists_example"; // String | 
-    try {
-      EntityUser result = apiInstance.servicesAuthenticationLoginWithCustomIdGet(customId, createIfNotExists);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationLoginWithCustomIdGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **customId** | **String**|  | |
-| **createIfNotExists** | **String**|  | |
 
-### Return type
+---
 
-[**EntityUser**](EntityUser.md)
+### `POST /rest/services/authentication/loginWithCustomId`
 
-### Authorization
+**Summary**: authentication#loginWithCustomId  
+**Operation ID**: `servicesAuthenticationLoginWithCustomIdPost`
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationLoginWithCustomIdPost"></a>
-# **servicesAuthenticationLoginWithCustomIdPost**
-> EntityUser servicesAuthenticationLoginWithCustomIdPost(servicesAuthenticationLoginWithCustomIdPostRequest)
-
-authentication#loginWithCustomId
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `servicesAuthenticationLoginWithCustomIdPostRequest` | `` | `_services_authentication_loginWithCustomId_post_request` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    ServicesAuthenticationLoginWithCustomIdPostRequest servicesAuthenticationLoginWithCustomIdPostRequest = new ServicesAuthenticationLoginWithCustomIdPostRequest(); // ServicesAuthenticationLoginWithCustomIdPostRequest | 
-    try {
-      EntityUser result = apiInstance.servicesAuthenticationLoginWithCustomIdPost(servicesAuthenticationLoginWithCustomIdPostRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationLoginWithCustomIdPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **servicesAuthenticationLoginWithCustomIdPostRequest** | [**ServicesAuthenticationLoginWithCustomIdPostRequest**](ServicesAuthenticationLoginWithCustomIdPostRequest.md)|  | |
 
-### Return type
+---
 
-[**EntityUser**](EntityUser.md)
+### `GET /rest/services/authentication/loginWithEmail`
 
-### Authorization
+**Summary**: authentication#loginWithEmail  
+**Operation ID**: `servicesAuthenticationLoginWithEmailGet`
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationLoginWithEmailGet"></a>
-# **servicesAuthenticationLoginWithEmailGet**
-> EntityUser servicesAuthenticationLoginWithEmailGet(email, password)
-
-authentication#loginWithEmail
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `email` | `` | `String` | ✔️ |  |
+| `password` | `` | `String` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    String email = "email_example"; // String | 
-    String password = "password_example"; // String | 
-    try {
-      EntityUser result = apiInstance.servicesAuthenticationLoginWithEmailGet(email, password);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationLoginWithEmailGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **email** | **String**|  | |
-| **password** | **String**|  | |
 
-### Return type
+---
 
-[**EntityUser**](EntityUser.md)
+### `POST /rest/services/authentication/loginWithEmail`
 
-### Authorization
+**Summary**: authentication#loginWithEmail  
+**Operation ID**: `servicesAuthenticationLoginWithEmailPost`
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
-
-<a id="servicesAuthenticationLoginWithEmailPost"></a>
-# **servicesAuthenticationLoginWithEmailPost**
-> EntityUser servicesAuthenticationLoginWithEmailPost(servicesAuthenticationLoginWithEmailPostRequest)
-
-authentication#loginWithEmail
-
+**Notes**:  
 Executes the service method. This request expects query parameters with the names defined in services configuration on the middleware.
 
-### Example
-```java
-// Import classes:
-import com.codegen.ApiClient;
-import com.codegen.ApiException;
-import com.codegen.Configuration;
-import com.codegen.models.*;
-import com.codegen.api.AuthenticationApi;
+#### Parameters
 
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/rest");
+| Name | In | Type | Required | Description |
+|------|----|------|----------|-------------|
+| `servicesAuthenticationLoginWithEmailPostRequest` | `` | `_services_authentication_loginWithEmail_post_request` | ✔️ |  |
 
-    AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
-    ServicesAuthenticationLoginWithEmailPostRequest servicesAuthenticationLoginWithEmailPostRequest = new ServicesAuthenticationLoginWithEmailPostRequest(); // ServicesAuthenticationLoginWithEmailPostRequest | 
-    try {
-      EntityUser result = apiInstance.servicesAuthenticationLoginWithEmailPost(servicesAuthenticationLoginWithEmailPostRequest);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling AuthenticationApi#servicesAuthenticationLoginWithEmailPost");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
+#### Responses
 
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **servicesAuthenticationLoginWithEmailPostRequest** | [**ServicesAuthenticationLoginWithEmailPostRequest**](ServicesAuthenticationLoginWithEmailPostRequest.md)|  | |
-
-### Return type
-
-[**EntityUser**](EntityUser.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. |  -  |
-| **204** | No content. This status is returned when the service method was executed successfully but returns null or is of void type. |  -  |
-| **403** | Forbidden. The user doesn&#39;t have permissions to invoke the service method. |  -  |
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
+- **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 

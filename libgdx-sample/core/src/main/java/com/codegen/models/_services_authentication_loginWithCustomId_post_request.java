@@ -4,9 +4,9 @@ import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
-public class Error implements Json.Serializable {
+public class _services_authentication_loginWithCustomId_post_request implements Json.Serializable {
 
-    public Error() {
+    public _services_authentication_loginWithCustomId_post_request() {
     }
 
 
@@ -24,8 +24,8 @@ public class Error implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static Error fromJson(String jsonString) {
+    public static _services_authentication_loginWithCustomId_post_request fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(Error.class, jsonString);
+        return json.fromJson(_services_authentication_loginWithCustomId_post_request.class, jsonString);
     }
 }
