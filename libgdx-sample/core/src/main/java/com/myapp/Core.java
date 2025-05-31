@@ -1,35 +1,35 @@
 package com.myapp;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
-import com.codegen.api.*;
+import com.codegen.api.UserApi;
+import com.codegen.models.Entity_User;
 
-/** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Core extends ApplicationAdapter {
-    private SpriteBatch batch;
-    private Texture image;
+    private UserApi userApi;
 
     @Override
     public void create() {
-        batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
-    }
+        // Initialize userApi (e.g., via ApiClient)
+        userApi = new com.codegen.client.ApiClient(new com.codegen.client.Configuration()).createService(UserApi.class);
 
-    @Override
-    public void render() {
-        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
-        batch.begin();
-        batch.draw(image, 140, 210);
-        batch.end();
-    }
+        userApi.entitiesUserEntityIdGet(
+            "123e4567-e89b-12d3-a456-426614174000",
+            true,
+            true,
+            "default",
+            new UserApi.Callback<Entity_User>() {
+                @Override
+                public void onSuccess(Entity_User result) {
+                    // Handle success, e.g., log or process result
+                    System.out.println("User retrieved: " + result);
+                }
 
-    @Override
-    public void dispose() {
-        batch.dispose();
-        image.dispose();
+                @Override
+                public void onFailure(Exception e) {
+                    // Handle failure
+                    System.err.println("Failed to retrieve user: " + e.getMessage());
+                }
+            }
+        );
     }
 }

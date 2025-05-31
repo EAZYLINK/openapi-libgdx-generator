@@ -1,13 +1,7 @@
 package com.libgdx.codegen;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
 import io.swagger.v3.oas.models.media.Schema;
+import org.openapitools.codegen.*;
 import org.openapitools.codegen.CodegenConfig;
 import org.openapitools.codegen.CodegenOperation;
 import org.openapitools.codegen.CodegenParameter;
@@ -20,9 +14,18 @@ import org.openapitools.codegen.model.OperationsMap;
 import org.openapitools.codegen.CliOption;
 import org.openapitools.codegen.utils.ModelUtils;
 
-public class LibgdxClientGenerator extends AbstractJavaCodegen implements CodegenConfig {
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+
+public class LibgdxClientGenerator extends AbstractJavaCodegen {
 
     protected String sourceFolder = "src/main/java";
+    protected String testFolder = "src/test/java";
     protected String packageName = "com.codegen";
     protected String apiVersion = "1.0.0";
 
@@ -53,21 +56,24 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
         additionalProperties.put("isGwtCompatible", true);
         additionalProperties.put("java8", false);
         additionalProperties.put("libgdx", true);
-        typeMapping.put("array", "java.util.ArrayList");
-        typeMapping.put("map", "java.util.HashMap");
-        typeMapping.put("List", "java.util.ArrayList");
-        typeMapping.put("boolean", "Boolean");
-        typeMapping.put("string", "String");
-        typeMapping.put("integer", "Integer");
-        typeMapping.put("float", "Float");
-        typeMapping.put("number", "Float");
-        typeMapping.put("DateTime", "String");
-        typeMapping.put("date", "String");
-        typeMapping.put("UUID", "String");
-        importMapping.put("ArrayList", "java.util.ArrayList");
+
+        importMapping.put("BigDecimal", "java.math.BigDecimal");
+        importMapping.put("UUID", "java.util.UUID");
+        importMapping.put("URI", "java.net.URI");
+        importMapping.put("File", "java.io.File");
+        importMapping.put("Date", "java.util.Date");
+        importMapping.put("Timestamp", "java.sql.Timestamp");
+        importMapping.put("Map", "java.util.Map");
         importMapping.put("HashMap", "java.util.HashMap");
-        instantiationTypes.put("array", "java.util.ArrayList");
-        instantiationTypes.put("map", "java.util.HashMap");
+        importMapping.put("Array", "java.util.List");
+        importMapping.put("ArrayList", "java.util.ArrayList");
+        importMapping.put("List", "java.util.*");
+        importMapping.put("Set", "java.util.*");
+        importMapping.put("LinkedHashSet", "java.util.LinkedHashSet");
+        importMapping.put("DateTime", "org.joda.time.*");
+        importMapping.put("LocalDateTime", "org.joda.time.*");
+        importMapping.put("LocalDate", "org.joda.time.*");
+        importMapping.put("LocalTime", "org.joda.time.*");
 
         // Package info passed to templates
         additionalProperties.put("apiVersion", apiVersion);
@@ -125,7 +131,12 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen implements Codege
 
     @Override
     public String apiTestFileFolder() {
-        return new File(outputFolder, "test" + File.separator + testPackage().replace('.', File.separatorChar)).getPath();
+        return new File(outputFolder, testFolder + File.separator + testPackage().replace('.', File.separatorChar)).getPath();
+    }
+    
+    @Override
+    public String modelTestFileFolder() {
+        return new File(outputFolder, testFolder + File.separator + modelPackage().replace('.', File.separatorChar)).getPath();
     }
     
 
