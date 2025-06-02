@@ -133,21 +133,21 @@ public class Entity_dynat_Category implements Json.Serializable {
 
     @Override
     public void write(Json json) {
-        json.write("entityName", entityName);
-        json.write("instanceName", instanceName);
-        json.write("localeNames", localeNames);
-        json.write("updatedBy", updatedBy);
-        json.write("entityType", entityType);
-        json.write("version", version);
-        json.write("deletedBy", deletedBy);
-        json.write("special", special);
-        json.write("deleteTs", deleteTs);
-        json.write("isDefault", isDefault);
-        json.write("createdBy", createdBy);
-        json.write("name", name);
-        json.write("createTs", createTs);
-        json.write("id", id);
-        json.write("updateTs", updateTs);
+        json.writeValue("entityName", entityName);
+        json.writeValue("instanceName", instanceName);
+        json.writeValue("localeNames", localeNames);
+        json.writeValue("updatedBy", updatedBy);
+        json.writeValue("entityType", entityType);
+        json.writeValue("version", version);
+        json.writeValue("deletedBy", deletedBy);
+        json.writeValue("special", special);
+        json.writeValue("deleteTs", deleteTs);
+        json.writeValue("isDefault", isDefault);
+        json.writeValue("createdBy", createdBy);
+        json.writeValue("name", name);
+        json.writeValue("createTs", createTs);
+        json.writeValue("id", id);
+        json.writeValue("updateTs", updateTs);
     }
 
     @Override

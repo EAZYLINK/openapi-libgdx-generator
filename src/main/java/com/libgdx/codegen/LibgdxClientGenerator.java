@@ -159,7 +159,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
     public void processOpts() {
         super.processOpts();
          apiTemplateFiles.put("api.mustache", ".java");
-        apiTemplateFiles.put("apiImpl.mustache", ".java");
+        apiTemplateFiles.put("apiImpl.mustache", "Impl.java");
         modelTemplateFiles.put("model.mustache", ".java");
         apiTestTemplateFiles.put("api_test.mustache", ".java");
         modelDocTemplateFiles.put("model_doc.mustache", ".md");

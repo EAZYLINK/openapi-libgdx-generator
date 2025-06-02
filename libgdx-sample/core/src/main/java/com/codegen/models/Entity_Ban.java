@@ -109,18 +109,18 @@ public class Entity_Ban implements Json.Serializable {
 
     @Override
     public void write(Json json) {
-        json.write("entityName", entityName);
-        json.write("instanceName", instanceName);
-        json.write("reason", reason);
-        json.write("createdDate", createdDate);
-        json.write("createdBy", createdBy);
-        json.write("lastModifiedDate", lastModifiedDate);
-        json.write("deletedDate", deletedDate);
-        json.write("bannedBy", bannedBy);
-        json.write("lastModifiedBy", lastModifiedBy);
-        json.write("id", id);
-        json.write("user", user);
-        json.write("deletedBy", deletedBy);
+        json.writeValue("entityName", entityName);
+        json.writeValue("instanceName", instanceName);
+        json.writeValue("reason", reason);
+        json.writeValue("createdDate", createdDate);
+        json.writeValue("createdBy", createdBy);
+        json.writeValue("lastModifiedDate", lastModifiedDate);
+        json.writeValue("deletedDate", deletedDate);
+        json.writeValue("bannedBy", bannedBy);
+        json.writeValue("lastModifiedBy", lastModifiedBy);
+        json.writeValue("id", id);
+        json.writeValue("user", user);
+        json.writeValue("deletedBy", deletedBy);
     }
 
     @Override

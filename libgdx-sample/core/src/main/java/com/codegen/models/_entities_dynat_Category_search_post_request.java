@@ -77,14 +77,14 @@ public class _entities_dynat_Category_search_post_request implements Json.Serial
 
     @Override
     public void write(Json json) {
-        json.write("filter", filter);
-        json.write("dynamicAttributes", dynamicAttributes);
-        json.write("returnCount", returnCount);
-        json.write("offset", offset);
-        json.write("returnNulls", returnNulls);
-        json.write("limit", limit);
-        json.write("sort", sort);
-        json.write("fetchPlan", fetchPlan);
+        json.writeValue("filter", filter);
+        json.writeValue("dynamicAttributes", dynamicAttributes);
+        json.writeValue("returnCount", returnCount);
+        json.writeValue("offset", offset);
+        json.writeValue("returnNulls", returnNulls);
+        json.writeValue("limit", limit);
+        json.writeValue("sort", sort);
+        json.writeValue("fetchPlan", fetchPlan);
     }
 
     @Override

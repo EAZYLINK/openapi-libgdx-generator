@@ -205,30 +205,30 @@ public class Entity_User implements Json.Serializable {
 
     @Override
     public void write(Json json) {
-        json.write("entityName", entityName);
-        json.write("instanceName", instanceName);
-        json.write("country", country);
-        json.write("lastName", lastName);
-        json.write("city", city);
-        json.write("lastModifiedDate", lastModifiedDate);
-        json.write("timeZoneId", timeZoneId);
-        json.write("latitude", latitude);
-        json.write("lastModifiedBy", lastModifiedBy);
-        json.write("active", active);
-        json.write("bans", bans);
-        json.write("customId", customId);
-        json.write("version", version);
-        json.write("deletedBy", deletedBy);
-        json.write("firstName", firstName);
-        json.write("password", password);
-        json.write("createdDate", createdDate);
-        json.write("createdBy", createdBy);
-        json.write("deletedDate", deletedDate);
-        json.write("countryCode", countryCode);
-        json.write("id", id);
-        json.write("email", email);
-        json.write("longitude", longitude);
-        json.write("username", username);
+        json.writeValue("entityName", entityName);
+        json.writeValue("instanceName", instanceName);
+        json.writeValue("country", country);
+        json.writeValue("lastName", lastName);
+        json.writeValue("city", city);
+        json.writeValue("lastModifiedDate", lastModifiedDate);
+        json.writeValue("timeZoneId", timeZoneId);
+        json.writeValue("latitude", latitude);
+        json.writeValue("lastModifiedBy", lastModifiedBy);
+        json.writeValue("active", active);
+        json.writeValue("bans", bans);
+        json.writeValue("customId", customId);
+        json.writeValue("version", version);
+        json.writeValue("deletedBy", deletedBy);
+        json.writeValue("firstName", firstName);
+        json.writeValue("password", password);
+        json.writeValue("createdDate", createdDate);
+        json.writeValue("createdBy", createdBy);
+        json.writeValue("deletedDate", deletedDate);
+        json.writeValue("countryCode", countryCode);
+        json.writeValue("id", id);
+        json.writeValue("email", email);
+        json.writeValue("longitude", longitude);
+        json.writeValue("username", username);
     }
 
     @Override

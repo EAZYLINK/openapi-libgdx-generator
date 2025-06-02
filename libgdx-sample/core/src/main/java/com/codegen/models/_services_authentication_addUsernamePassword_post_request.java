@@ -45,10 +45,10 @@ public class _services_authentication_addUsernamePassword_post_request implement
 
     @Override
     public void write(Json json) {
-        json.write("user", user);
-        json.write("username", username);
-        json.write("email", email);
-        json.write("password", password);
+        json.writeValue("user", user);
+        json.writeValue("username", username);
+        json.writeValue("email", email);
+        json.writeValue("password", password);
     }
 
     @Override

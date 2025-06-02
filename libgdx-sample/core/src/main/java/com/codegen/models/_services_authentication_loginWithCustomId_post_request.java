@@ -29,8 +29,8 @@ public class _services_authentication_loginWithCustomId_post_request implements 
 
     @Override
     public void write(Json json) {
-        json.write("customId", customId);
-        json.write("createIfNotExists", createIfNotExists);
+        json.writeValue("customId", customId);
+        json.writeValue("createIfNotExists", createIfNotExists);
     }
 
     @Override

@@ -101,17 +101,17 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
 
     @Override
     public void write(Json json) {
-        json.write("entityName", entityName);
-        json.write("instanceName", instanceName);
-        json.write("snapshotXml", snapshotXml);
-        json.write("snapshotDate", snapshotDate);
-        json.write("createdDate", createdDate);
-        json.write("createdBy", createdBy);
-        json.write("fetchPlanXml", fetchPlanXml);
-        json.write("entityMetaClass", entityMetaClass);
-        json.write("authorUsername", authorUsername);
-        json.write("sysTenantId", sysTenantId);
-        json.write("id", id);
+        json.writeValue("entityName", entityName);
+        json.writeValue("instanceName", instanceName);
+        json.writeValue("snapshotXml", snapshotXml);
+        json.writeValue("snapshotDate", snapshotDate);
+        json.writeValue("createdDate", createdDate);
+        json.writeValue("createdBy", createdBy);
+        json.writeValue("fetchPlanXml", fetchPlanXml);
+        json.writeValue("entityMetaClass", entityMetaClass);
+        json.writeValue("authorUsername", authorUsername);
+        json.writeValue("sysTenantId", sysTenantId);
+        json.writeValue("id", id);
     }
 
     @Override

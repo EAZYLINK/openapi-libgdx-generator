@@ -29,8 +29,8 @@ public class _services_authentication_loginWithEmail_post_request implements Jso
 
     @Override
     public void write(Json json) {
-        json.write("email", email);
-        json.write("password", password);
+        json.writeValue("email", email);
+        json.writeValue("password", password);
     }
 
     @Override

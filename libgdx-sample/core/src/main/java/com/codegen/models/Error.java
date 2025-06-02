@@ -29,8 +29,8 @@ public class Error implements Json.Serializable {
 
     @Override
     public void write(Json json) {
-        json.write("error", error);
-        json.write("details", details);
+        json.writeValue("error", error);
+        json.writeValue("details", details);
     }
 
     @Override
