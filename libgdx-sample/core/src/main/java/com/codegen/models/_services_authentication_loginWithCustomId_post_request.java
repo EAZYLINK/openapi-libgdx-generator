@@ -12,18 +12,18 @@ public class _services_authentication_loginWithCustomId_post_request implements 
     public _services_authentication_loginWithCustomId_post_request() {
     }
 
-    public String get() {
+    public String getCustomId() {
         return customId;
     }
 
-    public void set(String customId) {
+    public void setCustomId(String customId) {
         this.customId = customId;
     }
-    public Boolean get() {
+    public Boolean getCreateIfNotExists() {
         return createIfNotExists;
     }
 
-    public void set(Boolean createIfNotExists) {
+    public void setCreateIfNotExists(Boolean createIfNotExists) {
         this.createIfNotExists = createIfNotExists;
     }
 
@@ -31,7 +31,7 @@ public class _services_authentication_loginWithCustomId_post_request implements 
     public void write(Json json) {
         json.write("customId", customId);
         json.write("createIfNotExists", createIfNotExists);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
@@ -49,3 +49,4 @@ public class _services_authentication_loginWithCustomId_post_request implements 
         Json json = new Json();
         return json.fromJson(_services_authentication_loginWithCustomId_post_request.class, jsonString);
     }
+}

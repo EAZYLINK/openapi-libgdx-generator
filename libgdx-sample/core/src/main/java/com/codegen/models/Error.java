@@ -12,18 +12,18 @@ public class Error implements Json.Serializable {
     public Error() {
     }
 
-    public String get() {
+    public String getError() {
         return error;
     }
 
-    public void set(String error) {
+    public void setError(String error) {
         this.error = error;
     }
-    public String get() {
+    public String getDetails() {
         return details;
     }
 
-    public void set(String details) {
+    public void setDetails(String details) {
         this.details = details;
     }
 
@@ -31,7 +31,7 @@ public class Error implements Json.Serializable {
     public void write(Json json) {
         json.write("error", error);
         json.write("details", details);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
@@ -49,3 +49,4 @@ public class Error implements Json.Serializable {
         Json json = new Json();
         return json.fromJson(Error.class, jsonString);
     }
+}

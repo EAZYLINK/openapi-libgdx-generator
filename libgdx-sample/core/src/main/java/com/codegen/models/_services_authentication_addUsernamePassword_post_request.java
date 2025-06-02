@@ -14,32 +14,32 @@ public class _services_authentication_addUsernamePassword_post_request implement
     public _services_authentication_addUsernamePassword_post_request() {
     }
 
-    public Entity_User get() {
+    public Entity_User getUser() {
         return user;
     }
 
-    public void set(Entity_User user) {
+    public void setUser(Entity_User user) {
         this.user = user;
     }
-    public String get() {
+    public String getUsername() {
         return username;
     }
 
-    public void set(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
-    public String get() {
+    public String getEmail() {
         return email;
     }
 
-    public void set(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
-    public String get() {
+    public String getPassword() {
         return password;
     }
 
-    public void set(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -49,7 +49,7 @@ public class _services_authentication_addUsernamePassword_post_request implement
         json.write("username", username);
         json.write("email", email);
         json.write("password", password);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
@@ -69,3 +69,4 @@ public class _services_authentication_addUsernamePassword_post_request implement
         Json json = new Json();
         return json.fromJson(_services_authentication_addUsernamePassword_post_request.class, jsonString);
     }
+}

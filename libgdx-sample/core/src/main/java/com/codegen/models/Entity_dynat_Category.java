@@ -25,109 +25,109 @@ public class Entity_dynat_Category implements Json.Serializable {
     public Entity_dynat_Category() {
     }
 
-    public String get() {
+    public String getEntityName() {
         return entityName;
     }
 
-    public void set(String entityName) {
+    public void setEntityName(String entityName) {
         this.entityName = entityName;
     }
-    public String get() {
+    public String getInstanceName() {
         return instanceName;
     }
 
-    public void set(String instanceName) {
+    public void setInstanceName(String instanceName) {
         this.instanceName = instanceName;
     }
-    public String get() {
+    public String getLocaleNames() {
         return localeNames;
     }
 
-    public void set(String localeNames) {
+    public void setLocaleNames(String localeNames) {
         this.localeNames = localeNames;
     }
-    public String get() {
+    public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void set(String updatedBy) {
+    public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
-    public String get() {
+    public String getEntityType() {
         return entityType;
     }
 
-    public void set(String entityType) {
+    public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
-    public Integer get() {
+    public Integer getVersion() {
         return version;
     }
 
-    public void set(Integer version) {
+    public void setVersion(Integer version) {
         this.version = version;
     }
-    public String get() {
+    public String getDeletedBy() {
         return deletedBy;
     }
 
-    public void set(String deletedBy) {
+    public void setDeletedBy(String deletedBy) {
         this.deletedBy = deletedBy;
     }
-    public String get() {
+    public String getSpecial() {
         return special;
     }
 
-    public void set(String special) {
+    public void setSpecial(String special) {
         this.special = special;
     }
-    public OffsetDateTime get() {
+    public OffsetDateTime getDeleteTs() {
         return deleteTs;
     }
 
-    public void set(OffsetDateTime deleteTs) {
+    public void setDeleteTs(OffsetDateTime deleteTs) {
         this.deleteTs = deleteTs;
     }
-    public Boolean get() {
+    public Boolean getIsDefault() {
         return isDefault;
     }
 
-    public void set(Boolean isDefault) {
+    public void setIsDefault(Boolean isDefault) {
         this.isDefault = isDefault;
     }
-    public String get() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void set(String createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-    public String get() {
+    public String getName() {
         return name;
     }
 
-    public void set(String name) {
+    public void setName(String name) {
         this.name = name;
     }
-    public OffsetDateTime get() {
+    public OffsetDateTime getCreateTs() {
         return createTs;
     }
 
-    public void set(OffsetDateTime createTs) {
+    public void setCreateTs(OffsetDateTime createTs) {
         this.createTs = createTs;
     }
-    public UUID get() {
+    public UUID getId() {
         return id;
     }
 
-    public void set(UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
-    public OffsetDateTime get() {
+    public OffsetDateTime getUpdateTs() {
         return updateTs;
     }
 
-    public void set(OffsetDateTime updateTs) {
+    public void setUpdateTs(OffsetDateTime updateTs) {
         this.updateTs = updateTs;
     }
 
@@ -148,12 +148,12 @@ public class Entity_dynat_Category implements Json.Serializable {
         json.write("createTs", createTs);
         json.write("id", id);
         json.write("updateTs", updateTs);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        entityName = json.readValue("entityName", String.class, jsonData);
-        instanceName = json.readValue("instanceName", String.class, jsonData);
+        entityName = json.readValue("_entityName", String.class, jsonData);
+        instanceName = json.readValue("_instanceName", String.class, jsonData);
         localeNames = json.readValue("localeNames", String.class, jsonData);
         updatedBy = json.readValue("updatedBy", String.class, jsonData);
         entityType = json.readValue("entityType", String.class, jsonData);
@@ -179,3 +179,4 @@ public class Entity_dynat_Category implements Json.Serializable {
         Json json = new Json();
         return json.fromJson(Entity_dynat_Category.class, jsonString);
     }
+}

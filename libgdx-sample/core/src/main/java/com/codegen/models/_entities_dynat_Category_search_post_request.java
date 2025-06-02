@@ -18,60 +18,60 @@ public class _entities_dynat_Category_search_post_request implements Json.Serial
     public _entities_dynat_Category_search_post_request() {
     }
 
-    public String get() {
+    public String getFilter() {
         return filter;
     }
 
-    public void set(String filter) {
+    public void setFilter(String filter) {
         this.filter = filter;
     }
-    public Boolean get() {
+    public Boolean getDynamicAttributes() {
         return dynamicAttributes;
     }
 
-    public void set(Boolean dynamicAttributes) {
+    public void setDynamicAttributes(Boolean dynamicAttributes) {
         this.dynamicAttributes = dynamicAttributes;
     }
-    public Boolean get() {
+    public Boolean getReturnCount() {
         return returnCount;
     }
 
-    public void set(Boolean returnCount) {
+    public void setReturnCount(Boolean returnCount) {
         this.returnCount = returnCount;
     }
-    public String get() {
+    public String getOffset() {
         return offset;
     }
 
-    public void set(String offset) {
+    public void setOffset(String offset) {
         this.offset = offset;
     }
-    public Boolean get() {
+    public Boolean getReturnNulls() {
         return returnNulls;
     }
 
-    public void set(Boolean returnNulls) {
+    public void setReturnNulls(Boolean returnNulls) {
         this.returnNulls = returnNulls;
     }
-    public String get() {
+    public String getLimit() {
         return limit;
     }
 
-    public void set(String limit) {
+    public void setLimit(String limit) {
         this.limit = limit;
     }
-    public String get() {
+    public String getSort() {
         return sort;
     }
 
-    public void set(String sort) {
+    public void setSort(String sort) {
         this.sort = sort;
     }
-    public String get() {
+    public String getFetchPlan() {
         return fetchPlan;
     }
 
-    public void set(String fetchPlan) {
+    public void setFetchPlan(String fetchPlan) {
         this.fetchPlan = fetchPlan;
     }
 
@@ -85,7 +85,7 @@ public class _entities_dynat_Category_search_post_request implements Json.Serial
         json.write("limit", limit);
         json.write("sort", sort);
         json.write("fetchPlan", fetchPlan);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
@@ -109,3 +109,4 @@ public class _entities_dynat_Category_search_post_request implements Json.Serial
         Json json = new Json();
         return json.fromJson(_entities_dynat_Category_search_post_request.class, jsonString);
     }
+}

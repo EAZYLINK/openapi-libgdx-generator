@@ -17,26 +17,31 @@ public class {{classname}} implements Json.Serializable {
     }
 
     {{#vars}}
-    public {{dataType}} get{{capitalizedName}}() {
-        return {{name}};
+    public {{{dataType}}} get{{#lambda.titlecase}}{{{name}}}{{/lambda.titlecase}}() {
+        return {{{name}}};
     }
 
-    public void set{{capitalizedName}}({{dataType}} {{name}}) {
-        this.{{name}} = {{name}};
+    public void set{{#lambda.titlecase}}{{{name}}}{{/lambda.titlecase}}({{{dataType}}} {{name}}) {
+        this.{{{name}}} = {{{name}}};
     }
     {{/vars}}
 
     @Override
     public void write(Json json) {
         {{#vars}}
-        json.write("{{name}}", {{name}});
+        json.write("{{name}}", {{{name}}});
         {{/vars}}
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
         {{#vars}}
-        {{name}} = json.readValue("{{name}}", {{dataType}}.class, jsonData);
+        {{#isArray}}
+        {{name}} = json.readValue("{{baseName}}", {{containerType}}.class, {{items.dataType}}.class, jsonData);
+        {{/isArray}}
+        {{^isArray}}
+        {{name}} = json.readValue("{{baseName}}", {{dataType}}.class, jsonData);
+        {{/isArray}}
         {{/vars}}
     }
 
@@ -53,3 +58,4 @@ public class {{classname}} implements Json.Serializable {
 	{{/modelJson}}
 	{{/model}}
 	{{/models}}
+}

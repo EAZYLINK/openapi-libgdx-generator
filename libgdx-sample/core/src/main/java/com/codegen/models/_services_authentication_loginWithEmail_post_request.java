@@ -12,18 +12,18 @@ public class _services_authentication_loginWithEmail_post_request implements Jso
     public _services_authentication_loginWithEmail_post_request() {
     }
 
-    public String get() {
+    public String getEmail() {
         return email;
     }
 
-    public void set(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
-    public String get() {
+    public String getPassword() {
         return password;
     }
 
-    public void set(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -31,7 +31,7 @@ public class _services_authentication_loginWithEmail_post_request implements Jso
     public void write(Json json) {
         json.write("email", email);
         json.write("password", password);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
@@ -49,3 +49,4 @@ public class _services_authentication_loginWithEmail_post_request implements Jso
         Json json = new Json();
         return json.fromJson(_services_authentication_loginWithEmail_post_request.class, jsonString);
     }
+}

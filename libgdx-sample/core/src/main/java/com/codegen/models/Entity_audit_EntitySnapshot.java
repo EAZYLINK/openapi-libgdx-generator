@@ -21,81 +21,81 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
     public Entity_audit_EntitySnapshot() {
     }
 
-    public String get() {
+    public String getEntityName() {
         return entityName;
     }
 
-    public void set(String entityName) {
+    public void setEntityName(String entityName) {
         this.entityName = entityName;
     }
-    public String get() {
+    public String getInstanceName() {
         return instanceName;
     }
 
-    public void set(String instanceName) {
+    public void setInstanceName(String instanceName) {
         this.instanceName = instanceName;
     }
-    public String get() {
+    public String getSnapshotXml() {
         return snapshotXml;
     }
 
-    public void set(String snapshotXml) {
+    public void setSnapshotXml(String snapshotXml) {
         this.snapshotXml = snapshotXml;
     }
-    public OffsetDateTime get() {
+    public OffsetDateTime getSnapshotDate() {
         return snapshotDate;
     }
 
-    public void set(OffsetDateTime snapshotDate) {
+    public void setSnapshotDate(OffsetDateTime snapshotDate) {
         this.snapshotDate = snapshotDate;
     }
-    public OffsetDateTime get() {
+    public OffsetDateTime getCreatedDate() {
         return createdDate;
     }
 
-    public void set(OffsetDateTime createdDate) {
+    public void setCreatedDate(OffsetDateTime createdDate) {
         this.createdDate = createdDate;
     }
-    public String get() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void set(String createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-    public String get() {
+    public String getFetchPlanXml() {
         return fetchPlanXml;
     }
 
-    public void set(String fetchPlanXml) {
+    public void setFetchPlanXml(String fetchPlanXml) {
         this.fetchPlanXml = fetchPlanXml;
     }
-    public String get() {
+    public String getEntityMetaClass() {
         return entityMetaClass;
     }
 
-    public void set(String entityMetaClass) {
+    public void setEntityMetaClass(String entityMetaClass) {
         this.entityMetaClass = entityMetaClass;
     }
-    public String get() {
+    public String getAuthorUsername() {
         return authorUsername;
     }
 
-    public void set(String authorUsername) {
+    public void setAuthorUsername(String authorUsername) {
         this.authorUsername = authorUsername;
     }
-    public String get() {
+    public String getSysTenantId() {
         return sysTenantId;
     }
 
-    public void set(String sysTenantId) {
+    public void setSysTenantId(String sysTenantId) {
         this.sysTenantId = sysTenantId;
     }
-    public UUID get() {
+    public UUID getId() {
         return id;
     }
 
-    public void set(UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -112,12 +112,12 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
         json.write("authorUsername", authorUsername);
         json.write("sysTenantId", sysTenantId);
         json.write("id", id);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        entityName = json.readValue("entityName", String.class, jsonData);
-        instanceName = json.readValue("instanceName", String.class, jsonData);
+        entityName = json.readValue("_entityName", String.class, jsonData);
+        instanceName = json.readValue("_instanceName", String.class, jsonData);
         snapshotXml = json.readValue("snapshotXml", String.class, jsonData);
         snapshotDate = json.readValue("snapshotDate", OffsetDateTime.class, jsonData);
         createdDate = json.readValue("createdDate", OffsetDateTime.class, jsonData);
@@ -139,3 +139,4 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
         Json json = new Json();
         return json.fromJson(Entity_audit_EntitySnapshot.class, jsonString);
     }
+}

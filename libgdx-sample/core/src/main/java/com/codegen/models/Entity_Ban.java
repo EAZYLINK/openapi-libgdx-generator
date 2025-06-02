@@ -22,88 +22,88 @@ public class Entity_Ban implements Json.Serializable {
     public Entity_Ban() {
     }
 
-    public String get() {
+    public String getEntityName() {
         return entityName;
     }
 
-    public void set(String entityName) {
+    public void setEntityName(String entityName) {
         this.entityName = entityName;
     }
-    public String get() {
+    public String getInstanceName() {
         return instanceName;
     }
 
-    public void set(String instanceName) {
+    public void setInstanceName(String instanceName) {
         this.instanceName = instanceName;
     }
-    public String get() {
+    public String getReason() {
         return reason;
     }
 
-    public void set(String reason) {
+    public void setReason(String reason) {
         this.reason = reason;
     }
-    public String get() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void set(String createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
-    public String get() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void set(String createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-    public String get() {
+    public String getLastModifiedDate() {
         return lastModifiedDate;
     }
 
-    public void set(String lastModifiedDate) {
+    public void setLastModifiedDate(String lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
-    public String get() {
+    public String getDeletedDate() {
         return deletedDate;
     }
 
-    public void set(String deletedDate) {
+    public void setDeletedDate(String deletedDate) {
         this.deletedDate = deletedDate;
     }
-    public Entity_User get() {
+    public Entity_User getBannedBy() {
         return bannedBy;
     }
 
-    public void set(Entity_User bannedBy) {
+    public void setBannedBy(Entity_User bannedBy) {
         this.bannedBy = bannedBy;
     }
-    public String get() {
+    public String getLastModifiedBy() {
         return lastModifiedBy;
     }
 
-    public void set(String lastModifiedBy) {
+    public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
-    public UUID get() {
+    public UUID getId() {
         return id;
     }
 
-    public void set(UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
-    public Entity_User get() {
+    public Entity_User getUser() {
         return user;
     }
 
-    public void set(Entity_User user) {
+    public void setUser(Entity_User user) {
         this.user = user;
     }
-    public String get() {
+    public String getDeletedBy() {
         return deletedBy;
     }
 
-    public void set(String deletedBy) {
+    public void setDeletedBy(String deletedBy) {
         this.deletedBy = deletedBy;
     }
 
@@ -121,12 +121,12 @@ public class Entity_Ban implements Json.Serializable {
         json.write("id", id);
         json.write("user", user);
         json.write("deletedBy", deletedBy);
-        
+    }
 
     @Override
     public void read(Json json, JsonValue jsonData) {
-        entityName = json.readValue("entityName", String.class, jsonData);
-        instanceName = json.readValue("instanceName", String.class, jsonData);
+        entityName = json.readValue("_entityName", String.class, jsonData);
+        instanceName = json.readValue("_instanceName", String.class, jsonData);
         reason = json.readValue("reason", String.class, jsonData);
         createdDate = json.readValue("createdDate", String.class, jsonData);
         createdBy = json.readValue("createdBy", String.class, jsonData);
@@ -149,3 +149,4 @@ public class Entity_Ban implements Json.Serializable {
         Json json = new Json();
         return json.fromJson(Entity_Ban.class, jsonString);
     }
+}
