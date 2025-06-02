@@ -5,8 +5,12 @@ import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
 public class {{classname}} implements Json.Serializable {
+	{{#models}}
+	{{#model}}
+	{{#modelJson}}
+	
     {{#vars}}
-    private {{dataType}} {{name}};
+    private {{{dataType}}} {{{name}}};
     {{/vars}}
 
     public {{classname}}() {
@@ -27,7 +31,7 @@ public class {{classname}} implements Json.Serializable {
         {{#vars}}
         json.write("{{name}}", {{name}});
         {{/vars}}
-    }
+        
 
     @Override
     public void read(Json json, JsonValue jsonData) {
@@ -46,4 +50,6 @@ public class {{classname}} implements Json.Serializable {
         Json json = new Json();
         return json.fromJson({{classname}}.class, jsonString);
     }
-}
+	{{/modelJson}}
+	{{/model}}
+	{{/models}}

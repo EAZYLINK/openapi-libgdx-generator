@@ -22,7 +22,7 @@ import java.util.Locale;
 import java.util.Map;
 
 
-public class LibgdxClientGenerator extends AbstractJavaCodegen {
+public class LibgdxClientGenerator extends AbstractJavaCodegen{
 
     protected String sourceFolder = "src/main/java";
     protected String testFolder = "src/test/java";
@@ -159,7 +159,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen {
     public void processOpts() {
         super.processOpts();
          apiTemplateFiles.put("api.mustache", ".java");
-        apiTemplateFiles.put("apiImpl.mustache", "Impl.java");
+        apiTemplateFiles.put("apiImpl.mustache", ".java");
         modelTemplateFiles.put("model.mustache", ".java");
         apiTestTemplateFiles.put("api_test.mustache", ".java");
         modelDocTemplateFiles.put("model_doc.mustache", ".md");
@@ -196,6 +196,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen {
         }
         return super.getTypeDeclaration(p);
     }
+
     
     @Override
     public OperationsMap postProcessOperationsWithModels(OperationsMap objs, List<ModelMap> allModels) {
@@ -228,6 +229,17 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen {
             } else {
                 op.vendorExtensions.put("isArray", false);
             }
+        }
+        
+        System.out.println("Logging model fields:");
+        for (ModelMap model : allModels) {
+            CodegenModel cm = model.getModel();
+            String modelName = cm.getClassname();
+            System.out.println("Model: " + modelName);
+
+            List<CodegenProperty> properties = cm.getVars();
+            List<CodegenProperty> vars = cm.getVars();
+            additionalProperties.put("model", model);
         }
         return results;
     }

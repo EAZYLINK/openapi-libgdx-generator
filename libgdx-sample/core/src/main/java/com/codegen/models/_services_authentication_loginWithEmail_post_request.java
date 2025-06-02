@@ -5,17 +5,38 @@ import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
 public class _services_authentication_loginWithEmail_post_request implements Json.Serializable {
+	
+    private String email;
+    private String password;
 
     public _services_authentication_loginWithEmail_post_request() {
     }
 
+    public String get() {
+        return email;
+    }
 
-    @Override
-    public void write(Json json) {
+    public void set(String email) {
+        this.email = email;
+    }
+    public String get() {
+        return password;
+    }
+
+    public void set(String password) {
+        this.password = password;
     }
 
     @Override
+    public void write(Json json) {
+        json.write("email", email);
+        json.write("password", password);
+        
+
+    @Override
     public void read(Json json, JsonValue jsonData) {
+        email = json.readValue("email", String.class, jsonData);
+        password = json.readValue("password", String.class, jsonData);
     }
 
     @Override
@@ -28,4 +49,3 @@ public class _services_authentication_loginWithEmail_post_request implements Jso
         Json json = new Json();
         return json.fromJson(_services_authentication_loginWithEmail_post_request.class, jsonString);
     }
-}

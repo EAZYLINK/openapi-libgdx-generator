@@ -4,24 +4,26 @@ import {{apiPackage}}.*;
 
 public class ApiClient {
     private final Configuration config;
+    private String baseUrl;
 
-    public ApiClient(String baseUrl) {
-        this.config = new Configuration(baseUrl);
+    public ApiClient(Configuration config) {
+        this.config = config;
+        this.baseUrl = config.getBaseUrl;
     }
 
     public {{apiPackage}}.UserApi getUserApi() {
-        return new {{apiPackage}}.UserApiImpl(config);
+        return new {{apiPackage}}.UserApiImpl(baseUrl);
     }
 
     public {{apiPackage}}.BanApi getBanApi() {
-        return new {{apiPackage}}.BanApiImpl(config);
+        return new {{apiPackage}}.BanApiImpl(baseUrl);
     }
 
     public {{apiPackage}}.DynatCategoryApi getDynatCategoryApi() {
-        return new {{apiPackage}}.DynatCategoryApiImpl(config);
+        return new {{apiPackage}}.DynatCategoryApiImpl(baseUrl);
     }
 
     public {{apiPackage}}.AuditEntitySnapshotApi getAuditEntitySnapshotApi() {
-        return new {{apiPackage}}.AuditEntitySnapshotApiImpl(config);
+        return new {{apiPackage}}.AuditEntitySnapshotApiImpl(baseUrl);
     }
 }

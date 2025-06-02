@@ -4,24 +4,26 @@ import com.codegen.api.*;
 
 public class ApiClient {
     private final Configuration config;
+    private String baseUrl;
 
-    public ApiClient(String baseUrl) {
-        this.config = new Configuration(baseUrl);
+    public ApiClient(Configuration config) {
+        this.config = config;
+        this.baseUrl = config.getBaseUrl;
     }
 
     public com.codegen.api.UserApi getUserApi() {
-        return new com.codegen.api.UserApiImpl(config);
+        return new com.codegen.api.UserApiImpl(baseUrl);
     }
 
     public com.codegen.api.BanApi getBanApi() {
-        return new com.codegen.api.BanApiImpl(config);
+        return new com.codegen.api.BanApiImpl(baseUrl);
     }
 
     public com.codegen.api.DynatCategoryApi getDynatCategoryApi() {
-        return new com.codegen.api.DynatCategoryApiImpl(config);
+        return new com.codegen.api.DynatCategoryApiImpl(baseUrl);
     }
 
     public com.codegen.api.AuditEntitySnapshotApi getAuditEntitySnapshotApi() {
-        return new com.codegen.api.AuditEntitySnapshotApiImpl(config);
+        return new com.codegen.api.AuditEntitySnapshotApiImpl(baseUrl);
     }
 }
