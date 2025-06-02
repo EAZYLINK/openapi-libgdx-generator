@@ -230,17 +230,6 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
                 op.vendorExtensions.put("isArray", false);
             }
         }
-        
-        System.out.println("Logging model fields:");
-        for (ModelMap model : allModels) {
-            CodegenModel cm = model.getModel();
-            String modelName = cm.getClassname();
-            System.out.println("Model: " + modelName);
-
-            List<CodegenProperty> properties = cm.getVars();
-            List<CodegenProperty> vars = cm.getVars();
-            additionalProperties.put("model", model);
-        }
         return results;
     }
     
