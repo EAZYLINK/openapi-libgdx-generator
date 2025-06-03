@@ -5,24 +5,22 @@ import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
 public class Error implements Json.Serializable {
-	
-    private String error;
-    private String details;
+	private String error;
+	private String details;
 
     public Error() {
     }
 
+   
     public String getError() {
         return error;
     }
-
     public void setError(String error) {
         this.error = error;
     }
     public String getDetails() {
         return details;
     }
-
     public void setDetails(String details) {
         this.details = details;
     }
@@ -33,7 +31,7 @@ public class Error implements Json.Serializable {
         json.writeValue("details", details);
     }
 
-    @Override
+        @Override
     public void read(Json json, JsonValue jsonData) {
         error = json.readValue("error", String.class, jsonData);
         details = json.readValue("details", String.class, jsonData);

@@ -5,200 +5,176 @@ import com.badlogic.gdx.utils.JsonValue;
 import java.util.*;
 
 public class Entity_User implements Json.Serializable {
-	
-    private String entityName;
-    private String instanceName;
-    private String country;
-    private String lastName;
-    private String city;
-    private String lastModifiedDate;
-    private String timeZoneId;
-    private BigDecimal latitude;
-    private String lastModifiedBy;
-    private Boolean active;
-    private java.util.ArrayList<Entity_Ban> bans;
-    private String customId;
-    private Integer version;
-    private String deletedBy;
-    private String firstName;
-    private String password;
-    private String createdDate;
-    private String createdBy;
-    private String deletedDate;
-    private String countryCode;
-    private UUID id;
-    private String email;
-    private BigDecimal longitude;
-    private String username;
+	private String entityName;
+	private String instanceName;
+	private String country;
+	private String lastName;
+	private String city;
+	private String lastModifiedDate;
+	private String timeZoneId;
+	private BigDecimal latitude;
+	private String lastModifiedBy;
+	private Boolean active;
+	private Array<> bans;
+	private String customId;
+	private Integer version;
+	private String deletedBy;
+	private String firstName;
+	private String password;
+	private String createdDate;
+	private String createdBy;
+	private String deletedDate;
+	private String countryCode;
+	private UUID id;
+	private String email;
+	private BigDecimal longitude;
+	private String username;
 
     public Entity_User() {
     }
 
+   
     public String getEntityName() {
         return entityName;
     }
-
     public void setEntityName(String entityName) {
         this.entityName = entityName;
     }
     public String getInstanceName() {
         return instanceName;
     }
-
     public void setInstanceName(String instanceName) {
         this.instanceName = instanceName;
     }
     public String getCountry() {
         return country;
     }
-
     public void setCountry(String country) {
         this.country = country;
     }
     public String getLastName() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
     public String getCity() {
         return city;
     }
-
     public void setCity(String city) {
         this.city = city;
     }
     public String getLastModifiedDate() {
         return lastModifiedDate;
     }
-
     public void setLastModifiedDate(String lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
     public String getTimeZoneId() {
         return timeZoneId;
     }
-
     public void setTimeZoneId(String timeZoneId) {
         this.timeZoneId = timeZoneId;
     }
     public BigDecimal getLatitude() {
         return latitude;
     }
-
     public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
     }
     public String getLastModifiedBy() {
         return lastModifiedBy;
     }
-
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
     public Boolean getActive() {
         return active;
     }
-
     public void setActive(Boolean active) {
         this.active = active;
     }
-    public java.util.ArrayList<Entity_Ban> getBans() {
+    public Array<Entity_Ban> getBans() {
         return bans;
     }
-
-    public void setBans(java.util.ArrayList<Entity_Ban> bans) {
+    public void setBans(Array<Entity_Ban> bans) {
         this.bans = bans;
     }
     public String getCustomId() {
         return customId;
     }
-
     public void setCustomId(String customId) {
         this.customId = customId;
     }
     public Integer getVersion() {
         return version;
     }
-
     public void setVersion(Integer version) {
         this.version = version;
     }
     public String getDeletedBy() {
         return deletedBy;
     }
-
     public void setDeletedBy(String deletedBy) {
         this.deletedBy = deletedBy;
     }
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
     public String getCreatedDate() {
         return createdDate;
     }
-
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
     public String getCreatedBy() {
         return createdBy;
     }
-
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
     public String getDeletedDate() {
         return deletedDate;
     }
-
     public void setDeletedDate(String deletedDate) {
         this.deletedDate = deletedDate;
     }
     public String getCountryCode() {
         return countryCode;
     }
-
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
     public UUID getId() {
         return id;
     }
-
     public void setId(UUID id) {
         this.id = id;
     }
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
     public BigDecimal getLongitude() {
         return longitude;
     }
-
     public void setLongitude(BigDecimal longitude) {
         this.longitude = longitude;
     }
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -231,7 +207,7 @@ public class Entity_User implements Json.Serializable {
         json.writeValue("username", username);
     }
 
-    @Override
+        @Override
     public void read(Json json, JsonValue jsonData) {
         entityName = json.readValue("_entityName", String.class, jsonData);
         instanceName = json.readValue("_instanceName", String.class, jsonData);
@@ -243,7 +219,7 @@ public class Entity_User implements Json.Serializable {
         latitude = json.readValue("latitude", BigDecimal.class, jsonData);
         lastModifiedBy = json.readValue("lastModifiedBy", String.class, jsonData);
         active = json.readValue("active", Boolean.class, jsonData);
-        bans = json.readValue("bans", array.class, Entity_Ban.class, jsonData);
+        bans = json.readValue("bans", Array.class, Entity_Ban.class, jsonData);
         customId = json.readValue("customId", String.class, jsonData);
         version = json.readValue("version", Integer.class, jsonData);
         deletedBy = json.readValue("deletedBy", String.class, jsonData);
