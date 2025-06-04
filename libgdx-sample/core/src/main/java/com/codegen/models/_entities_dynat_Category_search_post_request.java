@@ -2,17 +2,18 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class _entities_dynat_Category_search_post_request implements Json.Serializable {
-	private String filter;
-	private Boolean dynamicAttributes;
-	private Boolean returnCount;
-	private String offset;
-	private Boolean returnNulls;
-	private String limit;
-	private String sort;
-	private String fetchPlan;
+    private String filter;
+    private Boolean dynamicAttributes;
+    private Boolean returnCount;
+    private String offset;
+    private Boolean returnNulls;
+    private String limit;
+    private String sort;
+    private String fetchPlan;
 
     public _entities_dynat_Category_search_post_request() {
     }

@@ -2,7 +2,8 @@ package com.myapp;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.codegen.api.UserApi;
-import com.codegen.models.Entity_User;
+import com.codegen.client.*;
+import com.codegen.models.*;
 
 public class Core extends ApplicationAdapter {
     private UserApi userApi;
@@ -10,7 +11,7 @@ public class Core extends ApplicationAdapter {
     @Override
     public void create() {
         // Initialize userApi (e.g., via ApiClient)
-        userApi = new com.codegen.client.ApiClient(new com.codegen.client.Configuration("https://api.example.com")).getUserApi(UserApi.class);
+        userApi = new com.codegen.client.ApiClient(new com.codegen.client.Configuration("https://api.example.com")).getUserApi();
 
         userApi.entitiesUserEntityIdGet(
             "123e4567-e89b-12d3-a456-426614174000",

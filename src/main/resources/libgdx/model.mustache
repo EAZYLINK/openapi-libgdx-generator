@@ -2,28 +2,73 @@ package {{modelPackage}};
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class {{classname}} implements Json.Serializable {
 	{{#models}}
 	{{#model}}
 	{{#modelJson}}
-	
     {{#vars}}
-    private {{{dataType}}} {{{name}}};
-    {{/vars}}
+	{{#isDateTime}}
+    private String {{name}};
+    {{/isDateTime}}
+    {{#isNumber}}
+    private float {{name}};
+    {{/isNumber}}
+    {{#isArray}}
+    private Array<{{items.dataType}}> {{name}};
+    {{/isArray}}
+    {{^isDateTime}}
+    {{^isNumber}}
+    {{^isArray}}
+    private {{{dataType}}} {{name}};
+    {{/isArray}}
+    {{/isNumber}}
+    {{/isDateTime}}
+	{{/vars}}
 
     public {{classname}}() {
     }
 
+   
     {{#vars}}
-    public {{{dataType}}} get{{#lambda.titlecase}}{{{name}}}{{/lambda.titlecase}}() {
-        return {{{name}}};
+    {{#isDateTime}}
+    public String get{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}() {
+        return {{name}};
     }
-
-    public void set{{#lambda.titlecase}}{{{name}}}{{/lambda.titlecase}}({{{dataType}}} {{name}}) {
-        this.{{{name}}} = {{{name}}};
+    public void set{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}(String {{name}}) {
+        this.{{name}} = {{name}};
     }
+    {{/isDateTime}}
+    {{#isNumber}}
+    public float get{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}() {
+        return {{name}};
+    }
+    public void set{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}(float {{name}}) {
+        this.{{name}} = {{name}};
+    }
+    {{/isNumber}}
+    {{#isArray}}
+    public Array<{{items.dataType}}> get{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}() {
+        return {{name}};
+    }
+    public void set{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}(Array<{{items.dataType}}> {{name}}) {
+        this.{{name}} = {{name}};
+    }
+    {{/isArray}}
+    {{^isDateTime}}
+    {{^isNumber}}
+    {{^isArray}}
+    public {{{dataType}}} get{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}() {
+        return {{name}};
+    }
+    public void set{{#lambda.titlecase}}{{name}}{{/lambda.titlecase}}({{{dataType}}} {{name}}) {
+        this.{{name}} = {{name}};
+    }
+    {{/isArray}}
+    {{/isNumber}}
+    {{/isDateTime}}
     {{/vars}}
 
     @Override
@@ -33,14 +78,24 @@ public class {{classname}} implements Json.Serializable {
         {{/vars}}
     }
 
-    @Override
+        @Override
     public void read(Json json, JsonValue jsonData) {
         {{#vars}}
         {{#isArray}}
-        {{name}} = json.readValue("{{baseName}}", {{containerType}}.class, {{items.dataType}}.class, jsonData);
+        {{name}} = json.readValue("{{baseName}}", Array.class, {{items.dataType}}.class, jsonData);
         {{/isArray}}
         {{^isArray}}
+        {{#isDateTime}}
+        {{name}} = json.readValue("{{baseName}}", String.class, jsonData);
+        {{/isDateTime}}
+        {{#isNumber}}
+        {{name}} = json.readValue("{{baseName}}", Float.class, jsonData);
+        {{/isNumber}}
+        {{^isDateTime}}
+        {{^isNumber}}
         {{name}} = json.readValue("{{baseName}}", {{dataType}}.class, jsonData);
+        {{/isNumber}}
+        {{/isDateTime}}
         {{/isArray}}
         {{/vars}}
     }

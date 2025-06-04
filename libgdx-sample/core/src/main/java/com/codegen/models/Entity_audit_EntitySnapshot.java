@@ -2,20 +2,21 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Entity_audit_EntitySnapshot implements Json.Serializable {
-	private String entityName;
-	private String instanceName;
-	private String snapshotXml;
-	private String snapshotDate;
-	private String createdDate;
-	private String createdBy;
-	private String fetchPlanXml;
-	private String entityMetaClass;
-	private String authorUsername;
-	private String sysTenantId;
-	private UUID id;
+    private String entityName;
+    private String instanceName;
+    private String snapshotXml;
+    private String snapshotDate;
+    private String createdDate;
+    private String createdBy;
+    private String fetchPlanXml;
+    private String entityMetaClass;
+    private String authorUsername;
+    private String sysTenantId;
+    private String id;
 
     public Entity_audit_EntitySnapshot() {
     }
@@ -81,10 +82,10 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
     public void setSysTenantId(String sysTenantId) {
         this.sysTenantId = sysTenantId;
     }
-    public UUID getId() {
+    public String getId() {
         return id;
     }
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -115,7 +116,7 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
         entityMetaClass = json.readValue("entityMetaClass", String.class, jsonData);
         authorUsername = json.readValue("authorUsername", String.class, jsonData);
         sysTenantId = json.readValue("sysTenantId", String.class, jsonData);
-        id = json.readValue("id", UUID.class, jsonData);
+        id = json.readValue("id", String.class, jsonData);
     }
 
     @Override

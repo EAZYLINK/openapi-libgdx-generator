@@ -74,6 +74,9 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
         importMapping.put("LocalDateTime", "org.joda.time.*");
         importMapping.put("LocalDate", "org.joda.time.*");
         importMapping.put("LocalTime", "org.joda.time.*");
+        typeMapping.put("UUID", "String");
+        typeMapping.put("BigDecimal", "Float");
+
 
         // Package info passed to templates
         additionalProperties.put("apiVersion", apiVersion);
@@ -155,6 +158,16 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
         return input.replace("*/", "*_/");
     }
     
+    @Override
+    public String getSchemaType(Schema schema) {
+        if ("string".equals(schema.getType()) && "uuid".equals(schema.getFormat())) {
+            return "UUID";
+        }
+
+        // fallback to default behavior
+        return super.getSchemaType(schema);
+    }
+
     @Override
     public void processOpts() {
         super.processOpts();

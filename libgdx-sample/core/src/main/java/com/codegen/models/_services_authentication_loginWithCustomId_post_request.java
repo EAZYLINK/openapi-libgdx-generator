@@ -2,11 +2,12 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class _services_authentication_loginWithCustomId_post_request implements Json.Serializable {
-	private String customId;
-	private Boolean createIfNotExists;
+    private String customId;
+    private Boolean createIfNotExists;
 
     public _services_authentication_loginWithCustomId_post_request() {
     }

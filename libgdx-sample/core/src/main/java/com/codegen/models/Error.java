@@ -2,11 +2,12 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Error implements Json.Serializable {
-	private String error;
-	private String details;
+    private String error;
+    private String details;
 
     public Error() {
     }

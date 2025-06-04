@@ -2,11 +2,12 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class _services_authentication_loginWithEmail_post_request implements Json.Serializable {
-	private String email;
-	private String password;
+    private String email;
+    private String password;
 
     public _services_authentication_loginWithEmail_post_request() {
     }

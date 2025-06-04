@@ -1,6 +1,7 @@
 package {{invokerPackage}};
 
 import {{apiPackage}}.*;
+import {{invokerPackage}}.Configuration;
 
 public class ApiClient {
     private final Configuration config;
@@ -8,7 +9,7 @@ public class ApiClient {
 
     public ApiClient(Configuration config) {
         this.config = config;
-        this.baseUrl = config.getBaseUrl;
+        this.baseUrl = config.getBaseUrl();
     }
 
     public {{apiPackage}}.UserApi getUserApi() {

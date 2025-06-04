@@ -2,24 +2,25 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Entity_dynat_Category implements Json.Serializable {
-	private String entityName;
-	private String instanceName;
-	private String localeNames;
-	private String updatedBy;
-	private String entityType;
-	private Integer version;
-	private String deletedBy;
-	private String special;
-	private String deleteTs;
-	private Boolean isDefault;
-	private String createdBy;
-	private String name;
-	private String createTs;
-	private UUID id;
-	private String updateTs;
+    private String entityName;
+    private String instanceName;
+    private String localeNames;
+    private String updatedBy;
+    private String entityType;
+    private Integer version;
+    private String deletedBy;
+    private String special;
+    private String deleteTs;
+    private Boolean isDefault;
+    private String createdBy;
+    private String name;
+    private String createTs;
+    private String id;
+    private String updateTs;
 
     public Entity_dynat_Category() {
     }
@@ -103,10 +104,10 @@ public class Entity_dynat_Category implements Json.Serializable {
     public void setCreateTs(String createTs) {
         this.createTs = createTs;
     }
-    public UUID getId() {
+    public String getId() {
         return id;
     }
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getUpdateTs() {
@@ -150,7 +151,7 @@ public class Entity_dynat_Category implements Json.Serializable {
         createdBy = json.readValue("createdBy", String.class, jsonData);
         name = json.readValue("name", String.class, jsonData);
         createTs = json.readValue("createTs", String.class, jsonData);
-        id = json.readValue("id", UUID.class, jsonData);
+        id = json.readValue("id", String.class, jsonData);
         updateTs = json.readValue("updateTs", String.class, jsonData);
     }
 

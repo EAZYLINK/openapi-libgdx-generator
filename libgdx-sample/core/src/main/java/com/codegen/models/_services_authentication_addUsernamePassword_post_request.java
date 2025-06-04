@@ -2,13 +2,14 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class _services_authentication_addUsernamePassword_post_request implements Json.Serializable {
-	private Entity_User user;
-	private String username;
-	private String email;
-	private String password;
+    private Entity_User user;
+    private String username;
+    private String email;
+    private String password;
 
     public _services_authentication_addUsernamePassword_post_request() {
     }

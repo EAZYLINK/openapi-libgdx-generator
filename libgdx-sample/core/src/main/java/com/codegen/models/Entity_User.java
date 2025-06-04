@@ -2,33 +2,34 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Entity_User implements Json.Serializable {
-	private String entityName;
-	private String instanceName;
-	private String country;
-	private String lastName;
-	private String city;
-	private String lastModifiedDate;
-	private String timeZoneId;
-	private BigDecimal latitude;
-	private String lastModifiedBy;
-	private Boolean active;
-	private Array<> bans;
-	private String customId;
-	private Integer version;
-	private String deletedBy;
-	private String firstName;
-	private String password;
-	private String createdDate;
-	private String createdBy;
-	private String deletedDate;
-	private String countryCode;
-	private UUID id;
-	private String email;
-	private BigDecimal longitude;
-	private String username;
+    private String entityName;
+    private String instanceName;
+    private String country;
+    private String lastName;
+    private String city;
+    private String lastModifiedDate;
+    private String timeZoneId;
+    private float latitude;
+    private String lastModifiedBy;
+    private Boolean active;
+    private Array<Entity_Ban> bans;
+    private String customId;
+    private Integer version;
+    private String deletedBy;
+    private String firstName;
+    private String password;
+    private String createdDate;
+    private String createdBy;
+    private String deletedDate;
+    private String countryCode;
+    private String id;
+    private String email;
+    private float longitude;
+    private String username;
 
     public Entity_User() {
     }
@@ -76,10 +77,10 @@ public class Entity_User implements Json.Serializable {
     public void setTimeZoneId(String timeZoneId) {
         this.timeZoneId = timeZoneId;
     }
-    public BigDecimal getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
-    public void setLatitude(BigDecimal latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
     public String getLastModifiedBy() {
@@ -154,10 +155,10 @@ public class Entity_User implements Json.Serializable {
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
     }
-    public UUID getId() {
+    public String getId() {
         return id;
     }
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getEmail() {
@@ -166,10 +167,10 @@ public class Entity_User implements Json.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public BigDecimal getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
-    public void setLongitude(BigDecimal longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
     public String getUsername() {
@@ -216,7 +217,7 @@ public class Entity_User implements Json.Serializable {
         city = json.readValue("city", String.class, jsonData);
         lastModifiedDate = json.readValue("lastModifiedDate", String.class, jsonData);
         timeZoneId = json.readValue("timeZoneId", String.class, jsonData);
-        latitude = json.readValue("latitude", BigDecimal.class, jsonData);
+        latitude = json.readValue("latitude", Float.class, jsonData);
         lastModifiedBy = json.readValue("lastModifiedBy", String.class, jsonData);
         active = json.readValue("active", Boolean.class, jsonData);
         bans = json.readValue("bans", Array.class, Entity_Ban.class, jsonData);
@@ -229,9 +230,9 @@ public class Entity_User implements Json.Serializable {
         createdBy = json.readValue("createdBy", String.class, jsonData);
         deletedDate = json.readValue("deletedDate", String.class, jsonData);
         countryCode = json.readValue("countryCode", String.class, jsonData);
-        id = json.readValue("id", UUID.class, jsonData);
+        id = json.readValue("id", String.class, jsonData);
         email = json.readValue("email", String.class, jsonData);
-        longitude = json.readValue("longitude", BigDecimal.class, jsonData);
+        longitude = json.readValue("longitude", Float.class, jsonData);
         username = json.readValue("username", String.class, jsonData);
     }
 

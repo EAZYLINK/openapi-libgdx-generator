@@ -2,21 +2,22 @@ package com.codegen.models;
 
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonValue;
+import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Entity_Ban implements Json.Serializable {
-	private String entityName;
-	private String instanceName;
-	private String reason;
-	private String createdDate;
-	private String createdBy;
-	private String lastModifiedDate;
-	private String deletedDate;
-	private Entity_User bannedBy;
-	private String lastModifiedBy;
-	private UUID id;
-	private Entity_User user;
-	private String deletedBy;
+    private String entityName;
+    private String instanceName;
+    private String reason;
+    private String createdDate;
+    private String createdBy;
+    private String lastModifiedDate;
+    private String deletedDate;
+    private Entity_User bannedBy;
+    private String lastModifiedBy;
+    private String id;
+    private Entity_User user;
+    private String deletedBy;
 
     public Entity_Ban() {
     }
@@ -76,10 +77,10 @@ public class Entity_Ban implements Json.Serializable {
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
-    public UUID getId() {
+    public String getId() {
         return id;
     }
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
     public Entity_User getUser() {
@@ -122,7 +123,7 @@ public class Entity_Ban implements Json.Serializable {
         deletedDate = json.readValue("deletedDate", String.class, jsonData);
         bannedBy = json.readValue("bannedBy", Entity_User.class, jsonData);
         lastModifiedBy = json.readValue("lastModifiedBy", String.class, jsonData);
-        id = json.readValue("id", UUID.class, jsonData);
+        id = json.readValue("id", String.class, jsonData);
         user = json.readValue("user", Entity_User.class, jsonData);
         deletedBy = json.readValue("deletedBy", String.class, jsonData);
     }
