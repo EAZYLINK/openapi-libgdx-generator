@@ -36,8 +36,8 @@ allprojects {
 
 configure(subprojects - project(':android')) {
     apply plugin: 'java-library'
-    sourceCompatibility = 11 // Align with openapi-libgdx-generator
-    targetCompatibility = 11
+    sourceCompatibility = 8 // Align with openapi-libgdx-generator
+    targetCompatibility = 8
 
     tasks.register('generateAssetList') {
         inputs.dir("${project.rootDir}/assets/")

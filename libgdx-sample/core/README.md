@@ -8,7 +8,7 @@ This Java API client was generated automatically using the OpenAPI spec.
 
 - API version: 0.1
 - Package version: 0.1
-- Build package: com.libgdx.codegen.LibgdxClientGenerator
+- Build package: org.openaitools.languages.LibgdxClientGenerator
 
 ## Requirements
 
