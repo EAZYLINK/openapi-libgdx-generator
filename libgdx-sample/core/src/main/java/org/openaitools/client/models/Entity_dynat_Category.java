@@ -6,6 +6,10 @@ import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Entity_dynat_Category implements Json.Serializable {
+<<<<<<< HEAD:libgdx-sample/core/src/main/java/org/openaitools/client/models/Entity_dynat_Category.java
+=======
+	
+>>>>>>> parent of 43865dd (datatype fix):libgdx-sample/core/src/main/java/com/codegen/models/Entity_dynat_Category.java
     private String entityName;
     private String instanceName;
     private String localeNames;
@@ -14,6 +18,7 @@ public class Entity_dynat_Category implements Json.Serializable {
     private Integer version;
     private String deletedBy;
     private String special;
+<<<<<<< HEAD:libgdx-sample/core/src/main/java/org/openaitools/client/models/Entity_dynat_Category.java
     private String deleteTs;
     private Boolean isDefault;
     private String createdBy;
@@ -21,99 +26,126 @@ public class Entity_dynat_Category implements Json.Serializable {
     private String createTs;
     private String id;
     private String updateTs;
+=======
+    private OffsetDateTime deleteTs;
+    private Boolean isDefault;
+    private String createdBy;
+    private String name;
+    private OffsetDateTime createTs;
+    private UUID id;
+    private OffsetDateTime updateTs;
+>>>>>>> parent of 43865dd (datatype fix):libgdx-sample/core/src/main/java/com/codegen/models/Entity_dynat_Category.java
 
     public Entity_dynat_Category() {
     }
 
-   
     public String getEntityName() {
         return entityName;
     }
+
     public void setEntityName(String entityName) {
         this.entityName = entityName;
     }
     public String getInstanceName() {
         return instanceName;
     }
+
     public void setInstanceName(String instanceName) {
         this.instanceName = instanceName;
     }
     public String getLocaleNames() {
         return localeNames;
     }
+
     public void setLocaleNames(String localeNames) {
         this.localeNames = localeNames;
     }
     public String getUpdatedBy() {
         return updatedBy;
     }
+
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
     public String getEntityType() {
         return entityType;
     }
+
     public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
     public Integer getVersion() {
         return version;
     }
+
     public void setVersion(Integer version) {
         this.version = version;
     }
     public String getDeletedBy() {
         return deletedBy;
     }
+
     public void setDeletedBy(String deletedBy) {
         this.deletedBy = deletedBy;
     }
     public String getSpecial() {
         return special;
     }
+
     public void setSpecial(String special) {
         this.special = special;
     }
-    public String getDeleteTs() {
+    public OffsetDateTime getDeleteTs() {
         return deleteTs;
     }
-    public void setDeleteTs(String deleteTs) {
+
+    public void setDeleteTs(OffsetDateTime deleteTs) {
         this.deleteTs = deleteTs;
     }
     public Boolean getIsDefault() {
         return isDefault;
     }
+
     public void setIsDefault(Boolean isDefault) {
         this.isDefault = isDefault;
     }
     public String getCreatedBy() {
         return createdBy;
     }
+
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-    public String getCreateTs() {
+    public OffsetDateTime getCreateTs() {
         return createTs;
     }
-    public void setCreateTs(String createTs) {
+
+    public void setCreateTs(OffsetDateTime createTs) {
         this.createTs = createTs;
     }
     public String getId() {
         return id;
     }
+<<<<<<< HEAD:libgdx-sample/core/src/main/java/org/openaitools/client/models/Entity_dynat_Category.java
     public void setId(String id) {
+=======
+
+    public void setId(UUID id) {
+>>>>>>> parent of 43865dd (datatype fix):libgdx-sample/core/src/main/java/com/codegen/models/Entity_dynat_Category.java
         this.id = id;
     }
-    public String getUpdateTs() {
+    public OffsetDateTime getUpdateTs() {
         return updateTs;
     }
-    public void setUpdateTs(String updateTs) {
+
+    public void setUpdateTs(OffsetDateTime updateTs) {
         this.updateTs = updateTs;
     }
 
@@ -136,7 +168,7 @@ public class Entity_dynat_Category implements Json.Serializable {
         json.writeValue("updateTs", updateTs);
     }
 
-        @Override
+    @Override
     public void read(Json json, JsonValue jsonData) {
         entityName = json.readValue("_entityName", String.class, jsonData);
         instanceName = json.readValue("_instanceName", String.class, jsonData);
@@ -146,13 +178,19 @@ public class Entity_dynat_Category implements Json.Serializable {
         version = json.readValue("version", Integer.class, jsonData);
         deletedBy = json.readValue("deletedBy", String.class, jsonData);
         special = json.readValue("special", String.class, jsonData);
-        deleteTs = json.readValue("deleteTs", String.class, jsonData);
+        deleteTs = json.readValue("deleteTs", OffsetDateTime.class, jsonData);
         isDefault = json.readValue("isDefault", Boolean.class, jsonData);
         createdBy = json.readValue("createdBy", String.class, jsonData);
         name = json.readValue("name", String.class, jsonData);
+<<<<<<< HEAD:libgdx-sample/core/src/main/java/org/openaitools/client/models/Entity_dynat_Category.java
         createTs = json.readValue("createTs", String.class, jsonData);
         id = json.readValue("id", String.class, jsonData);
         updateTs = json.readValue("updateTs", String.class, jsonData);
+=======
+        createTs = json.readValue("createTs", OffsetDateTime.class, jsonData);
+        id = json.readValue("id", UUID.class, jsonData);
+        updateTs = json.readValue("updateTs", OffsetDateTime.class, jsonData);
+>>>>>>> parent of 43865dd (datatype fix):libgdx-sample/core/src/main/java/com/codegen/models/Entity_dynat_Category.java
     }
 
     @Override

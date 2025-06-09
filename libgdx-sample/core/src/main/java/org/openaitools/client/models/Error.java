@@ -6,22 +6,27 @@ import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class Error implements Json.Serializable {
+<<<<<<< HEAD:libgdx-sample/core/src/main/java/org/openaitools/client/models/Error.java
+=======
+	
+>>>>>>> parent of 43865dd (datatype fix):libgdx-sample/core/src/main/java/com/codegen/models/Error.java
     private String error;
     private String details;
 
     public Error() {
     }
 
-   
     public String getError() {
         return error;
     }
+
     public void setError(String error) {
         this.error = error;
     }
     public String getDetails() {
         return details;
     }
+
     public void setDetails(String details) {
         this.details = details;
     }
@@ -32,7 +37,7 @@ public class Error implements Json.Serializable {
         json.writeValue("details", details);
     }
 
-        @Override
+    @Override
     public void read(Json json, JsonValue jsonData) {
         error = json.readValue("error", String.class, jsonData);
         details = json.readValue("details", String.class, jsonData);

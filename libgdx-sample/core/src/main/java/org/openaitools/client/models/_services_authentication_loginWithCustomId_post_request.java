@@ -6,22 +6,27 @@ import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 public class _services_authentication_loginWithCustomId_post_request implements Json.Serializable {
+<<<<<<< HEAD:libgdx-sample/core/src/main/java/org/openaitools/client/models/_services_authentication_loginWithCustomId_post_request.java
+=======
+	
+>>>>>>> parent of 43865dd (datatype fix):libgdx-sample/core/src/main/java/com/codegen/models/_services_authentication_loginWithCustomId_post_request.java
     private String customId;
     private Boolean createIfNotExists;
 
     public _services_authentication_loginWithCustomId_post_request() {
     }
 
-   
     public String getCustomId() {
         return customId;
     }
+
     public void setCustomId(String customId) {
         this.customId = customId;
     }
     public Boolean getCreateIfNotExists() {
         return createIfNotExists;
     }
+
     public void setCreateIfNotExists(Boolean createIfNotExists) {
         this.createIfNotExists = createIfNotExists;
     }
@@ -32,7 +37,7 @@ public class _services_authentication_loginWithCustomId_post_request implements 
         json.writeValue("createIfNotExists", createIfNotExists);
     }
 
-        @Override
+    @Override
     public void read(Json json, JsonValue jsonData) {
         customId = json.readValue("customId", String.class, jsonData);
         createIfNotExists = json.readValue("createIfNotExists", Boolean.class, jsonData);
