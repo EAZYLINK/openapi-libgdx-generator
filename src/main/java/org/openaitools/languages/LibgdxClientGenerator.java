@@ -25,7 +25,8 @@ import java.util.Map;
 public class LibgdxClientGenerator extends AbstractJavaCodegen{
 
     protected String sourceFolder = "src/main/java";
-    protected String packageName = "org.openaitools.client";
+    protected String testFolder = "src/test/java";
+    protected String packageName = "libgdx.client";
     protected String apiVersion = "1.0.0";
 
     public LibgdxClientGenerator() {
@@ -36,10 +37,10 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
         
 
         // Set API and model package names
-        apiPackage = "org.openaitools.client.api";
-        modelPackage = "org.openaitools.client.model";
-        testPackage = "org.openaitools.client.test";
-        invokerPackage = "org.openaitools.client";
+        apiPackage = "libgdx.client.api";
+        modelPackage = "libgdx.client.model";
+        testPackage = "libgdx.client.test";
+        invokerPackage = "libgdx.client";
         templateDir = "libgdx";
 
 
@@ -133,12 +134,12 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
 
     @Override
     public String apiTestFileFolder() {
-        return new File(outputFolder, sourceFolder + File.separator + testPackage().replace('.', File.separatorChar)).getPath();
+        return new File(outputFolder, testFolder + File.separator + testPackage().replace('.', File.separatorChar)).getPath();
     }
     
     @Override
     public String modelTestFileFolder() {
-        return new File(outputFolder, sourceFolder + File.separator + modelPackage().replace('.', File.separatorChar)).getPath();
+        return new File(outputFolder, testFolder + File.separator + modelPackage().replace('.', File.separatorChar)).getPath();
     }
     
 
@@ -191,7 +192,7 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
     	if (packageName != null && !packageName.isBlank()) {
     		this.apiPackage = packageName + ".api";
     		this.modelPackage = packageName + ".model";
-    		this.testPackage = packageName + ".api";
+    		this.testPackage = packageName + ".test";
     		this.invokerPackage = packageName + ".client";
     		
     	}
