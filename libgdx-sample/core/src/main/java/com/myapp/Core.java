@@ -11,7 +11,7 @@ public class Core extends ApplicationAdapter {
     @Override
     public void create() {
         // Initialize userApi (e.g., via ApiClient)
-        userApi = new ApiClient(new Configuration("https://api.example.com")).getUserApi(UserApi.class);
+        userApi = new ApiClient(new Configuration("https://api.example.com")).getUserApi();
 
         userApi.entitiesUserEntityIdGet(
             "123e4567-e89b-12d3-a456-426614174000",

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to="html">
     <source path="com/myapp"/>
+    <source path="libgdx/client"/>
     <inherits name="com.myapp.GdxDefinition"/>
 </module>
