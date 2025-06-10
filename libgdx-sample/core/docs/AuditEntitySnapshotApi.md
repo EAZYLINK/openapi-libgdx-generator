@@ -47,7 +47,7 @@ Gets a single entity by identifier
 
 #### Responses
 
-- **200**: Success. The entity is returned in the response body. — Returns `Entity_audit_EntitySnapshot`
+- **200**: Success. The entity is returned in the response body. — Returns `EntityAuditEntitySnapshot`
 - **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
 - **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
 
@@ -67,11 +67,11 @@ Updates the entity. Only fields that are passed in the JSON object (the request 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
 | `entityId` | `` | `String` | ✔️ | Entity identifier |
-| `entityAuditEntitySnapshot` | `` | `Entity_audit_EntitySnapshot` | ✔️ | JSON object with the entity |
+| `entityAuditEntitySnapshot` | `` | `EntityAuditEntitySnapshot` | ✔️ | JSON object with the entity |
 
 #### Responses
 
-- **200**: Success. The updated entity is returned in the response body. — Returns `Entity_audit_EntitySnapshot`
+- **200**: Success. The updated entity is returned in the response body. — Returns `EntityAuditEntitySnapshot`
 - **403**: Forbidden. The user doesn&#39;t have permissions to update the entity. — Returns `Error`
 - **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
 
@@ -100,7 +100,7 @@ Gets a list of entities
 
 #### Responses
 
-- **200**: Success. The list of entities is returned in the response body. — Returns `java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;`
+- **200**: Success. The list of entities is returned in the response body. — Returns `java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;`
 - **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
 - **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
 
@@ -119,11 +119,11 @@ The method expects a JSON with entity object in the request body. The entity obj
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
-| `entityAuditEntitySnapshot` | `` | `Entity_audit_EntitySnapshot` | ✔️ | JSON object with the entity |
+| `entityAuditEntitySnapshot` | `` | `EntityAuditEntitySnapshot` | ✔️ | JSON object with the entity |
 
 #### Responses
 
-- **201**: Entity created. The created entity is returned in the response body. — Returns `Entity_audit_EntitySnapshot`
+- **201**: Entity created. The created entity is returned in the response body. — Returns `EntityAuditEntitySnapshot`
 - **400**: Bad request. For example, the entity may have a reference to the non-existing entity. — Returns `Error`
 - **403**: Forbidden. The user doesn&#39;t have permissions to create the entity. — Returns `Error`
 - **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
@@ -154,7 +154,7 @@ Finds entities by filter conditions. The filter is defined by JSON object that i
 
 #### Responses
 
-- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;`
+- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;`
 - **400**: Bad request. For example, the condition value cannot be parsed. — Returns `Error`
 - **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
 - **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`
@@ -174,11 +174,11 @@ Finds entities by filter conditions. The filter is defined by JSON object that i
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
-| `entitiesDynatCategorySearchPostRequest` | `` | `_entities_dynat_Category_search_post_request` | ✔️ | JSON with search parameters |
+| `entitiesDynatCategorySearchPostRequest` | `` | `EntitiesDynatCategorySearchPostRequest` | ✔️ | JSON with search parameters |
 
 #### Responses
 
-- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;Entity_audit_EntitySnapshot&gt;`
+- **200**: Success. Entities that conforms filter conditions are returned in the response body. — Returns `java.util.ArrayList&lt;EntityAuditEntitySnapshot&gt;`
 - **400**: Bad request. For example, the condition value cannot be parsed. — Returns `Error`
 - **403**: Forbidden. The user doesn&#39;t have permissions to read the entity. — Returns `Error`
 - **404**: Not found. MetaClass for the entity with the given name not found. — Returns `Error`

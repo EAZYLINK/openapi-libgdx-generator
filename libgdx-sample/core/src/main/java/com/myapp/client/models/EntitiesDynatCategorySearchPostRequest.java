@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class entitiesDynatCategorySearchPostRequest implements Json.Serializable {
+public class EntitiesDynatCategorySearchPostRequest implements Json.Serializable {
     private String filter;
     private Boolean dynamicAttributes;
     private Boolean returnCount;
@@ -15,7 +15,7 @@ public class entitiesDynatCategorySearchPostRequest implements Json.Serializable
     private String sort;
     private String fetchPlan;
 
-    public entitiesDynatCategorySearchPostRequest() {
+    public EntitiesDynatCategorySearchPostRequest() {
     }
 
    
@@ -100,6 +100,6 @@ public class entitiesDynatCategorySearchPostRequest implements Json.Serializable
 
     public static entitiesDynatCategorySearchPostRequest fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(entitiesDynatCategorySearchPostRequest.class, jsonString);
+        return json.fromJson(EntitiesDynatCategorySearchPostRequest.class, jsonString);
     }
 }

@@ -7,12 +7,12 @@ import java.util.*;
 
 public interface BanApi {
     void entitiesBanEntityIdDelete( String entityId, Callback<Void> callback);
-    void entitiesBanEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<Entity_Ban> callback);
-    void entitiesBanEntityIdPut( String entityId, Entity_Ban entityBan, Callback<Entity_Ban> callback);
-    void entitiesBanGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_Ban>> callback);
-    void entitiesBanPost( Entity_Ban entityBan, Callback<Entity_Ban> callback);
-    void entitiesBanSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_Ban>> callback);
-    void entitiesBanSearchPost( _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<Entity_Ban>> callback);
+    void entitiesBanEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<EntityBan> callback);
+    void entitiesBanEntityIdPut( String entityId, EntityBan entityBan, Callback<EntityBan> callback);
+    void entitiesBanGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityBan>> callback);
+    void entitiesBanPost( EntityBan entityBan, Callback<EntityBan> callback);
+    void entitiesBanSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityBan>> callback);
+    void entitiesBanSearchPost( EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<EntityBan>> callback);
 
     interface Callback<T> {
         void onSuccess(T result);

@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class entityDynatCategory implements Json.Serializable {
+public class EntityDynatCategory implements Json.Serializable {
     private String entityName;
     private String instanceName;
     private String localeNames;
@@ -22,7 +22,7 @@ public class entityDynatCategory implements Json.Serializable {
     private String id;
     private String updateTs;
 
-    public entityDynatCategory() {
+    public EntityDynatCategory() {
     }
 
    
@@ -163,6 +163,6 @@ public class entityDynatCategory implements Json.Serializable {
 
     public static entityDynatCategory fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(entityDynatCategory.class, jsonString);
+        return json.fromJson(EntityDynatCategory.class, jsonString);
     }
 }

@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class entityBan implements Json.Serializable {
+public class EntityBan implements Json.Serializable {
     private String entityName;
     private String instanceName;
     private String reason;
@@ -13,13 +13,13 @@ public class entityBan implements Json.Serializable {
     private String createdBy;
     private String lastModifiedDate;
     private String deletedDate;
-    private Entity_User bannedBy;
+    private EntityUser bannedBy;
     private String lastModifiedBy;
     private String id;
-    private Entity_User user;
+    private EntityUser user;
     private String deletedBy;
 
-    public entityBan() {
+    public EntityBan() {
     }
 
    
@@ -65,10 +65,10 @@ public class entityBan implements Json.Serializable {
     public void setDeletedDate(String deletedDate) {
         this.deletedDate = deletedDate;
     }
-    public Entity_User getBannedBy() {
+    public EntityUser getBannedBy() {
         return bannedBy;
     }
-    public void setBannedBy(Entity_User bannedBy) {
+    public void setBannedBy(EntityUser bannedBy) {
         this.bannedBy = bannedBy;
     }
     public String getLastModifiedBy() {
@@ -83,10 +83,10 @@ public class entityBan implements Json.Serializable {
     public void setId(String id) {
         this.id = id;
     }
-    public Entity_User getUser() {
+    public EntityUser getUser() {
         return user;
     }
-    public void setUser(Entity_User user) {
+    public void setUser(EntityUser user) {
         this.user = user;
     }
     public String getDeletedBy() {
@@ -121,10 +121,10 @@ public class entityBan implements Json.Serializable {
         createdBy = json.readValue("createdBy", String.class, jsonData);
         lastModifiedDate = json.readValue("lastModifiedDate", String.class, jsonData);
         deletedDate = json.readValue("deletedDate", String.class, jsonData);
-        bannedBy = json.readValue("bannedBy", Entity_User.class, jsonData);
+        bannedBy = json.readValue("bannedBy", EntityUser.class, jsonData);
         lastModifiedBy = json.readValue("lastModifiedBy", String.class, jsonData);
         id = json.readValue("id", String.class, jsonData);
-        user = json.readValue("user", Entity_User.class, jsonData);
+        user = json.readValue("user", EntityUser.class, jsonData);
         deletedBy = json.readValue("deletedBy", String.class, jsonData);
     }
 
@@ -136,6 +136,6 @@ public class entityBan implements Json.Serializable {
 
     public static entityBan fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(entityBan.class, jsonString);
+        return json.fromJson(EntityBan.class, jsonString);
     }
 }

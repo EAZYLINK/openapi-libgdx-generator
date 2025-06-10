@@ -45,7 +45,7 @@ Executes the service method. This request expects query parameters with the name
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
-| `servicesAuthenticationAddUsernamePasswordPostRequest` | `` | `_services_authentication_addUsernamePassword_post_request` | ✔️ |  |
+| `servicesAuthenticationAddUsernamePasswordPostRequest` | `` | `ServicesAuthenticationAddUsernamePasswordPostRequest` | ✔️ |  |
 
 #### Responses
 
@@ -71,7 +71,7 @@ Executes the service method. This request expects query parameters with the name
 
 #### Responses
 
-- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `EntityUser`
 - **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
 - **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
@@ -94,7 +94,7 @@ Executes the service method. This request expects query parameters with the name
 
 #### Responses
 
-- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `EntityUser`
 - **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
 - **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
@@ -118,7 +118,7 @@ Executes the service method. This request expects query parameters with the name
 
 #### Responses
 
-- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `EntityUser`
 - **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
 - **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
@@ -137,11 +137,11 @@ Executes the service method. This request expects query parameters with the name
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
-| `servicesAuthenticationLoginWithCustomIdPostRequest` | `` | `_services_authentication_loginWithCustomId_post_request` | ✔️ |  |
+| `servicesAuthenticationLoginWithCustomIdPostRequest` | `` | `ServicesAuthenticationLoginWithCustomIdPostRequest` | ✔️ |  |
 
 #### Responses
 
-- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `EntityUser`
 - **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
 - **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
@@ -165,7 +165,7 @@ Executes the service method. This request expects query parameters with the name
 
 #### Responses
 
-- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `EntityUser`
 - **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
 - **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 
@@ -184,11 +184,11 @@ Executes the service method. This request expects query parameters with the name
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
-| `servicesAuthenticationLoginWithEmailPostRequest` | `` | `_services_authentication_loginWithEmail_post_request` | ✔️ |  |
+| `servicesAuthenticationLoginWithEmailPostRequest` | `` | `ServicesAuthenticationLoginWithEmailPostRequest` | ✔️ |  |
 
 #### Responses
 
-- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `Entity_User`
+- **200**: Returns the result of the method execution. It can be of simple datatype as well as JSON that represents an entity or entities collection. — Returns `EntityUser`
 - **204**: No content. This status is returned when the service method was executed successfully but returns null or is of void type.
 - **403**: Forbidden. The user doesn&#39;t have permissions to invoke the service method. — Returns `Error`
 

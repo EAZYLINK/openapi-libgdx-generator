@@ -1,14 +1,10 @@
+# Models
 
+## 
 
-# ServicesAuthenticationLoginWithCustomIdPostRequest
+> 
 
+| Property | Type | Format | Required | Default | Description |
+|----------|------|--------|----------|---------|-------------|
 
-## Properties
-
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**customId** | **String** |  |  [optional] |
-|**createIfNotExists** | **Boolean** |  |  [optional] |
-
-
-
+---

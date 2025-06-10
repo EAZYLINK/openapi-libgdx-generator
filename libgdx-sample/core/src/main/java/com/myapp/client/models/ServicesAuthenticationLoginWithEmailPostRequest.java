@@ -5,11 +5,11 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class servicesAuthenticationLoginWithEmailPostRequest implements Json.Serializable {
+public class ServicesAuthenticationLoginWithEmailPostRequest implements Json.Serializable {
     private String email;
     private String password;
 
-    public servicesAuthenticationLoginWithEmailPostRequest() {
+    public ServicesAuthenticationLoginWithEmailPostRequest() {
     }
 
    
@@ -46,6 +46,6 @@ public class servicesAuthenticationLoginWithEmailPostRequest implements Json.Ser
 
     public static servicesAuthenticationLoginWithEmailPostRequest fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(servicesAuthenticationLoginWithEmailPostRequest.class, jsonString);
+        return json.fromJson(ServicesAuthenticationLoginWithEmailPostRequest.class, jsonString);
     }
 }

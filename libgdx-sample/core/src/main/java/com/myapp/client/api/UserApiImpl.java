@@ -52,7 +52,7 @@ public class UserApiImpl implements UserApi {
         });
     }
     @Override
-    public void entitiesUserEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<Entity_User> callback) {
+    public void entitiesUserEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<EntityUser> callback) {
         String url = baseUrl + "/rest/entities/User/{entityId}";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -68,7 +68,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    Entity_User result = json.fromJson(Entity_User.class, responseData);
+                    EntityUser result = json.fromJson(EntityUser.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -87,7 +87,7 @@ public class UserApiImpl implements UserApi {
         });
     }
     @Override
-    public void entitiesUserEntityIdPut( String entityId, Entity_User entityUser, Callback<Entity_User> callback) {
+    public void entitiesUserEntityIdPut( String entityId, EntityUser entityUser, Callback<EntityUser> callback) {
         String url = baseUrl + "/rest/entities/User/{entityId}";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -103,7 +103,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    Entity_User result = json.fromJson(Entity_User.class, responseData);
+                    EntityUser result = json.fromJson(EntityUser.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -122,7 +122,7 @@ public class UserApiImpl implements UserApi {
         });
     }
     @Override
-    public void entitiesUserGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_User>> callback) {
+    public void entitiesUserGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityUser>> callback) {
         String url = baseUrl + "/rest/entities/User";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -138,7 +138,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_User> result = json.fromJson(java.util.ArrayList.class, Entity_User.class, responseData);
+                    java.util.ArrayList<EntityUser> result = json.fromJson(java.util.ArrayList.class, EntityUser.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -157,7 +157,7 @@ public class UserApiImpl implements UserApi {
         });
     }
     @Override
-    public void entitiesUserPost( Entity_User entityUser, Callback<Entity_User> callback) {
+    public void entitiesUserPost( EntityUser entityUser, Callback<EntityUser> callback) {
         String url = baseUrl + "/rest/entities/User";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -173,7 +173,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 201) {
-                    Entity_User result = json.fromJson(Entity_User.class, responseData);
+                    EntityUser result = json.fromJson(EntityUser.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -192,7 +192,7 @@ public class UserApiImpl implements UserApi {
         });
     }
     @Override
-    public void entitiesUserSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_User>> callback) {
+    public void entitiesUserSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityUser>> callback) {
         String url = baseUrl + "/rest/entities/User/search";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -208,7 +208,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_User> result = json.fromJson(java.util.ArrayList.class, Entity_User.class, responseData);
+                    java.util.ArrayList<EntityUser> result = json.fromJson(java.util.ArrayList.class, EntityUser.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -227,7 +227,7 @@ public class UserApiImpl implements UserApi {
         });
     }
     @Override
-    public void entitiesUserSearchPost( _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<Entity_User>> callback) {
+    public void entitiesUserSearchPost( EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<EntityUser>> callback) {
         String url = baseUrl + "/rest/entities/User/search";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -243,7 +243,7 @@ public class UserApiImpl implements UserApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_User> result = json.fromJson(java.util.ArrayList.class, Entity_User.class, responseData);
+                    java.util.ArrayList<EntityUser> result = json.fromJson(java.util.ArrayList.class, EntityUser.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));

@@ -5,20 +5,20 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class servicesAuthenticationAddUsernamePasswordPostRequest implements Json.Serializable {
-    private Entity_User user;
+public class ServicesAuthenticationAddUsernamePasswordPostRequest implements Json.Serializable {
+    private EntityUser user;
     private String username;
     private String email;
     private String password;
 
-    public servicesAuthenticationAddUsernamePasswordPostRequest() {
+    public ServicesAuthenticationAddUsernamePasswordPostRequest() {
     }
 
    
-    public Entity_User getUser() {
+    public EntityUser getUser() {
         return user;
     }
-    public void setUser(Entity_User user) {
+    public void setUser(EntityUser user) {
         this.user = user;
     }
     public String getUsername() {
@@ -50,7 +50,7 @@ public class servicesAuthenticationAddUsernamePasswordPostRequest implements Jso
 
         @Override
     public void read(Json json, JsonValue jsonData) {
-        user = json.readValue("user", Entity_User.class, jsonData);
+        user = json.readValue("user", EntityUser.class, jsonData);
         username = json.readValue("username", String.class, jsonData);
         email = json.readValue("email", String.class, jsonData);
         password = json.readValue("password", String.class, jsonData);
@@ -64,6 +64,6 @@ public class servicesAuthenticationAddUsernamePasswordPostRequest implements Jso
 
     public static servicesAuthenticationAddUsernamePasswordPostRequest fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(servicesAuthenticationAddUsernamePasswordPostRequest.class, jsonString);
+        return json.fromJson(ServicesAuthenticationAddUsernamePasswordPostRequest.class, jsonString);
     }
 }

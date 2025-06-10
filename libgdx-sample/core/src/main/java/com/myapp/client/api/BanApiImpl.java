@@ -52,7 +52,7 @@ public class BanApiImpl implements BanApi {
         });
     }
     @Override
-    public void entitiesBanEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<Entity_Ban> callback) {
+    public void entitiesBanEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<EntityBan> callback) {
         String url = baseUrl + "/rest/entities/Ban/{entityId}";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -68,7 +68,7 @@ public class BanApiImpl implements BanApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    Entity_Ban result = json.fromJson(Entity_Ban.class, responseData);
+                    EntityBan result = json.fromJson(EntityBan.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -87,7 +87,7 @@ public class BanApiImpl implements BanApi {
         });
     }
     @Override
-    public void entitiesBanEntityIdPut( String entityId, Entity_Ban entityBan, Callback<Entity_Ban> callback) {
+    public void entitiesBanEntityIdPut( String entityId, EntityBan entityBan, Callback<EntityBan> callback) {
         String url = baseUrl + "/rest/entities/Ban/{entityId}";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -103,7 +103,7 @@ public class BanApiImpl implements BanApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    Entity_Ban result = json.fromJson(Entity_Ban.class, responseData);
+                    EntityBan result = json.fromJson(EntityBan.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -122,7 +122,7 @@ public class BanApiImpl implements BanApi {
         });
     }
     @Override
-    public void entitiesBanGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_Ban>> callback) {
+    public void entitiesBanGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityBan>> callback) {
         String url = baseUrl + "/rest/entities/Ban";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -138,7 +138,7 @@ public class BanApiImpl implements BanApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_Ban> result = json.fromJson(java.util.ArrayList.class, Entity_Ban.class, responseData);
+                    java.util.ArrayList<EntityBan> result = json.fromJson(java.util.ArrayList.class, EntityBan.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -157,7 +157,7 @@ public class BanApiImpl implements BanApi {
         });
     }
     @Override
-    public void entitiesBanPost( Entity_Ban entityBan, Callback<Entity_Ban> callback) {
+    public void entitiesBanPost( EntityBan entityBan, Callback<EntityBan> callback) {
         String url = baseUrl + "/rest/entities/Ban";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -173,7 +173,7 @@ public class BanApiImpl implements BanApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 201) {
-                    Entity_Ban result = json.fromJson(Entity_Ban.class, responseData);
+                    EntityBan result = json.fromJson(EntityBan.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -192,7 +192,7 @@ public class BanApiImpl implements BanApi {
         });
     }
     @Override
-    public void entitiesBanSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_Ban>> callback) {
+    public void entitiesBanSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityBan>> callback) {
         String url = baseUrl + "/rest/entities/Ban/search";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -208,7 +208,7 @@ public class BanApiImpl implements BanApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_Ban> result = json.fromJson(java.util.ArrayList.class, Entity_Ban.class, responseData);
+                    java.util.ArrayList<EntityBan> result = json.fromJson(java.util.ArrayList.class, EntityBan.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -227,7 +227,7 @@ public class BanApiImpl implements BanApi {
         });
     }
     @Override
-    public void entitiesBanSearchPost( _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<Entity_Ban>> callback) {
+    public void entitiesBanSearchPost( EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<EntityBan>> callback) {
         String url = baseUrl + "/rest/entities/Ban/search";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -243,7 +243,7 @@ public class BanApiImpl implements BanApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_Ban> result = json.fromJson(java.util.ArrayList.class, Entity_Ban.class, responseData);
+                    java.util.ArrayList<EntityBan> result = json.fromJson(java.util.ArrayList.class, EntityBan.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));

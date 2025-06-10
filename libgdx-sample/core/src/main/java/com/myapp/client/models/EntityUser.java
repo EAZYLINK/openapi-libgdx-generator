@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class entityUser implements Json.Serializable {
+public class EntityUser implements Json.Serializable {
     private String entityName;
     private String instanceName;
     private String country;
@@ -16,7 +16,7 @@ public class entityUser implements Json.Serializable {
     private float latitude;
     private String lastModifiedBy;
     private Boolean active;
-    private Array<Entity_Ban> bans;
+    private Array<EntityBan> bans;
     private String customId;
     private Integer version;
     private String deletedBy;
@@ -31,7 +31,7 @@ public class entityUser implements Json.Serializable {
     private float longitude;
     private String username;
 
-    public entityUser() {
+    public EntityUser() {
     }
 
    
@@ -95,10 +95,10 @@ public class entityUser implements Json.Serializable {
     public void setActive(Boolean active) {
         this.active = active;
     }
-    public Array<Entity_Ban> getBans() {
+    public Array<EntityBan> getBans() {
         return bans;
     }
-    public void setBans(Array<Entity_Ban> bans) {
+    public void setBans(Array<EntityBan> bans) {
         this.bans = bans;
     }
     public String getCustomId() {
@@ -220,7 +220,7 @@ public class entityUser implements Json.Serializable {
         latitude = json.readValue("latitude", Float.class, jsonData);
         lastModifiedBy = json.readValue("lastModifiedBy", String.class, jsonData);
         active = json.readValue("active", Boolean.class, jsonData);
-        bans = json.readValue("bans", Array.class, Entity_Ban.class, jsonData);
+        bans = json.readValue("bans", Array.class, EntityBan.class, jsonData);
         customId = json.readValue("customId", String.class, jsonData);
         version = json.readValue("version", Integer.class, jsonData);
         deletedBy = json.readValue("deletedBy", String.class, jsonData);
@@ -244,6 +244,6 @@ public class entityUser implements Json.Serializable {
 
     public static entityUser fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(entityUser.class, jsonString);
+        return json.fromJson(EntityUser.class, jsonString);
     }
 }

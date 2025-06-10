@@ -52,7 +52,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
         });
     }
     @Override
-    public void entitiesAuditEntitySnapshotEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<Entity_audit_EntitySnapshot> callback) {
+    public void entitiesAuditEntitySnapshotEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<EntityAuditEntitySnapshot> callback) {
         String url = baseUrl + "/rest/entities/audit_EntitySnapshot/{entityId}";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -68,7 +68,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    Entity_audit_EntitySnapshot result = json.fromJson(Entity_audit_EntitySnapshot.class, responseData);
+                    EntityAuditEntitySnapshot result = json.fromJson(EntityAuditEntitySnapshot.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -87,7 +87,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
         });
     }
     @Override
-    public void entitiesAuditEntitySnapshotEntityIdPut( String entityId, Entity_audit_EntitySnapshot entityAuditEntitySnapshot, Callback<Entity_audit_EntitySnapshot> callback) {
+    public void entitiesAuditEntitySnapshotEntityIdPut( String entityId, EntityAuditEntitySnapshot entityAuditEntitySnapshot, Callback<EntityAuditEntitySnapshot> callback) {
         String url = baseUrl + "/rest/entities/audit_EntitySnapshot/{entityId}";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -103,7 +103,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    Entity_audit_EntitySnapshot result = json.fromJson(Entity_audit_EntitySnapshot.class, responseData);
+                    EntityAuditEntitySnapshot result = json.fromJson(EntityAuditEntitySnapshot.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -122,7 +122,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
         });
     }
     @Override
-    public void entitiesAuditEntitySnapshotGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_audit_EntitySnapshot>> callback) {
+    public void entitiesAuditEntitySnapshotGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityAuditEntitySnapshot>> callback) {
         String url = baseUrl + "/rest/entities/audit_EntitySnapshot";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -138,7 +138,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_audit_EntitySnapshot> result = json.fromJson(java.util.ArrayList.class, Entity_audit_EntitySnapshot.class, responseData);
+                    java.util.ArrayList<EntityAuditEntitySnapshot> result = json.fromJson(java.util.ArrayList.class, EntityAuditEntitySnapshot.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -157,7 +157,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
         });
     }
     @Override
-    public void entitiesAuditEntitySnapshotPost( Entity_audit_EntitySnapshot entityAuditEntitySnapshot, Callback<Entity_audit_EntitySnapshot> callback) {
+    public void entitiesAuditEntitySnapshotPost( EntityAuditEntitySnapshot entityAuditEntitySnapshot, Callback<EntityAuditEntitySnapshot> callback) {
         String url = baseUrl + "/rest/entities/audit_EntitySnapshot";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -173,7 +173,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 201) {
-                    Entity_audit_EntitySnapshot result = json.fromJson(Entity_audit_EntitySnapshot.class, responseData);
+                    EntityAuditEntitySnapshot result = json.fromJson(EntityAuditEntitySnapshot.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -192,7 +192,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
         });
     }
     @Override
-    public void entitiesAuditEntitySnapshotSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_audit_EntitySnapshot>> callback) {
+    public void entitiesAuditEntitySnapshotSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityAuditEntitySnapshot>> callback) {
         String url = baseUrl + "/rest/entities/audit_EntitySnapshot/search";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -208,7 +208,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_audit_EntitySnapshot> result = json.fromJson(java.util.ArrayList.class, Entity_audit_EntitySnapshot.class, responseData);
+                    java.util.ArrayList<EntityAuditEntitySnapshot> result = json.fromJson(java.util.ArrayList.class, EntityAuditEntitySnapshot.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));
@@ -227,7 +227,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
         });
     }
     @Override
-    public void entitiesAuditEntitySnapshotSearchPost( _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<Entity_audit_EntitySnapshot>> callback) {
+    public void entitiesAuditEntitySnapshotSearchPost( EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<EntityAuditEntitySnapshot>> callback) {
         String url = baseUrl + "/rest/entities/audit_EntitySnapshot/search";
 
         HttpRequestBuilder builder = new HttpRequestBuilder();
@@ -243,7 +243,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
                 String responseData = httpResponse.getResultAsString();
 
                 if (status == 200) {
-                    java.util.ArrayList<Entity_audit_EntitySnapshot> result = json.fromJson(java.util.ArrayList.class, Entity_audit_EntitySnapshot.class, responseData);
+                    java.util.ArrayList<EntityAuditEntitySnapshot> result = json.fromJson(java.util.ArrayList.class, EntityAuditEntitySnapshot.class, responseData);
                     callback.onSuccess(result);
                 } else {
                     callback.onFailure(new Exception("HTTP " + status + ": " + responseData));

@@ -7,12 +7,12 @@ import java.util.*;
 
 public interface UserApi {
     void entitiesUserEntityIdDelete( String entityId, Callback<Void> callback);
-    void entitiesUserEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<Entity_User> callback);
-    void entitiesUserEntityIdPut( String entityId, Entity_User entityUser, Callback<Entity_User> callback);
-    void entitiesUserGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_User>> callback);
-    void entitiesUserPost( Entity_User entityUser, Callback<Entity_User> callback);
-    void entitiesUserSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<Entity_User>> callback);
-    void entitiesUserSearchPost( _entities_dynat_Category_search_post_request entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<Entity_User>> callback);
+    void entitiesUserEntityIdGet( String entityId, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<EntityUser> callback);
+    void entitiesUserEntityIdPut( String entityId, EntityUser entityUser, Callback<EntityUser> callback);
+    void entitiesUserGet( Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityUser>> callback);
+    void entitiesUserPost( EntityUser entityUser, Callback<EntityUser> callback);
+    void entitiesUserSearchGet( String filter, Boolean returnCount, String offset, String limit, String sort, Boolean dynamicAttributes, Boolean returnNulls, String fetchPlan, Callback<java.util.ArrayList<EntityUser>> callback);
+    void entitiesUserSearchPost( EntitiesDynatCategorySearchPostRequest entitiesDynatCategorySearchPostRequest, Callback<java.util.ArrayList<EntityUser>> callback);
 
     interface Callback<T> {
         void onSuccess(T result);
