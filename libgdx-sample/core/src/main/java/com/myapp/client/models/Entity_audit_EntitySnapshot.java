@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class Entity_audit_EntitySnapshot implements Json.Serializable {
+public class entityAuditEntitySnapshot implements Json.Serializable {
     private String entityName;
     private String instanceName;
     private String snapshotXml;
@@ -18,7 +18,7 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
     private String sysTenantId;
     private String id;
 
-    public Entity_audit_EntitySnapshot() {
+    public entityAuditEntitySnapshot() {
     }
 
    
@@ -125,8 +125,8 @@ public class Entity_audit_EntitySnapshot implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static Entity_audit_EntitySnapshot fromJson(String jsonString) {
+    public static entityAuditEntitySnapshot fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(Entity_audit_EntitySnapshot.class, jsonString);
+        return json.fromJson(entityAuditEntitySnapshot.class, jsonString);
     }
 }

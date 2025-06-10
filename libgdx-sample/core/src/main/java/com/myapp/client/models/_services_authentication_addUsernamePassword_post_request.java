@@ -5,13 +5,13 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class _services_authentication_addUsernamePassword_post_request implements Json.Serializable {
+public class servicesAuthenticationAddUsernamePasswordPostRequest implements Json.Serializable {
     private Entity_User user;
     private String username;
     private String email;
     private String password;
 
-    public _services_authentication_addUsernamePassword_post_request() {
+    public servicesAuthenticationAddUsernamePasswordPostRequest() {
     }
 
    
@@ -62,8 +62,8 @@ public class _services_authentication_addUsernamePassword_post_request implement
         return json.toJson(this);
     }
 
-    public static _services_authentication_addUsernamePassword_post_request fromJson(String jsonString) {
+    public static servicesAuthenticationAddUsernamePasswordPostRequest fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(_services_authentication_addUsernamePassword_post_request.class, jsonString);
+        return json.fromJson(servicesAuthenticationAddUsernamePasswordPostRequest.class, jsonString);
     }
 }

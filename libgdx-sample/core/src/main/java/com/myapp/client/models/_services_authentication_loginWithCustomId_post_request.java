@@ -5,11 +5,11 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class _services_authentication_loginWithCustomId_post_request implements Json.Serializable {
+public class servicesAuthenticationLoginWithCustomIdPostRequest implements Json.Serializable {
     private String customId;
     private Boolean createIfNotExists;
 
-    public _services_authentication_loginWithCustomId_post_request() {
+    public servicesAuthenticationLoginWithCustomIdPostRequest() {
     }
 
    
@@ -44,8 +44,8 @@ public class _services_authentication_loginWithCustomId_post_request implements 
         return json.toJson(this);
     }
 
-    public static _services_authentication_loginWithCustomId_post_request fromJson(String jsonString) {
+    public static servicesAuthenticationLoginWithCustomIdPostRequest fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(_services_authentication_loginWithCustomId_post_request.class, jsonString);
+        return json.fromJson(servicesAuthenticationLoginWithCustomIdPostRequest.class, jsonString);
     }
 }

@@ -34,8 +34,3 @@ src/main/java/com/myapp/client/models/_entities_dynat_Category_search_post_reque
 src/main/java/com/myapp/client/models/_services_authentication_addUsernamePassword_post_request.java
 src/main/java/com/myapp/client/models/_services_authentication_loginWithCustomId_post_request.java
 src/main/java/com/myapp/client/models/_services_authentication_loginWithEmail_post_request.java
-src/test/java/com/myapp/client/test/AuditEntitySnapshotApiTest.java
-src/test/java/com/myapp/client/test/AuthenticationApiTest.java
-src/test/java/com/myapp/client/test/BanApiTest.java
-src/test/java/com/myapp/client/test/DynatCategoryApiTest.java
-src/test/java/com/myapp/client/test/UserApiTest.java

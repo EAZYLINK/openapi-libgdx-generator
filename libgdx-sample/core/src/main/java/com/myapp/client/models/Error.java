@@ -5,11 +5,11 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class Error implements Json.Serializable {
+public class error implements Json.Serializable {
     private String error;
     private String details;
 
-    public Error() {
+    public error() {
     }
 
    
@@ -44,8 +44,8 @@ public class Error implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static Error fromJson(String jsonString) {
+    public static error fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(Error.class, jsonString);
+        return json.fromJson(error.class, jsonString);
     }
 }

@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class _entities_dynat_Category_search_post_request implements Json.Serializable {
+public class entitiesDynatCategorySearchPostRequest implements Json.Serializable {
     private String filter;
     private Boolean dynamicAttributes;
     private Boolean returnCount;
@@ -15,7 +15,7 @@ public class _entities_dynat_Category_search_post_request implements Json.Serial
     private String sort;
     private String fetchPlan;
 
-    public _entities_dynat_Category_search_post_request() {
+    public entitiesDynatCategorySearchPostRequest() {
     }
 
    
@@ -98,8 +98,8 @@ public class _entities_dynat_Category_search_post_request implements Json.Serial
         return json.toJson(this);
     }
 
-    public static _entities_dynat_Category_search_post_request fromJson(String jsonString) {
+    public static entitiesDynatCategorySearchPostRequest fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(_entities_dynat_Category_search_post_request.class, jsonString);
+        return json.fromJson(entitiesDynatCategorySearchPostRequest.class, jsonString);
     }
 }

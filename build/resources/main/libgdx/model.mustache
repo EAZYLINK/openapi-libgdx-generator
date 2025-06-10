@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class {{classname}} implements Json.Serializable {
+public class {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}} implements Json.Serializable {
 	{{#models}}
 	{{#model}}
 	{{#modelJson}}
@@ -28,7 +28,7 @@ public class {{classname}} implements Json.Serializable {
     {{/isDateTime}}
 	{{/vars}}
 
-    public {{classname}}() {
+    public {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}}() {
     }
 
    
@@ -106,9 +106,9 @@ public class {{classname}} implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static {{classname}} fromJson(String jsonString) {
+    public static {{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}} fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson({{classname}}.class, jsonString);
+        return json.fromJson({{#lambda.camelcase}}{{classname}}{{/lambda.camelcase}}.class, jsonString);
     }
 	{{/modelJson}}
 	{{/model}}

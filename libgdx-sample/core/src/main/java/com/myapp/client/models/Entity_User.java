@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class Entity_User implements Json.Serializable {
+public class entityUser implements Json.Serializable {
     private String entityName;
     private String instanceName;
     private String country;
@@ -31,7 +31,7 @@ public class Entity_User implements Json.Serializable {
     private float longitude;
     private String username;
 
-    public Entity_User() {
+    public entityUser() {
     }
 
    
@@ -242,8 +242,8 @@ public class Entity_User implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static Entity_User fromJson(String jsonString) {
+    public static entityUser fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(Entity_User.class, jsonString);
+        return json.fromJson(entityUser.class, jsonString);
     }
 }

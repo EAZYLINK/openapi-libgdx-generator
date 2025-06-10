@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.JsonValue;
 import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
-public class Entity_Ban implements Json.Serializable {
+public class entityBan implements Json.Serializable {
     private String entityName;
     private String instanceName;
     private String reason;
@@ -19,7 +19,7 @@ public class Entity_Ban implements Json.Serializable {
     private Entity_User user;
     private String deletedBy;
 
-    public Entity_Ban() {
+    public entityBan() {
     }
 
    
@@ -134,8 +134,8 @@ public class Entity_Ban implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static Entity_Ban fromJson(String jsonString) {
+    public static entityBan fromJson(String jsonString) {
         Json json = new Json();
-        return json.fromJson(Entity_Ban.class, jsonString);
+        return json.fromJson(entityBan.class, jsonString);
     }
 }

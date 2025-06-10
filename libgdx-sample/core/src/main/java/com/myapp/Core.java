@@ -10,7 +10,7 @@ public class Core extends ApplicationAdapter {
 
     @Override
     public void create() {
-        userApi = new ApiClient(new Configuration("https://cat-fact.herokuapp.com/facts")).getUserApi();
+        userApi = new ApiClient(new Configuration("https://platform.lurkers.io/rest/services/authentication/loginAnonymously")).getUserApi();
 
         userApi.entitiesUserEntityIdGet(
             "123e4567-e89b-12d3-a456-426614174000",
@@ -20,11 +20,13 @@ public class Core extends ApplicationAdapter {
             new UserApi.Callback<Entity_User>() {
                 @Override
                 public void onSuccess(Entity_User result) {
+                	Gdx.app.log("API", "User: " + user.getName());
                     System.out.println("User retrieved: " + result);
                 }
 
                 @Override
                 public void onFailure(Exception e) {
+                	Gdx.app.error("API", "Failed to get user", e);
                     System.err.println("Failed to retrieve user: " + e.getMessage());
                 }
             }
