@@ -19,7 +19,7 @@ gwt {
   minHeapSize = '1G'
 
   // Needs to be in front of "modules" below.
-  src = files(file('src/main/java'), project(":core").file('src/main/java'))
+  src = files(file('src/main/java'), project(":core").file('src/main/java/libgdx/client'))
   modules += ["com.myapp.GdxDefinition"]
   devModules += ["com.myapp.GdxDefinitionSuperdev"]
   project.webAppDirName = "webapp"
@@ -33,10 +33,11 @@ gwt {
 }
 
 dependencies {
-		implementation project(":core")
-  		implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
-        implementation "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
-        implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
+  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+  implementation "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
+  implementation "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
+  implementation project(':core')
+
 }
 
 import org.akhikhl.gretty.AppBeforeIntegrationTestTask

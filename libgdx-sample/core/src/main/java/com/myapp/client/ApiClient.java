@@ -1,7 +1,7 @@
-package {{invokerPackage}};
+package com.myapp.client;
 
-import {{apiPackage}}.*;
-import {{invokerPackage}}.Configuration;
+import com.myapp.client.api.*;
+import com.myapp.client.Configuration;
 
 public class ApiClient {
     private final Configuration config;

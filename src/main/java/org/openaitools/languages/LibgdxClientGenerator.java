@@ -37,10 +37,10 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
         
 
         // Set API and model package names
-        apiPackage = "libgdx.client.api";
-        modelPackage = "libgdx.client.model";
-        testPackage = "libgdx.client.test";
-        invokerPackage = "libgdx.client";
+        apiPackage = "com.myapp.client.api";
+        modelPackage = "com.myapp.client.model";
+        testPackage = "com.myapp.client.test";
+        invokerPackage = "com.myapp.client";
         templateDir = "libgdx";
 
 
