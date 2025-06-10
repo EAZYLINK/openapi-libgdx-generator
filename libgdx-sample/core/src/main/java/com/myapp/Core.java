@@ -2,7 +2,7 @@ package com.myapp;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.myapp.client.api.UserApi;
-import com.myapp.client.models.Entity_User;
+import com.myapp.client.models.EntityUser;
 import com.myapp.client.*;
 
 public class Core extends ApplicationAdapter {
@@ -17,16 +17,14 @@ public class Core extends ApplicationAdapter {
             true,
             true,
             "default",
-            new UserApi.Callback<Entity_User>() {
+            new UserApi.Callback<EntityUser>() {
                 @Override
-                public void onSuccess(Entity_User result) {
-                	Gdx.app.log("API", "User: " + user.getName());
+                public void onSuccess(EntityUser result) {
                     System.out.println("User retrieved: " + result);
                 }
 
                 @Override
                 public void onFailure(Exception e) {
-                	Gdx.app.error("API", "Failed to get user", e);
                     System.err.println("Failed to retrieve user: " + e.getMessage());
                 }
             }

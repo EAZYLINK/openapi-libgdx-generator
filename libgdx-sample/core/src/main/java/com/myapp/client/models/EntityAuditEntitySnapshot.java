@@ -125,7 +125,7 @@ public class EntityAuditEntitySnapshot implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static entityAuditEntitySnapshot fromJson(String jsonString) {
+    public static EntityAuditEntitySnapshot fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(EntityAuditEntitySnapshot.class, jsonString);
     }

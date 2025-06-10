@@ -98,7 +98,7 @@ public class EntitiesDynatCategorySearchPostRequest implements Json.Serializable
         return json.toJson(this);
     }
 
-    public static entitiesDynatCategorySearchPostRequest fromJson(String jsonString) {
+    public static EntitiesDynatCategorySearchPostRequest fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(EntitiesDynatCategorySearchPostRequest.class, jsonString);
     }

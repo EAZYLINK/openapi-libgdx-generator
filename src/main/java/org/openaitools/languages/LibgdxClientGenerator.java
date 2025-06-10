@@ -106,19 +106,28 @@ public class LibgdxClientGenerator extends AbstractJavaCodegen{
     
     @Override
     public String toApiName(String name) {
-        return initialCaps(name) + "Api";
+        return toPascalCase(name) + "Api";
     }
 
     @Override
     public String toModelName(String name) {
-        return initialCaps(name);
+        return toPascalCase(name);
     }
 
-    private String initialCaps(String name) {
+    private String toPascalCase(String name) {
         if (name == null || name.isEmpty()) {
             return name;
         }
-        return name.substring(0, 1).toUpperCase() + name.substring(1);
+        String cleanedName = name.replaceAll("^_+", "");
+        String[] parts = cleanedName.split("_+");
+        StringBuilder pascalCase = new StringBuilder();
+        for (String part : parts) {
+            if (!part.isEmpty()) {
+                pascalCase.append(part.substring(0, 1).toUpperCase())
+                          .append(part.substring(1));
+            }
+        }
+        return pascalCase.toString();
     }
 
 

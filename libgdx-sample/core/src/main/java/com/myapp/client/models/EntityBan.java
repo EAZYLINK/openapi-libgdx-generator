@@ -134,7 +134,7 @@ public class EntityBan implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static entityBan fromJson(String jsonString) {
+    public static EntityBan fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(EntityBan.class, jsonString);
     }

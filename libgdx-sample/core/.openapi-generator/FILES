@@ -34,8 +34,3 @@ src/main/java/com/myapp/client/models/Error.java
 src/main/java/com/myapp/client/models/ServicesAuthenticationAddUsernamePasswordPostRequest.java
 src/main/java/com/myapp/client/models/ServicesAuthenticationLoginWithCustomIdPostRequest.java
 src/main/java/com/myapp/client/models/ServicesAuthenticationLoginWithEmailPostRequest.java
-src/test/java/com/myapp/client/test/AuditEntitySnapshotApiTest.java
-src/test/java/com/myapp/client/test/AuthenticationApiTest.java
-src/test/java/com/myapp/client/test/BanApiTest.java
-src/test/java/com/myapp/client/test/DynatCategoryApiTest.java
-src/test/java/com/myapp/client/test/UserApiTest.java

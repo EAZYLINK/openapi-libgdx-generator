@@ -44,7 +44,7 @@ public class Error implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static error fromJson(String jsonString) {
+    public static Error fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(Error.class, jsonString);
     }

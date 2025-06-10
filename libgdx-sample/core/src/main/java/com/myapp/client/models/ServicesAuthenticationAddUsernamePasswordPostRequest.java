@@ -62,7 +62,7 @@ public class ServicesAuthenticationAddUsernamePasswordPostRequest implements Jso
         return json.toJson(this);
     }
 
-    public static servicesAuthenticationAddUsernamePasswordPostRequest fromJson(String jsonString) {
+    public static ServicesAuthenticationAddUsernamePasswordPostRequest fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(ServicesAuthenticationAddUsernamePasswordPostRequest.class, jsonString);
     }

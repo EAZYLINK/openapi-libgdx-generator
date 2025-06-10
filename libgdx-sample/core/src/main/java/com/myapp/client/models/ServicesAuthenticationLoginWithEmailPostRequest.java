@@ -44,7 +44,7 @@ public class ServicesAuthenticationLoginWithEmailPostRequest implements Json.Ser
         return json.toJson(this);
     }
 
-    public static servicesAuthenticationLoginWithEmailPostRequest fromJson(String jsonString) {
+    public static ServicesAuthenticationLoginWithEmailPostRequest fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(ServicesAuthenticationLoginWithEmailPostRequest.class, jsonString);
     }

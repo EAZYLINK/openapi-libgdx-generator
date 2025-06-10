@@ -242,7 +242,7 @@ public class EntityUser implements Json.Serializable {
         return json.toJson(this);
     }
 
-    public static entityUser fromJson(String jsonString) {
+    public static EntityUser fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(EntityUser.class, jsonString);
     }

@@ -44,7 +44,7 @@ public class ServicesAuthenticationLoginWithCustomIdPostRequest implements Json.
         return json.toJson(this);
     }
 
-    public static servicesAuthenticationLoginWithCustomIdPostRequest fromJson(String jsonString) {
+    public static ServicesAuthenticationLoginWithCustomIdPostRequest fromJson(String jsonString) {
         Json json = new Json();
         return json.fromJson(ServicesAuthenticationLoginWithCustomIdPostRequest.class, jsonString);
     }
