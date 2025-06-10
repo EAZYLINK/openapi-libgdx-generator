@@ -30,4 +30,12 @@ public class Core extends ApplicationAdapter {
             }
         );
     }
+    
+    @Override
+    public void render() {
+    }
+
+    @Override
+    public void dispose() {
+    }
 }
