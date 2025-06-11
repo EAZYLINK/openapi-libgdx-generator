@@ -10,7 +10,7 @@ public class Core extends ApplicationAdapter {
 
     @Override
     public void create() {
-        userApi = new ApiClient(new Configuration("https://platform.lurkers.io/rest/services/authentication/loginAnonymously")).getUserApi();
+        userApi = new ApiClient(new Configuration("https://platform.lurkers.io")).getUserApi();
 
         userApi.entitiesUserEntityIdGet(
             "123e4567-e89b-12d3-a456-426614174000",

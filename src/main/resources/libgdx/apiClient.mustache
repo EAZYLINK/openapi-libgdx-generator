@@ -3,28 +3,22 @@ package {{invokerPackage}};
 import {{apiPackage}}.*;
 import {{invokerPackage}}.Configuration;
 
+{{#apiInfo.apis}}
+import {{importPath}}.{{classname}}Impl;
+import {{importPath}}.{{classname}};
+{{/apiInfo.apis}}
+
 public class ApiClient {
     private final Configuration config;
     private String baseUrl;
-
     public ApiClient(Configuration config) {
         this.config = config;
         this.baseUrl = config.getBaseUrl();
     }
 
-    public UserApi getUserApi() {
-        return new UserApiImpl(baseUrl);
+{{#apiInfo.apis}}
+    public {{classname}} get{{classname}}() {
+    	return new {{classname}}Impl(baseUrl);
     }
-
-    public BanApi getBanApi() {
-        return new BanApiImpl(baseUrl);
-    }
-
-    public DynatCategoryApi getDynatCategoryApi() {
-        return new DynatCategoryApiImpl(baseUrl);
-    }
-
-    public AuditEntitySnapshotApi getAuditEntitySnapshotApi() {
-        return new AuditEntitySnapshotApiImpl(baseUrl);
-    }
+{{/apiInfo.apis}}
 }
