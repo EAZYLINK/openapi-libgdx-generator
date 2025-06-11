@@ -13,7 +13,7 @@ public class UserApiImpl implements UserApi {
     private final Json json;
 
     public UserApiImpl(String baseUrl) {
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.baseUrl = baseUrl;
         this.json = new Json();
     }
 

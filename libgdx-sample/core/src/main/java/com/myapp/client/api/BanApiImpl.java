@@ -13,7 +13,7 @@ public class BanApiImpl implements BanApi {
     private final Json json;
 
     public BanApiImpl(String baseUrl) {
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.baseUrl = baseUrl;
         this.json = new Json();
     }
 

@@ -13,7 +13,7 @@ public class AuditEntitySnapshotApiImpl implements AuditEntitySnapshotApi {
     private final Json json;
 
     public AuditEntitySnapshotApiImpl(String baseUrl) {
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.baseUrl = baseUrl;
         this.json = new Json();
     }
 

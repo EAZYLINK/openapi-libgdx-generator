@@ -13,7 +13,7 @@ public class AuthenticationApiImpl implements AuthenticationApi {
     private final Json json;
 
     public AuthenticationApiImpl(String baseUrl) {
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.baseUrl = baseUrl;
         this.json = new Json();
     }
 

@@ -13,7 +13,7 @@ public class DynatCategoryApiImpl implements DynatCategoryApi {
     private final Json json;
 
     public DynatCategoryApiImpl(String baseUrl) {
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.baseUrl = baseUrl;
         this.json = new Json();
     }
 

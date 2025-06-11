@@ -13,7 +13,7 @@ public class {{classname}}Impl implements {{classname}} {
     private final Json json;
 
     public {{classname}}Impl(String baseUrl) {
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.baseUrl = baseUrl;
         this.json = new Json();
     }
 
